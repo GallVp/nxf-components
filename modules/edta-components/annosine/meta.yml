@@ -14,7 +14,7 @@ tools:
       documentation: "https://github.com/liaoherui/AnnoSINE_v2"
       tool_dev_url: "https://github.com/liaoherui/AnnoSINE_v2"
       doi: "10.1101/2024.03.01.582874"
-      licence: ['MIT']
+      licence: ["MIT"]
 
 input:
   - meta:
