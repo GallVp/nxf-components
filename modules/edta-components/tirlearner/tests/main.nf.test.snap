@@ -1,0 +1,164 @@
+{
+    "actinidia_chinensis-genome_1_fasta_gz-success": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.gff3:md5,90bf040e7b29763351237207297dc801"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    ]
+                ],
+                "3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.gff3:md5,90bf040e7b29763351237207297dc801"
+                    ]
+                ],
+                "4": [
+                    "versions.yml:md5,3d4a9683fc634e22fd79a4fbe0b23a30"
+                ],
+                "fasta": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    ]
+                ],
+                "filtered_fasta": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    ]
+                ],
+                "filtered_gff": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.gff3:md5,90bf040e7b29763351237207297dc801"
+                    ]
+                ],
+                "gff": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.gff3:md5,90bf040e7b29763351237207297dc801"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,3d4a9683fc634e22fd79a4fbe0b23a30"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "23.10.1"
+        },
+        "timestamp": "2024-05-02T16:35:56.356956"
+    },
+    "stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "4": [
+                    "versions.yml:md5,3d4a9683fc634e22fd79a4fbe0b23a30"
+                ],
+                "fasta": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "filtered_fasta": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "filtered_gff": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.filtered.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "gff": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,3d4a9683fc634e22fd79a4fbe0b23a30"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "23.10.1"
+        },
+        "timestamp": "2024-05-02T16:36:08.718538"
+    }
+}
