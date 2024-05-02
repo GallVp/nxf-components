@@ -73,7 +73,7 @@ jobs:
 
       - name: Combine all tags.yml files
         id: get_tags
-        run: find . -name "tags.yml" -not -path "./.github/*" -not -path "./nf-core-modules/*" -exec cat {} + > .github/tags.yml
+        run: find . -name "tags.yml" -not -path "./.github/*" -not -path "./nf-core-modules/*" -not -path "./modules/nf-core/*" -exec cat {} + > .github/tags.yml
 
       - name: debug
         run: cat .github/tags.yml
