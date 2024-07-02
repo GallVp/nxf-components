@@ -1,3 +1,6 @@
+[![Run tests](https://github.com/GallVp/nxf-components/actions/workflows/test.yml/badge.svg)](https://github.com/GallVp/nxf-components/actions/workflows/test.yml)
+[![component-list](https://img.shields.io/badge/component%20list%20-pages-23aa62.svg)](https://gallvp.github.io/nxf-components)
+
 # NXF-COMPONENTS
 
 A repository of developmental NextFlow DSL2 components meant to be used with [nf-core/tools](https://github.com/nf-core/tools). As soon as a component meets all the nf-core guidelines, it should be submitted to [nf-core/modules](https://github.com/nf-core/modules).
