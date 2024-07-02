@@ -8,7 +8,7 @@ nextflow_process {
     tag "modules_gallvp"
     tag "tesorter"
 
-    test("actinidia_chinensis-genome_21_fasta_gz") {
+    test("actinidia_chinensis - fasta") {
 
         config './nextflow.config'
 
@@ -17,7 +17,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
-                    file(params.test_data['actinidia_chinensis']['genome']['genome_21_fasta_gz'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                 ]
 
                 input[1] = []
@@ -38,7 +38,7 @@ nextflow_process {
 
     }
 
-    test("actinidia_chinensis-genome_21_fasta_gz-stub") {
+    test("actinidia_chinensis - fasta - stub") {
 
         config './nextflow.config'
         options '-stub'
@@ -48,7 +48,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
-                    file(params.test_data['actinidia_chinensis']['genome']['genome_21_fasta_gz'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                 ]
 
                 input[1] = []
@@ -65,7 +65,7 @@ nextflow_process {
 
     }
 
-    test("actinidia_chinensis-genome_21_fasta_gz-no-genome-stub") {
+    test("actinidia_chinensis - fasta - no-genome - stub") {
 
         options '-stub'
 
@@ -74,7 +74,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
-                    file(params.test_data['actinidia_chinensis']['genome']['genome_21_fasta_gz'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                 ]
 
                 input[1] = []
