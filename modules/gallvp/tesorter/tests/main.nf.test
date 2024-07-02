@@ -5,7 +5,7 @@ nextflow_process {
     process "TESORTER"
 
     tag "modules"
-    tag "modules_nfcore"
+    tag "modules_gallvp"
     tag "tesorter"
 
     test("actinidia_chinensis-genome_21_fasta_gz") {
