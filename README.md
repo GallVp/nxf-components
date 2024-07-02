@@ -1,8 +1,9 @@
+[![Run tests](https://github.com/GallVp/nxf-components/actions/workflows/test.yml/badge.svg)](https://github.com/GallVp/nxf-components/actions/workflows/test.yml)
+[![component-list](https://img.shields.io/badge/component%20list%20-pages-23aa62.svg)](https://gallvp.github.io/nxf-components)
+
 # NXF-COMPONENTS
 
 A repository of developmental NextFlow DSL2 components meant to be used with [nf-core/tools](https://github.com/nf-core/tools). As soon as a component meets all the nf-core guidelines, it should be submitted to [nf-core/modules](https://github.com/nf-core/modules).
-
-## Setup
 
 ## Setup
 
@@ -29,8 +30,9 @@ pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git
 
 Following modules have been submitted and added (✅︎) to nf-core/modules and may be removed (⛔) from this repository without notice.
 
-| Module | Pull request |
-| ------ | ------------ |
+| Module       | Pull request                                          |
+| ------------ | ----------------------------------------------------- |
+| pbtk/pbindex | [#5901](https://github.com/nf-core/modules/pull/5901) |
 
 And [more...](./SUBMITTED.md)
 

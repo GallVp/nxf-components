@@ -29,3 +29,13 @@ repos:
         files: \.py$
         args: [--fix, --exit-non-zero-on-fix, "--select", "I,E1,E4,E7,E9,F,UP,N"] # sort imports and fix (rules taken from nf-core/tools)
       - id: ruff-format # formatter
+  - repo: local
+    hooks:
+      - id: docs_check
+        name: Docs check
+        language: system
+        entry: >
+          ./docs/populate_index.sh
+        always_run: true
+        fail_fast: true
+        pass_filenames: false

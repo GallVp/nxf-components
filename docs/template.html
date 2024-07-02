@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Maven+Pro:wght@400..900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background-color: #333;
+                color: #fff;
+                font-family: "Maven Pro", sans-serif;
+                margin-left: 5%;
+            }
+
+            h1 {
+                font-weight: lighter;
+            }
+
+            #searchInput {
+                background-position: 10px 50%;
+                background-repeat: no-repeat;
+                width: 70%;
+                font-size: 24px;
+                padding: 10px 15px 10px 40px;
+                border: 2px solid #555;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                outline: none;
+                transition: border-color;
+                color: #000;
+            }
+
+            #searchInput:focus {
+                border-color: #007bff;
+            }
+
+            #modulesList {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                width: 70%;
+            }
+
+            #modulesList li {
+                border-radius: 10px;
+                background-color: #555;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            #modulesList li a {
+                text-decoration: none;
+                font-size: 24px;
+                color: #fff;
+                transition: color 0.1s ease-in-out;
+            }
+
+            #modulesList li a:hover {
+                color: #070707;
+            }
+        </style>
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById("searchInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("modulesList");
+                li = ul.getElementsByTagName("li");
+
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>gallvp/nxf-components</h1>
+        <input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search.." />
+
+        <ul id="modulesList">
+            AVAILABLE_MODULES_AND_SUB_WORKFLOWS
+        </ul>
+    </body>
+</html>
