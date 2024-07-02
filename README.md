@@ -4,8 +4,6 @@ A repository of developmental NextFlow DSL2 components meant to be used with [nf
 
 ## Setup
 
-## Setup
-
 Use the dev version of the [nf-core/tools](https://github.com/nf-core/tools/tree/dev)
 
 ```bash
