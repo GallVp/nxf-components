@@ -84,8 +84,8 @@ jobs:
       - name: Separate modules and subworkflows
         id: outputs
         run: |
-          echo modules=$(echo '${{ steps.list.outputs.components }}' | jq -c '. | map(select(contains("modules"))) | map(gsub("modules/gallvp/"; ""))') >> $GITHUB_OUTPUT
-          echo subworkflows=$(echo '${{ steps.list.outputs.components }}' | jq '. | map(select(contains("subworkflows"))) | map(gsub("subworkflows/gallvp/"; ""))') >> $GITHUB_OUTPUT
+          echo modules=$(echo '${{ steps.list.outputs.components }}' | jq -c '. | map(select(contains("modules/gallvp/"))) | map(gsub("modules/gallvp/"; ""))') >> $GITHUB_OUTPUT
+          echo subworkflows=$(echo '${{ steps.list.outputs.components }}' | jq '. | map(select(contains("subworkflows/gallvp/"))) | map(gsub("subworkflows/gallvp/"; ""))') >> $GITHUB_OUTPUT
 
       - name: debug
         run: |
