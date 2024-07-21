@@ -5,7 +5,7 @@ nextflow_process {
     process "LTRFINDER"
 
     tag "modules"
-    tag "modules_nfcore"
+    tag "modules_gallvp"
     tag "ltrfinder"
     tag "gunzip/main"
 

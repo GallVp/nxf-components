@@ -5,7 +5,7 @@ nextflow_process {
     process "LTRHARVEST"
 
     tag "modules"
-    tag "modules_nfcore"
+    tag "modules_gallvp"
     tag "ltrharvest"
 
     test("homo_sapiens - genome_21_fasta") {
