@@ -8,6 +8,7 @@ cp_hybrid_module() {
 
 # Modules for hybrid subworkflows
 cp_hybrid_module "gunzip"
+cp_hybrid_module "cat/cat"
 cp_hybrid_module "ltrfinder"
 cp_hybrid_module "ltrharvest"
 cp_hybrid_module "ltrretriever/ltrretriever"
