@@ -33,6 +33,16 @@
                     "ltrretriever/ltrretriever": {
                         "branch": "master",
                         "git_sha": "35787cd40758c13f02565ab2a67eae94da89a374",
+                        "installed_by": ["modules"],
+                        "minimap2/align": {
+                            "branch": "master",
+                            "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",
+                            "installed_by": ["modules"]
+                        }
+                    },
+                    "minimap2/align": {
+                        "branch": "master",
+                        "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",
                         "installed_by": ["modules"]
                     }
                 }

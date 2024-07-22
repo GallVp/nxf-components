@@ -1,6 +1,8 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tesorter">modules/gallvp/tesorter</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/pbtk/pbindex">modules/gallvp/pbtk/pbindex</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever">modules/gallvp/ltrretriever/ltrretriever</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai">modules/gallvp/ltrretriever/lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest">modules/gallvp/ltrharvest</a></li>
