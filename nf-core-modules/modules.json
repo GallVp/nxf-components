@@ -5,6 +5,41 @@
         "https://github.com/nf-core/modules.git": {
             "modules": {
                 "nf-core": {
+                    "cat/cat": {
+                        "branch": "master",
+                        "git_sha": "5bb8ca085e17549e185e1823495ab8d20727a805",
+                        "installed_by": ["modules"]
+                    },
+                    "gunzip": {
+                        "branch": "master",
+                        "git_sha": "4e5f4687318f24ba944a13609d3ea6ebd890737d",
+                        "installed_by": ["modules"]
+                    },
+                    "ltrfinder": {
+                        "branch": "master",
+                        "git_sha": "be4f907729fce59ca73b6d79545cd220544729c7",
+                        "installed_by": ["modules"]
+                    },
+                    "ltrharvest": {
+                        "branch": "master",
+                        "git_sha": "78575b0b1469a12b4e5bf3427aa81011f8de4a4d",
+                        "installed_by": ["modules"]
+                    },
+                    "ltrretriever/lai": {
+                        "branch": "master",
+                        "git_sha": "a88daddb75437e687a53773f78d1b77bff60d03a",
+                        "installed_by": ["modules"]
+                    },
+                    "ltrretriever/ltrretriever": {
+                        "branch": "master",
+                        "git_sha": "35787cd40758c13f02565ab2a67eae94da89a374",
+                        "installed_by": ["modules"],
+                        "minimap2/align": {
+                            "branch": "master",
+                            "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",
+                            "installed_by": ["modules"]
+                        }
+                    },
                     "minimap2/align": {
                         "branch": "master",
                         "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",

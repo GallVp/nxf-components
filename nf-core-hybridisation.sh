@@ -6,5 +6,19 @@ cp_hybrid_module() {
     sed -i 's/modules_nfcore/modules_gallvp/1' "./modules/gallvp/$1/tests/main.nf.test"
 }
 
-# Modules for hybrid subworkflows
+# Modules for module testing
+cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
+
+# Modules for hybrid sub-workflows
+cp_hybrid_module "cat/cat"
+cp_hybrid_module "ltrfinder"
+cp_hybrid_module "ltrharvest"
+cp_hybrid_module "ltrretriever/ltrretriever"
+cp_hybrid_module "ltrretriever/lai"
+
+# Modules for sub workflow testing
+mkdir -p ./modules/nf-core/gunzip
+cp -r ./nf-core-modules/modules/nf-core/gunzip/* ./modules/nf-core/gunzip
+sed -i 's/modules_nfcore/modules_gallvp/1' ./modules/nf-core/gunzip/tests/main.nf.test
+

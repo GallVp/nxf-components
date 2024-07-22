@@ -40,7 +40,7 @@ And [more...](./SUBMITTED.md)
 
 Hybrid sub-workflows are not supported by nf-core/tools. See: https://github.com/nf-core/tools/issues/1927
 
-The workaround is to install nf-core modules in the nf-core-modules which is setup as a dummy pipeline. The nf-core modules needed for testing are then symlinked to `modules/nf-core` and the nf-core modules needed for sub-workflows are symlinked to `modules/gallvp`. See: [nf-core-hybridisation.sh](./nf-core-hybridisation.sh)
+The workaround is to install nf-core modules in the nf-core-modules which is setup as a dummy pipeline. The nf-core modules needed for module testing are copied to `modules/gallvp`, those needed for sub-workflow testing are copied to `modules/nf-core`, and those needed for sub-workflows are also copied to `modules/gallvp`. See: [nf-core-hybridisation.sh](./nf-core-hybridisation.sh)
 
 ## References
 

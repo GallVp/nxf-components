@@ -1,5 +1,14 @@
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tesorter">modules/gallvp/tesorter</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/pbtk/pbindex">modules/gallvp/pbtk/pbindex</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever">modules/gallvp/ltrretriever/ltrretriever</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai">modules/gallvp/ltrretriever/lai</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest">modules/gallvp/ltrharvest</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrfinder">modules/gallvp/ltrfinder</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gunzip">modules/gallvp/gunzip</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/shortenfastaids">modules/gallvp/custom/shortenfastaids</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/restoregffids">modules/gallvp/custom/restoregffids</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/annosine">modules/gallvp/annosine</a></li>
