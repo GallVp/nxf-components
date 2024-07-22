@@ -26,7 +26,7 @@ nextflow_workflow {
                 """
                 input[0] = [
                     [ id:'test' ],
-                    file(params.test_data['actinidia_chinensis']['genome']['genome_1_fasta_gz'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                 ]
                 """
             }
@@ -53,7 +53,7 @@ nextflow_workflow {
                 { assert file(workflow.out.lai_log[0][1]).text.contains('Done!') },
                 { assert Math.abs(Float.parseFloat(path(workflow.out.lai_out[0][1]).text.split("\n")[1].split("\t")[6]) - 31.29) <= 1.0 },
                 { assert file(workflow.out.ltrlib[0][1]).text.contains('#LTR/Copia') },
-                { assert snapshot(workflow.out.versions).match("fasta_gz_versions") }
+                { assert snapshot(workflow.out.versions).match() }
             )
         }
     }
@@ -89,7 +89,7 @@ nextflow_workflow {
                 { assert file(workflow.out.lai_log[0][1]).text.contains('Done!') },
                 { assert Math.abs(Float.parseFloat(path(workflow.out.lai_out[0][1]).text.split("\n")[1].split("\t")[6]) - 31.29) <= 1.0 },
                 { assert file(workflow.out.ltrlib[0][1]).text.contains('#LTR/Copia') },
-                { assert snapshot(workflow.out.versions).match("with_mono_versions") }
+                { assert snapshot(workflow.out.versions).match() }
             )
         }
     }
@@ -122,7 +122,7 @@ nextflow_workflow {
                 { assert file(workflow.out.lai_log[0][1]).text.contains('Done!') },
                 { assert Math.abs(Float.parseFloat(path(workflow.out.lai_out[0][1]).text.split("\n")[1].split("\t")[6]) - 31.29) <= 1.0 },
                 { assert file(workflow.out.ltrlib[0][1]).text.contains('#LTR/Copia') },
-                { assert snapshot(workflow.out.versions).match("with_empty_mono_versions") }
+                { assert snapshot(workflow.out.versions).match() }
             )
         }
     }
@@ -148,6 +148,37 @@ nextflow_workflow {
             assertAll(
                 { assert workflow.success },
                 { assert snapshot(workflow.out).match() }
+            )
+        }
+    }
+
+    test("homo_sapiens - sarscov2 - noltr") {
+
+        when {
+            workflow {
+                """
+                input[0]            = Channel.of([
+                    [ id: 'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ])
+                input[1]            = []
+                input[2]            = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success },
+                { path(workflow.out.ltrretriever_log[0][1]).text.contains('ERROR: No candidate is found in the file(s) you specified.') },
+                { assert snapshot(
+                    workflow.out.annotation_gff,
+                    workflow.out.lai_log,
+                    workflow.out.lai_out,
+                    workflow.out.ltrlib,
+                    workflow.out.versions
+                    ).match()
+                }
             )
         }
     }

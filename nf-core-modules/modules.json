@@ -7,7 +7,7 @@
                 "nf-core": {
                     "cat/cat": {
                         "branch": "master",
-                        "git_sha": "c60c14b285b89bdd0607e371417dadb80385ad6e",
+                        "git_sha": "5bb8ca085e17549e185e1823495ab8d20727a805",
                         "installed_by": ["modules"]
                     },
                     "gunzip": {
@@ -27,7 +27,7 @@
                     },
                     "ltrretriever/lai": {
                         "branch": "master",
-                        "git_sha": "26c8a95ea51095e60ebe8737f081caeb0c2cb49d",
+                        "git_sha": "a88daddb75437e687a53773f78d1b77bff60d03a",
                         "installed_by": ["modules"]
                     },
                     "ltrretriever/ltrretriever": {
