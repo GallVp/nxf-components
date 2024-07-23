@@ -32,7 +32,7 @@
                     },
                     "ltrretriever/ltrretriever": {
                         "branch": "master",
-                        "git_sha": "35787cd40758c13f02565ab2a67eae94da89a374",
+                        "git_sha": "7365dd805518c43e32e8d62b8cfe68c531960426",
                         "installed_by": ["modules"],
                         "minimap2/align": {
                             "branch": "master",
