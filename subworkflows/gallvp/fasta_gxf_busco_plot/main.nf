@@ -1,8 +1,8 @@
-include { BUSCO_BUSCO as BUSCO_ASSEMBLY         } from '../../../modules/pfr/busco/busco/main'
-include { BUSCO_GENERATEPLOT as PLOT_ASSEMBLY   } from '../../../modules/pfr/busco/generateplot/main'
-include { GFFREAD as EXTRACT_PROTEINS           } from '../../../modules/pfr/gffread/main'
-include { BUSCO_BUSCO as BUSCO_ANNOTATION       } from '../../../modules/pfr/busco/busco/main'
-include { BUSCO_GENERATEPLOT as PLOT_ANNOTATION } from '../../../modules/pfr/busco/generateplot/main'
+include { BUSCO_BUSCO as BUSCO_ASSEMBLY         } from '../../../modules/gallvp/busco/busco/main'
+include { BUSCO_GENERATEPLOT as PLOT_ASSEMBLY   } from '../../../modules/gallvp/busco/generateplot/main'
+include { GFFREAD as EXTRACT_PROTEINS           } from '../../../modules/gallvp/gffread/main'
+include { BUSCO_BUSCO as BUSCO_ANNOTATION       } from '../../../modules/gallvp/busco/busco/main'
+include { BUSCO_GENERATEPLOT as PLOT_ANNOTATION } from '../../../modules/gallvp/busco/generateplot/main'
 
 workflow FASTA_GXF_BUSCO_PLOT {
 
