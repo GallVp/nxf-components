@@ -1,3 +1,4 @@
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences">subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tesorter">modules/gallvp/tesorter</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
@@ -14,3 +15,5 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3">modules/gallvp/braker3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/annosine">modules/gallvp/annosine</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spaddintrons">modules/gallvp/agat/spaddintrons</a></li>

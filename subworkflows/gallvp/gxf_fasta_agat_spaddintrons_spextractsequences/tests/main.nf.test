@@ -1,0 +1,83 @@
+nextflow_workflow {
+
+    name "Test Subworkflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES"
+    script "../main.nf"
+    workflow "GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES"
+    config './nextflow.config'
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/gxf_fasta_agat_spaddintrons_spextractsequences"
+    tag "modules/nf-core/gunzip"
+    tag "agat/spextractsequences"
+    tag "agat/spaddintrons"
+
+    setup {
+        run("GUNZIP", alias: 'GUNZIP_FASTA') {
+            script "../../../../modules/nf-core/gunzip"
+
+            process {
+                """
+                input[0] = [
+                [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz' , checkIfExists: true)
+                ]
+                """
+            }
+        }
+
+        run("GUNZIP", alias: 'GUNZIP_GFF3') {
+            script "../../../../modules/nf-core/gunzip"
+
+            process {
+                """
+                input[0] = [
+                [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.gff3.gz' , checkIfExists: true)
+                ]
+                """
+            }
+        }
+    }
+
+
+    test("actinidia_chinensis - fasta - gff3") {
+
+        when {
+            workflow {
+                """
+                input[0] = GUNZIP_GFF3.out.gunzip
+                input[1] = GUNZIP_FASTA.out.gunzip
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("actinidia_chinensis - fasta - gff3 - stub") {
+
+        options '-stub'
+
+        when {
+            workflow {
+                """
+                input[0] = GUNZIP_GFF3.out.gunzip
+                input[1] = GUNZIP_FASTA.out.gunzip
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+}

@@ -1,0 +1,2 @@
+subworkflows/gxf_fasta_agat_spaddintrons_spextractsequences:
+  - subworkflows/pfr/gxf_fasta_agat_spaddintrons_spextractsequences/**
