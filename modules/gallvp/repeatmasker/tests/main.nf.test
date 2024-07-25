@@ -1,0 +1,65 @@
+nextflow_process {
+
+    name "Test Process REPEATMASKER"
+    script "../main.nf"
+    process "REPEATMASKER"
+    config "./nextflow.config"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "repeatmasker"
+
+    test("sarscov2 - genome - fasta") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[1] = []
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.masked,
+                    process.out.out,
+                    process.out.versions
+                    ).match() },
+                { assert file(process.out.tbl[0][1]).text.contains('run with rmblastn') }
+            )
+        }
+
+    }
+
+    test("sarscov2 - genome - fasta - stub") {
+
+        options '-stub'
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[1] = []
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
