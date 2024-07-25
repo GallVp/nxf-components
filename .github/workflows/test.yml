@@ -183,6 +183,10 @@ jobs:
         exclude:
           - profile: conda
             path: modules/gallvp/braker3
+          - profile: conda
+            path: modules/gallvp/edta/edta
+          - profile: conda
+            path: subworkflows/gallvp/fasta_edta_lai
     env:
       NXF_ANSI_LOG: false
       NFTEST_VER: "0.9.0"
