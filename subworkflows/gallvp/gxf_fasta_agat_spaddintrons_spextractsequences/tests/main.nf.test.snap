@@ -1,0 +1,104 @@
+{
+    "actinidia_chinensis - fasta - gff3": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.motifs.tsv:md5,feb30ceeb2662125a80539929f2908c5"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.marked.gff3:md5,ae8800dc42d5da4a94c93cf09d319fc5"
+                    ]
+                ],
+                "2": [
+                    "versions.yml:md5,1befbe41bc7abbf49767b8dc68877bc7",
+                    "versions.yml:md5,65042e008b2466984150cb219a05291c"
+                ],
+                "marked_gff3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.marked.gff3:md5,ae8800dc42d5da4a94c93cf09d319fc5"
+                    ]
+                ],
+                "motifs_tsv": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.motifs.tsv:md5,feb30ceeb2662125a80539929f2908c5"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1befbe41bc7abbf49767b8dc68877bc7",
+                    "versions.yml:md5,65042e008b2466984150cb219a05291c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.2"
+        },
+        "timestamp": "2024-06-24T16:20:01.32929"
+    },
+    "actinidia_chinensis - fasta - gff3 - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.motifs.tsv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.marked.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "2": [
+                    "versions.yml:md5,1befbe41bc7abbf49767b8dc68877bc7",
+                    "versions.yml:md5,65042e008b2466984150cb219a05291c"
+                ],
+                "marked_gff3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.marked.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "motifs_tsv": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.motifs.tsv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1befbe41bc7abbf49767b8dc68877bc7",
+                    "versions.yml:md5,65042e008b2466984150cb219a05291c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.2"
+        },
+        "timestamp": "2024-06-24T16:22:01.840388"
+    }
+}

@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/subworkflows/yaml-schema.json
+name: "gxf_fasta_agat_spaddintrons_spextractsequences"
+description: Add introns, extract intron sequences and mark introns with splice motifs
+keywords:
+  - genomics
+  - gtf
+  - gff
+  - fasta
+  - intron
+  - extract
+  - sequence
+  - mark
+  - splice
+  - motif
+components:
+  - agat/spaddintrons
+  - agat/spextractsequences
+input:
+  - ch_gxf:
+      type: file
+      description: |
+        The input channel containing the GTF/GFF file
+        Structure: [ val(meta), path(gxf) ]
+      pattern: "*.{gtf,gff,gff3}"
+  - ch_fasta:
+      type: file
+      description: |
+        The input channel containing the fasta file
+        Structure: [ val(meta), path(fasta) ]
+      pattern: "*.{fa,fas,fsa,faa,fasta}"
+output:
+  - motifs_tsv:
+      type: file
+      description: |
+        The output channel containing the motifs TSV file with first column containing intron ID and
+        the second column containing the splice motif
+        Structure: [ val(meta), path(tsv) ]
+      pattern: "*.motifs.tsv"
+  - marked_gff3:
+      type: file
+      description: |
+        The output channel containing the GFF3 file with splicing annotation added to it
+        Structure: [ val(meta), path(gff3) ]
+      pattern: "*.marked.gff3"
+  - versions:
+      type: file
+      description: |
+        File containing software versions
+        Structure: [ path(versions.yml) ]
+      pattern: "versions.yml"
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
