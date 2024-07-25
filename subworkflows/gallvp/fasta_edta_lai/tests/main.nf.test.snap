@@ -1,0 +1,101 @@
+{
+    "actinidia_chinensis-genome_1_fasta_gz-stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.EDTA.TElib.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.EDTA.TEanno.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.LAI.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.LAI.out:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "4": [
+                    "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
+                    "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
+                    "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
+                ],
+                "lai_log": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.LAI.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "lai_out": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.LAI.out:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "te_anno_gff3": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.EDTA.TEanno.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "te_lib_fasta": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.EDTA.TElib.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
+                    "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
+                    "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.2"
+        },
+        "timestamp": "2024-06-04T14:00:09.252745"
+    },
+    "actinidia_chinensis-genome_1_fasta_gz": {
+        "content": [
+            [
+                "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
+                "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
+                "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "23.10.1"
+        },
+        "timestamp": "2024-05-10T13:22:28.063183"
+    }
+}
