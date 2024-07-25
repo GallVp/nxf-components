@@ -5,9 +5,24 @@
         "https://github.com/nf-core/modules.git": {
             "modules": {
                 "nf-core": {
+                    "busco/busco": {
+                        "branch": "master",
+                        "git_sha": "17486961b8b1ab1aae258c83a7e947b40d8ab670",
+                        "installed_by": ["modules"]
+                    },
+                    "busco/generateplot": {
+                        "branch": "master",
+                        "git_sha": "1fab6356ab837d90e9be9636dd7e7713a68dbf7b",
+                        "installed_by": ["modules"]
+                    },
                     "cat/cat": {
                         "branch": "master",
                         "git_sha": "5bb8ca085e17549e185e1823495ab8d20727a805",
+                        "installed_by": ["modules"]
+                    },
+                    "gffread": {
+                        "branch": "master",
+                        "git_sha": "6c996d7fbe0816dcbb68ce587ad5f873313682a1",
                         "installed_by": ["modules"]
                     },
                     "gunzip": {
