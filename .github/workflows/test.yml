@@ -180,6 +180,9 @@ jobs:
       matrix:
         path: ["${{ fromJson(needs.nf-test-changes.outputs.paths) }}"]
         profile: [conda, docker, singularity]
+        exclude:
+          - profile: conda
+            path: modules/gallvp/braker3
     env:
       NXF_ANSI_LOG: false
       NFTEST_VER: "0.9.0"
