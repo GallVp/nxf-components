@@ -21,17 +21,17 @@ nextflow_workflow {
                 input[0] = Channel.of(
                     [
                         [ id:'test' ], // meta map
-                        file( params.test_data['candidatus_portiera_aleyrodidarum']['genome']['genome_fasta'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/candidatus_portiera_aleyrodidarum/genome/genome.fasta', checkIfExists: true)
                     ],
                     [
                         [ id:'test2' ], // meta map
-                        file( params.test_data['bacteroides_fragilis']['genome']['genome_fna_gz'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/bacteroides_fragilis/genome/genome.fna.gz', checkIfExists: true)
                     ]
                 )
                 input[1] = Channel.of(
                     [
                         [ id:'test' ], // meta map
-                        file( params.test_data['candidatus_portiera_aleyrodidarum']['genome']['test1_gff'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/candidatus_portiera_aleyrodidarum/genome/gff/test1.gff', checkIfExists: true)
                     ]
                 )
                 input[2] = 'genome'
@@ -73,17 +73,17 @@ nextflow_workflow {
                 input[0] = Channel.of(
                     [
                         [ id:'test' ], // meta map
-                        file( params.test_data['candidatus_portiera_aleyrodidarum']['genome']['genome_fasta'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/candidatus_portiera_aleyrodidarum/genome/genome.fasta', checkIfExists: true)
                     ],
                     [
                         [ id:'test2' ], // meta map
-                        file( params.test_data['bacteroides_fragilis']['genome']['genome_fna_gz'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/bacteroides_fragilis/genome/genome.fna.gz', checkIfExists: true)
                     ]
                 )
                 input[1] = Channel.of(
                     [
                         [ id:'test' ], // meta map
-                        file( params.test_data['candidatus_portiera_aleyrodidarum']['genome']['test1_gff'], checkIfExists: true)
+                        file(params.modules_testdata_base_path + 'genomics/prokaryotes/candidatus_portiera_aleyrodidarum/genome/gff/test1.gff', checkIfExists: true)
                     ]
                 )
                 input[2] = 'genome'

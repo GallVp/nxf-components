@@ -39,3 +39,11 @@ repos:
         always_run: true
         fail_fast: true
         pass_filenames: false
+      - id: test_data_path_checks
+        name: Test data path checks
+        language: system
+        entry: >
+          ./.github/check_test_data_paths.sh
+        always_run: true
+        fail_fast: true
+        pass_filenames: false

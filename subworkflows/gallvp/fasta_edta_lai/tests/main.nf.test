@@ -1,0 +1,79 @@
+nextflow_workflow {
+
+    name "Test Workflow FASTA_EDTA_LAI"
+    script "../main.nf"
+    workflow "FASTA_EDTA_LAI"
+    config "./nextflow.config"
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/fasta_edta_lai"
+    tag "fasta_edta_lai"
+    tag "modules/nf-core/gunzip"
+    tag "custom/shortenfastaids"
+    tag "edta/edta"
+    tag "ltrretriever/lai"
+    tag "custom/restoregffids"
+
+    setup {
+        run("GUNZIP") {
+            script "../../../../modules/nf-core/gunzip"
+
+            process {
+                """
+                input[0] = [
+                [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                """
+            }
+        }
+    }
+
+    test("actinidia_chinensis-genome_1_fasta_gz") {
+
+        when {
+            workflow {
+                """
+                input[0] = GUNZIP.out.gunzip
+                input[1] = []
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success },
+                { assert file(workflow.out.te_anno_gff3[0][1]).text.contains('Copia_LTR_retrotransposon') },
+                { assert file(workflow.out.lai_log[0][1]).text.contains('Calculate LAI:') },
+                { assert file(workflow.out.lai_log[0][1]).text.contains('Done!') },
+                { assert Math.abs(Float.parseFloat(path(workflow.out.lai_out[0][1]).text.split("\n")[1].split("\t")[6]) - 31.87) <= 2.0 },
+                { assert file(workflow.out.te_lib_fasta[0][1]).text.contains('#LTR/Copia') },
+                { assert snapshot(workflow.out.versions).match() }
+            )
+        }
+    }
+
+    test("actinidia_chinensis-genome_1_fasta_gz-stub") {
+
+        options '-stub'
+
+        when {
+            workflow {
+                """
+                input[0] = GUNZIP.out.gunzip
+                input[1] = []
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success },
+                { assert snapshot(workflow.out).match() }
+            )
+        }
+    }
+}
