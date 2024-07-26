@@ -16,6 +16,9 @@ cp_hybrid_module "ltrfinder"
 cp_hybrid_module "ltrharvest"
 cp_hybrid_module "ltrretriever/ltrretriever"
 cp_hybrid_module "ltrretriever/lai"
+cp_hybrid_module "busco/busco"
+cp_hybrid_module "busco/generateplot"
+cp_hybrid_module "gffread"
 
 # Modules for sub workflow testing
 mkdir -p ./modules/nf-core/gunzip

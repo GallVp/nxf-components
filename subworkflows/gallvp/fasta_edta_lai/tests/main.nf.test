@@ -23,7 +23,7 @@ nextflow_workflow {
                 """
                 input[0] = [
                 [ id:'test' ],
-                file(params.test_data['actinidia_chinensis']['genome']['genome_1_fasta_gz'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                 ]
                 """
             }
