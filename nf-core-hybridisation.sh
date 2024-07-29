@@ -19,6 +19,7 @@ cp_hybrid_module "ltrretriever/lai"
 cp_hybrid_module "busco/busco"
 cp_hybrid_module "busco/generateplot"
 cp_hybrid_module "gffread"
+cp_hybrid_module "seqkit/seq"
 
 # Modules for sub workflow testing
 mkdir -p ./modules/nf-core/gunzip

@@ -7,12 +7,12 @@
                 "nf-core": {
                     "busco/busco": {
                         "branch": "master",
-                        "git_sha": "17486961b8b1ab1aae258c83a7e947b40d8ab670",
+                        "git_sha": "6258d8bfef0787df4a10ac84e58f52b6f3deb847",
                         "installed_by": ["modules"]
                     },
                     "busco/generateplot": {
                         "branch": "master",
-                        "git_sha": "1fab6356ab837d90e9be9636dd7e7713a68dbf7b",
+                        "git_sha": "6258d8bfef0787df4a10ac84e58f52b6f3deb847",
                         "installed_by": ["modules"]
                     },
                     "cat/cat": {
@@ -57,7 +57,12 @@
                     },
                     "minimap2/align": {
                         "branch": "master",
-                        "git_sha": "e83b347b3e674de6bb1bb7bdf9b2674768c8e0fe",
+                        "git_sha": "a33ef9475558c6b8da08c5f522ddaca1ec810306",
+                        "installed_by": ["modules"]
+                    },
+                    "seqkit/seq": {
+                        "branch": "master",
+                        "git_sha": "2be41ca2cc780eca4293d1b0dd3850b0b7ac40a3",
                         "installed_by": ["modules"]
                     }
                 }
