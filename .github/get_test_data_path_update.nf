@@ -24,7 +24,11 @@ def sed_with_new_path(old_path) {
         .replace('https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/', '')
 
     def full_new_path="file(params.modules_testdata_base_path + '${new_path_stem}', checkIfExists: true)"
-    def formatted_old_path = old_path.replaceAll(/\[/, '\\\\[').replaceAll(/\]/, '\\\\]')
+    def formatted_old_path = old_path
+        .findAll(/file\s*\(\s*params\.test_data[^\)]+\)/)
+        .first()
+        .replaceAll(/\[/, '\\\\[')
+        .replaceAll(/\]/, '\\\\]')
 
     """sed -i "s|${formatted_old_path}|$full_new_path|g" $params.test_file"""
 }
