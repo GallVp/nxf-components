@@ -11,6 +11,10 @@ cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
 
 # Modules for hybrid sub-workflows
+cp_hybrid_module "gt/gff3"
+cp_hybrid_module "gt/gff3validator"
+cp_hybrid_module "gt/stat"
+cp_hybrid_module "samtools/faidx"
 cp_hybrid_module "cat/cat"
 cp_hybrid_module "ltrfinder"
 cp_hybrid_module "ltrharvest"
