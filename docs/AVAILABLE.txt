@@ -1,5 +1,6 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences">subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat">subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster">subworkflows/gallvp/fastq_bwa_mem_samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_gxf_busco_plot">subworkflows/gallvp/fasta_gxf_busco_plot</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
@@ -7,6 +8,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq">modules/gallvp/seqkit/seq</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx">modules/gallvp/samtools/faidx</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker">modules/gallvp/repeatmasker</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever">modules/gallvp/ltrretriever/ltrretriever</a></li>
@@ -22,6 +24,8 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/shortenfastaids">modules/gallvp/custom/shortenfastaids</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/restoregffids">modules/gallvp/custom/restoregffids</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index">modules/gallvp/bwa/index</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/busco/generateplot">modules/gallvp/busco/generateplot</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/busco/busco">modules/gallvp/busco/busco</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3">modules/gallvp/braker3</a></li>

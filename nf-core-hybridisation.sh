@@ -11,6 +11,9 @@ cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
 
 # Modules for hybrid sub-workflows
+cp_hybrid_module "bwa/index"
+cp_hybrid_module "bwa/mem"
+cp_hybrid_module "samblaster"
 cp_hybrid_module "gt/gff3"
 cp_hybrid_module "gt/gff3validator"
 cp_hybrid_module "gt/stat"

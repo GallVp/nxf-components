@@ -16,7 +16,7 @@ nextflow_process {
 
         setup {
             run("GT_GFF3") {
-                script "../../../gt/gff3"
+                script "../../../../nf-core/gt/gff3"
 
                 process {
                     """
