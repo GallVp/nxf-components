@@ -25,6 +25,21 @@
                         "git_sha": "6c996d7fbe0816dcbb68ce587ad5f873313682a1",
                         "installed_by": ["modules"]
                     },
+                    "gt/gff3": {
+                        "branch": "master",
+                        "git_sha": "3c77ca9aac783e76c3614a06db3bfe4fef619bde",
+                        "installed_by": ["modules"]
+                    },
+                    "gt/gff3validator": {
+                        "branch": "master",
+                        "git_sha": "5ed10bdf45859615a71ef7ff975a26bb321f4ea6",
+                        "installed_by": ["modules"]
+                    },
+                    "gt/stat": {
+                        "branch": "master",
+                        "git_sha": "8798f3d8cbaed37ae976725e6e904788ed01d38a",
+                        "installed_by": ["modules"]
+                    },
                     "gunzip": {
                         "branch": "master",
                         "git_sha": "4e5f4687318f24ba944a13609d3ea6ebd890737d",
@@ -58,6 +73,11 @@
                     "minimap2/align": {
                         "branch": "master",
                         "git_sha": "a33ef9475558c6b8da08c5f522ddaca1ec810306",
+                        "installed_by": ["modules"]
+                    },
+                    "samtools/faidx": {
+                        "branch": "master",
+                        "git_sha": "04fbbc7c43cebc0b95d5b126f6d9fe4effa33519",
                         "installed_by": ["modules"]
                     },
                     "seqkit/seq": {
