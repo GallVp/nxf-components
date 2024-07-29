@@ -13,7 +13,7 @@ nextflow_process {
 
     setup {
         run("MINIMAP2_ALIGN") {
-            script "modules/pfr/minimap2/align/main.nf"
+            script "../../minimap2/align"
             process {
                 """
                 def genome2_cleanid     = file('genome2_cleanid.fasta')
@@ -28,14 +28,15 @@ nextflow_process {
                     genome2_cleanid
                 ]
                 input[2] = true     // bam_format
-                input[3] = false    // cigar_paf_format
-                input[4] = false    // cigar_bam
+                input[3] = 'bai'    // bam_index_extension
+                input[4] = false    // cigar_paf_format
+                input[5] = false    // cigar_bam
                 """
             }
         }
 
         run("SYRI") {
-            script "modules/pfr/syri/main.nf"
+            script "../../syri"
             process {
                 """
                 def genome2_cleanid     = file('genome2_cleanid.fasta')
