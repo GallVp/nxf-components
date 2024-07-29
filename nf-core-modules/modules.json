@@ -87,7 +87,7 @@
                     },
                     "samblaster": {
                         "branch": "master",
-                        "git_sha": "310850152f3e1dec6ba28b28e1f1cb9ab8660a49",
+                        "git_sha": "715028b67e9008630278ed3197dc0a892c573a07",
                         "installed_by": ["modules"]
                     },
                     "samtools/faidx": {

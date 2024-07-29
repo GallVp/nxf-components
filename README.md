@@ -30,9 +30,10 @@ pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git
 
 Following modules have been submitted and added (✅︎) to nf-core/modules and may be removed (⛔) from this repository without notice.
 
-| Module              | Pull request                                          |
-| ------------------- | ----------------------------------------------------- |
-| pbtk/pbindex ✅︎ ⛔ | [#5901](https://github.com/nf-core/modules/pull/5901) |
+| Module                   | Pull request                                          |
+| ------------------------ | ----------------------------------------------------- |
+| pbtk/pbindex ✅︎ ⛔      | [#5901](https://github.com/nf-core/modules/pull/5901) |
+| fastq_bwa_mem_samblaster | [#5582](https://github.com/nf-core/modules/pull/5582) |
 
 And [more...](./SUBMITTED.md)
 
