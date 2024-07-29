@@ -15,6 +15,16 @@
                         "git_sha": "6258d8bfef0787df4a10ac84e58f52b6f3deb847",
                         "installed_by": ["modules"]
                     },
+                    "bwa/index": {
+                        "branch": "master",
+                        "git_sha": "e0ff65e1fb313677de09f5f477ae3da30ce19b7b",
+                        "installed_by": ["modules"]
+                    },
+                    "bwa/mem": {
+                        "branch": "master",
+                        "git_sha": "e0ff65e1fb313677de09f5f477ae3da30ce19b7b",
+                        "installed_by": ["modules"]
+                    },
                     "cat/cat": {
                         "branch": "master",
                         "git_sha": "5bb8ca085e17549e185e1823495ab8d20727a805",
@@ -73,6 +83,11 @@
                     "minimap2/align": {
                         "branch": "master",
                         "git_sha": "a33ef9475558c6b8da08c5f522ddaca1ec810306",
+                        "installed_by": ["modules"]
+                    },
+                    "samblaster": {
+                        "branch": "master",
+                        "git_sha": "715028b67e9008630278ed3197dc0a892c573a07",
                         "installed_by": ["modules"]
                     },
                     "samtools/faidx": {
