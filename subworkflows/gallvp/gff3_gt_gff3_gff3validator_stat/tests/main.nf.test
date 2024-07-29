@@ -22,10 +22,10 @@ nextflow_workflow {
             workflow {
                 """
                 input[0] = Channel.of([ [ id:'test' ], // meta map
-                    file(params.test_data['sarscov2']['genome']['genome_gff3'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.gff3', checkIfExists: true)
                 ])
                 input[1] = Channel.of([ [ id:'test' ],
-                    file(params.test_data['sarscov2']['genome']['genome_fasta'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
                 ])
                 """
             }
@@ -45,10 +45,10 @@ nextflow_workflow {
             workflow {
                 """
                 input[0] = Channel.of([ [ id:'test' ], // meta map
-                    file(params.test_data['homo_sapiens']['genome']['genome_bed'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/genome.bed', checkIfExists: true)
                 ])
                 input[1] = Channel.of([ [ id:'test' ],
-                    file(params.test_data['sarscov2']['genome']['genome_fasta'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
                 ])
                 """
             }
@@ -68,10 +68,10 @@ nextflow_workflow {
             workflow {
                 """
                 input[0] = Channel.of([ [ id:'test' ], // meta map
-                    file(params.test_data['sarscov2']['genome']['genome_gff3'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.gff3', checkIfExists: true)
                 ])
                 input[1] = Channel.of([ [ id:'test' ],
-                    file(params.test_data['homo_sapiens']['genome']['genome_fasta'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/genome.fasta', checkIfExists: true)
                 ])
                 """
             }
@@ -98,7 +98,7 @@ nextflow_workflow {
                 test_fasta.text = '>MT192765.1\\nAGCTAGCT'
 
                 input[0] = Channel.of([ [ id:'test' ], // meta map
-                    file(params.test_data['sarscov2']['genome']['genome_gff3'], checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.gff3', checkIfExists: true)
                 ])
                 input[1] = Channel.of([ [ id:'test' ],
                     test_fasta.toPath()
