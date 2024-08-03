@@ -80,7 +80,7 @@ jobs:
           head: ${{ github.sha }}
           base: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
           n_parents: 2
-          ignored: "nf-core-modules/*"
+          ignored: "./nf-core-modules/*"
 
       - name: Separate modules and subworkflows
         id: outputs

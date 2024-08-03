@@ -3,18 +3,23 @@
 # Default values
 num_paths=1
 no_sub_workflows=false
+num_paths_offset=0
 
 # Function to display help message
 show_help() {
-  echo "Usage: $0 [-n number_of_paths] [-s]"
+  echo "Usage: $0 [-n number_of_offset_paths] [-n number_of_paths] [-s]"
   echo
   echo "  -n  Number of paths (requires an argument)"
+  echo "  -o  Number of offset paths (requires an argument)"
   echo "  -s  No sub workflows (flag)"
 }
 
 # Parse arguments
-while getopts "n:sh" opt; do
+while getopts "o:n:sh" opt; do
   case $opt in
+    o)
+      num_paths_offset=$OPTARG
+      ;;
     n)
       num_paths=$OPTARG
       ;;
@@ -48,6 +53,7 @@ else
 fi
 
 paths_processed=0
+paths_skipped=0
 for path in $(eval "find . $EXCLUDED_PATHS -name '*.nf.test'");
 do
     result=$(grep 'params.test_data' $path)
@@ -55,6 +61,12 @@ do
     if [[ $? -ne 1 ]]; then
         echo "$path"
         echo "$result"
+
+        if [ $paths_skipped -ne $num_paths_offset ]; then
+            echo "Skip!"
+            ((paths_skipped++))
+            continue
+        fi
 
         echo 'Trying to update the test data path...'
 
