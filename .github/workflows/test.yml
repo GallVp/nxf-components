@@ -75,12 +75,12 @@ jobs:
 
       - name: List nf-test files
         id: list
-        uses: gallvp/detect-nf-test-changes@5b6660d77d2f2f7243da0f6f376a8d283022c577 # master
+        uses: gallvp/detect-nf-test-changes@a42129de36ec0491bb2ffdd0e041923d27b09dac # master
         with:
           head: ${{ github.sha }}
           base: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
           n_parents: 2
-          ignored: "**/nf-core-modules/**"
+          ignored: "nf-core-modules/**"
           log_level: "DEBUG"
 
       - name: Separate modules and subworkflows
