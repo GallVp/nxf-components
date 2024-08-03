@@ -81,6 +81,7 @@ jobs:
           base: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
           n_parents: 2
           ignored: "./nf-core-modules/*"
+          log_level: "DEBUG"
 
       - name: Separate modules and subworkflows
         id: outputs
