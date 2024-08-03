@@ -37,12 +37,12 @@
                     },
                     "gt/gff3": {
                         "branch": "master",
-                        "git_sha": "3c77ca9aac783e76c3614a06db3bfe4fef619bde",
+                        "git_sha": "9a8bba5910982ae637dedb8664e3121db77e173f",
                         "installed_by": ["modules"]
                     },
                     "gt/gff3validator": {
                         "branch": "master",
-                        "git_sha": "5ed10bdf45859615a71ef7ff975a26bb321f4ea6",
+                        "git_sha": "9a8bba5910982ae637dedb8664e3121db77e173f",
                         "installed_by": ["modules"]
                     },
                     "gt/stat": {
