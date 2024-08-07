@@ -9,6 +9,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq">modules/gallvp/seqkit/seq</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx">modules/gallvp/samtools/faidx</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/rmouttogff3">modules/gallvp/repeatmasker/rmouttogff3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker">modules/gallvp/repeatmasker/repeatmasker</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/plotsr">modules/gallvp/plotsr</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
