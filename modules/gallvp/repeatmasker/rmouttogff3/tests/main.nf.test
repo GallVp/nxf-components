@@ -3,6 +3,7 @@ nextflow_process {
     name "Test Process REPEATMASKER_RMOUTTOGFF3"
     script "../main.nf"
     process "REPEATMASKER_RMOUTTOGFF3"
+    config "./nextflow.config"
 
     tag "modules"
     tag "modules_gallvp"

@@ -46,6 +46,10 @@ output:
       type: file
       description: tbl file
       pattern: "*.tbl"
+  - gff:
+      type: file
+      description: GFF file
+      pattern: "*.gff"
   - versions:
       type: file
       description: File containing software versions

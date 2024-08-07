@@ -20,6 +20,15 @@
                 ]
             ],
             [
+                [
+                    {
+                        "id": "test",
+                        "single_end": false
+                    },
+                    "test.gff:md5,289cdcae609a8c450a20080107ea6351"
+                ]
+            ],
+            [
                 "versions.yml:md5,1386abb5112b809c321da8ddc598c573"
             ]
         ],
@@ -27,7 +36,7 @@
             "nf-test": "0.8.4",
             "nextflow": "24.04.3"
         },
-        "timestamp": "2024-08-07T12:29:12.221206"
+        "timestamp": "2024-08-07T14:25:15.979032"
     },
     "sarscov2 - genome - fasta - stub": {
         "content": [
@@ -60,7 +69,13 @@
                     ]
                 ],
                 "3": [
+                    
+                ],
+                "4": [
                     "versions.yml:md5,1386abb5112b809c321da8ddc598c573"
+                ],
+                "gff": [
+                    
                 ],
                 "masked": [
                     [
@@ -98,6 +113,6 @@
             "nf-test": "0.8.4",
             "nextflow": "24.04.3"
         },
-        "timestamp": "2024-08-07T12:29:16.789184"
+        "timestamp": "2024-08-07T13:39:51.365612"
     }
 }
