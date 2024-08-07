@@ -1,4 +1,4 @@
-process REPEATMASKER {
+process REPEATMASKER_REPEATMASKER {
     tag "$meta.id"
     label 'process_high'
 
