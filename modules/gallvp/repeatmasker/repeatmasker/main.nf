@@ -15,6 +15,7 @@ process REPEATMASKER_REPEATMASKER {
     tuple val(meta), path("${prefix}.masked")   , emit: masked
     tuple val(meta), path("${prefix}.out")      , emit: out
     tuple val(meta), path("${prefix}.tbl")      , emit: tbl
+    tuple val(meta), path("${prefix}.gff")      , emit: gff         , optional: true
     path "versions.yml"                         , emit: versions
 
     when:
@@ -35,6 +36,7 @@ process REPEATMASKER_REPEATMASKER {
     mv $prefix/${fasta}.masked  ${prefix}.masked
     mv $prefix/${fasta}.out     ${prefix}.out
     mv $prefix/${fasta}.tbl     ${prefix}.tbl
+    mv $prefix/${fasta}.out.gff ${prefix}.gff       || echo "GFF is not produced"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -43,11 +45,14 @@ process REPEATMASKER_REPEATMASKER {
     """
 
     stub:
-    prefix = task.ext.prefix ?: "${meta.id}"
+    prefix          = task.ext.prefix       ?: "${meta.id}"
+    def args        = task.ext.args         ?: ''
+    def touch_gff   = args.contains('-gff') ? "touch ${prefix}.gff" : ''
     """
     touch ${prefix}.masked
     touch ${prefix}.out
     touch ${prefix}.tbl
+    $touch_gff
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

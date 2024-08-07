@@ -3,7 +3,6 @@ nextflow_process {
     name "Test Process REPEATMASKER_REPEATMASKER"
     script "../main.nf"
     process "REPEATMASKER_REPEATMASKER"
-    config "./nextflow.config"
 
     tag "modules"
     tag "modules_gallvp"
@@ -11,6 +10,8 @@ nextflow_process {
     tag "repeatmasker/repeatmasker"
 
     test("sarscov2 - genome - fasta") {
+
+        config "./nextflow.config"
 
         when {
             process {
@@ -30,6 +31,7 @@ nextflow_process {
                 { assert snapshot(
                     process.out.masked,
                     process.out.out,
+                    process.out.gff,
                     process.out.versions
                     ).match() },
                 { assert file(process.out.tbl[0][1]).text.contains('run with rmblastn') }
