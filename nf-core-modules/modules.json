@@ -47,7 +47,7 @@
                     },
                     "gt/stat": {
                         "branch": "master",
-                        "git_sha": "8798f3d8cbaed37ae976725e6e904788ed01d38a",
+                        "git_sha": "9a8bba5910982ae637dedb8664e3121db77e173f",
                         "installed_by": ["modules"]
                     },
                     "gunzip": {
