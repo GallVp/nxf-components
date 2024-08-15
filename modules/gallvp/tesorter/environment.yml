@@ -4,6 +4,5 @@ name: "tesorter"
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
   - "bioconda::tesorter=1.4.6"
