@@ -4,6 +4,5 @@ name: "syri"
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
   - "bioconda::syri=1.7.0"
