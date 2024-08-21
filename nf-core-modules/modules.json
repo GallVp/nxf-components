@@ -97,7 +97,7 @@
                     },
                     "seqkit/seq": {
                         "branch": "master",
-                        "git_sha": "2be41ca2cc780eca4293d1b0dd3850b0b7ac40a3",
+                        "git_sha": "03fbf6c89e551bd8d77f3b751fb5c955f75b34c5",
                         "installed_by": ["modules"]
                     }
                 }
