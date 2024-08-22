@@ -19,7 +19,7 @@ pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git
 - `Issue`: Create a new issue on [GitHub issues](https://github.com/nf-core/modules/issues) for module or sub-workflow
 - `Create`: Create `nf-core -v modules create tool/subtool` on a tool specific branch
 - `Lint`: Lint `nf-core -v modules lint tool/subtool`
-- `Test`: Test `nf-core -v modules -g git@github.com:GallVp/nxf-components.git test tool/subtool`
+- `Test`: Test `nf-core -v modules -g https://github.com/GallVp/nxf-components.git test tool/subtool`
 - `Commit`: Commit to this repo
 - `Install`: Install `nf-core -v modules -g https://github.com/GallVp/nxf-components.git install tool/subtool`
 - `PR`: Create a PR on [nf-core/modules](https://github.com/nf-core/modules/pulls) from a personal fork of [nf-core/modules](https://github.com/nf-core/modules)
