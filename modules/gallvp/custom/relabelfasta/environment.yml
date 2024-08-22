@@ -4,7 +4,7 @@ name: "custom_relabelfasta"
 channels:
   - conda-forge
   - bioconda
-  - defaults
+
 dependencies:
   - biopython==1.75
   - python==3.8.13

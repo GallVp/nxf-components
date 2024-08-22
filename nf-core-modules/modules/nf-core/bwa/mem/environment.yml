@@ -2,7 +2,7 @@ name: bwa_mem
 channels:
   - conda-forge
   - bioconda
-  - defaults
+
 dependencies:
   - bwa=0.7.18
   # renovate: datasource=conda depName=bioconda/samtools

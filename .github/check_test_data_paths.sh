@@ -1,27 +1,40 @@
 #!/usr/bin/env bash
 
 # Default values
-num_paths=1
+search_path='.'
+file_name_pattern='*.nf.test'
+number_of_offset_paths=0
+number_of_paths=1
 no_sub_workflows=false
-num_paths_offset=0
+
+# Updated path
+updater_path="$(dirname $(realpath $0))/update_testdata_paths.nf"
 
 # Function to display help message
 show_help() {
-  echo "Usage: $0 [-n number_of_offset_paths] [-n number_of_paths] [-s]"
+  echo "Usage: $0 [-p search_path] [-f file_name_pattern] [-n number_of_offset_paths] [-n number_of_paths] [-s]"
   echo
-  echo "  -n  Number of paths (requires an argument)"
-  echo "  -o  Number of offset paths (requires an argument)"
-  echo "  -s  No sub workflows (flag)"
+  echo "  -p  Search path (.)"
+  echo "  -f  File name pattern (*.nf.test)"
+  echo "  -n  Number of paths (1)"
+  echo "  -o  Number of offset paths (0)"
+  echo "  -s  No sub workflows (false)"
 }
 
 # Parse arguments
-while getopts "o:n:sh" opt; do
+while getopts "p:f:o:n:sh" opt; do
   case $opt in
+    p)
+      search_path=$OPTARG
+      ;;
+    f)
+      file_name_pattern=$OPTARG
+      ;;
     o)
-      num_paths_offset=$OPTARG
+      number_of_offset_paths=$OPTARG
       ;;
     n)
-      num_paths=$OPTARG
+      number_of_paths=$OPTARG
       ;;
     s)
       no_sub_workflows=true
@@ -54,37 +67,34 @@ fi
 
 paths_processed=0
 paths_skipped=0
-for path in $(eval "find . $EXCLUDED_PATHS -name '*.nf.test'");
+for path in $(eval "find $search_path $EXCLUDED_PATHS -name '$file_name_pattern'");
 do
     result=$(grep 'params.test_data' $path)
 
     if [[ $? -ne 1 ]]; then
-        echo "$path"
-        echo "$result"
 
-        if [ $paths_skipped -ne $num_paths_offset ]; then
+        if [ $paths_skipped -ne $number_of_offset_paths ]; then
             echo "Skip!"
             ((paths_skipped++))
             continue
         fi
 
-        echo 'Trying to update the test data path...'
+        echo "[INFO] Trying to update the test data paths for $path"
 
-        nextflow run ./.github/get_test_data_path_update.nf \
-            --old_paths "$result" \
-            --test_file "$path" \
+        "$updater_path" \
+            --main_nf "$path" \
             -c ./tests/config/test_data.config
 
-        chmod +x ./sed_commands.sh
+        if [[ $? -ne 0 ]]; then
+            echo "[ERROR] Path update failed"
+            exit 1
+        fi
 
-        ./sed_commands.sh
-        rm ./sed_commands.sh
-
-        echo 'Done updating the test data path...'
+        echo "[INFO] Updated $path"
 
         ((paths_processed++))
 
-        if [ $paths_processed -eq $num_paths ]; then
+        if [ $paths_processed -eq $number_of_paths ]; then
             exit 1
         fi
     fi

@@ -4,6 +4,6 @@ name: "repeatmasker_repeatmasker"
 channels:
   - conda-forge
   - bioconda
-  - defaults
+
 dependencies:
   - "bioconda::repeatmasker=4.1.5"
