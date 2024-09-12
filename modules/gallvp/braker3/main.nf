@@ -38,6 +38,9 @@ process BRAKER3 {
     cp -r \$AUGUSTUS_CONFIG_PATH \\
         augustus_config
 
+    chmod -R a+w \\
+        augustus_config
+
     perl -p -e 's/^(>\\S+).*\$/\$1/' \\
         $fasta \\
         > ${prefix}.name.only.genome.masked.fasta
