@@ -1,0 +1,59 @@
+{
+    "actinidia_chinensis-genome_1_fasta_gz-success": {
+        "content": [
+            [
+                "versions.yml:md5,d5784b052afc56876f5e4d7eb83f518d"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "23.10.1"
+        },
+        "timestamp": "2024-05-03T15:05:25.150055"
+    },
+    "stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.head:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d5784b052afc56876f5e4d7eb83f518d"
+                ],
+                "head": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.head:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d5784b052afc56876f5e4d7eb83f518d"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "23.10.1"
+        },
+        "timestamp": "2024-05-03T15:04:14.669587"
+    },
+    "sarscov2 - genome - success": {
+        "content": [
+            [
+                "versions.yml:md5,d5784b052afc56876f5e4d7eb83f518d"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-09-25T12:57:11.212315"
+    }
+}
