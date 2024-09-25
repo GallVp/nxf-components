@@ -202,7 +202,7 @@ jobs:
         uses: nf-core/setup-nextflow@v2
 
       - name: Install nf-test
-        uses: nf-core/setup-nf-test@v1
+        uses: nf-core/setup-nf-test@v1.1.2
 
       - name: Setup apptainer
         if: matrix.profile == 'singularity'
