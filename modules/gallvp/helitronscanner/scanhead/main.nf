@@ -26,6 +26,14 @@ process HELITRONSCANNER_SCANHEAD {
     if ( !task.memory ) { error '[HELITRONSCANNER_SCANHEAD] Available memory not known. Specify process memory requirements to fix this.' }
     def avail_mem   = (task.memory.giga*0.8).intValue()
     """
+    # Nextflow changes the container --entrypoint to /bin/bash (container default entrypoint: /usr/local/env-execute)
+    # Check for container variable initialisation script and source it.
+    if [ -f "/usr/local/env-activate.sh" ]; then
+        set +u  # Otherwise, errors out because of various unbound variables
+        . "/usr/local/env-activate.sh"
+        set -u
+    fi
+
     HelitronScanner \\
         scanHead \\
         -Xmx${avail_mem}g \\
