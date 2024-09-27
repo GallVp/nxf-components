@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "custom_rmouttogff3"
+description: Convert RepeatMasker out file to gff3
+keywords:
+  - genomics
+  - repeat
+  - gff
+tools:
+  - "perl":
+      description: "Bioinformatics Toolkit"
+      homepage: "https://www.perl.org"
+      documentation: "https://www.perl.org"
+      tool_dev_url: "https://www.perl.org"
+      licence: ["GPL"]
+      identifier: ""
+
+input:
+  # Only when we have meta
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - rmout:
+        type: file
+        description: RepeatMasker out file
+        pattern: "*.out"
+output:
+  - gff3:
+      - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+      - "*.gff3":
+        type: file
+        description: GFF3 formatted output
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
