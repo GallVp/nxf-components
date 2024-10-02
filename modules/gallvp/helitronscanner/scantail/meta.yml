@@ -34,6 +34,10 @@ input:
         type: integer
         description: Genome slice size (use negative or zero for non-buffer, i.e. treat
           every whole chromosome)
+  - - rc:
+        type: value
+        description: |
+          Whether this is being run on the reverse complement output files
 output:
   - head:
       - meta:
