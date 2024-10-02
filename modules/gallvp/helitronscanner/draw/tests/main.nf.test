@@ -1,8 +1,8 @@
 nextflow_process {
 
-    name "Test Process HELITRONSCANNER_SCANHEAD"
+    name "Test Process HELITRONSCANNER_DRAW"
     script "../main.nf"
-    process "HELITRONSCANNER_SCANHEAD"
+    process "HELITRONSCANNER_DRAW"
 
     tag "modules"
     tag "modules_gallvp"

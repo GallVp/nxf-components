@@ -1,2 +1,2 @@
-helitronscanner/scanhead:
-  - "modules/edta-components/helitronscanner/scanhead/**"
+helitronscanner/draw:
+  - "modules/edta-components/helitronscanner/draw/**"
