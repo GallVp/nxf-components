@@ -25,15 +25,18 @@ input:
         type: file
         description: Genome data to scan for Helitrons
         pattern: "*.{fa,fsa,fasta}"
-  - - lcv_filepath:
+  - - head:
         type: file
-        description: LCV file path. If not provided by setting it to [], the LCV file
-          packaged with the module will be used
-        pattern: "*.lcvs"
-  - - buffer_size:
-        type: integer
-        description: Genome slice size (use negative or zero for non-buffer, i.e. treat
-          every whole chromosome)
+        description: Output of the HelitronScanner head command
+        pattern: "*.head"
+  - - tail:
+        type: file
+        description: Output of the HelitronScanner tail command
+        pattern: "*.tail"
+  - - rc:
+        type: value
+        description: |
+          Whether this is being run on the reverse complement output files
 output:
   - head:
       - meta:
