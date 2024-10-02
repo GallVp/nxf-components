@@ -44,9 +44,10 @@ process HELITRONSCANNER_scantail {
         $lcv_arg \\
         -genome $fasta \\
         -buffer_size $buffer_size \\
+        ${rc} \\
         -threads_LCV $task.cpus \\
         $args \\
-        -output ${prefix}.tail
+        -output ${prefix}${rc_suffic}.tail
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
