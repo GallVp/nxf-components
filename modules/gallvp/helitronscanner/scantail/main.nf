@@ -11,6 +11,7 @@ process HELITRONSCANNER_scantail {
     tuple val(meta), path(fasta)
     path lcv_filepath
     val buffer_size
+    val rc
 
     output:
     tuple val(meta), path("*.tail") , emit: tail
