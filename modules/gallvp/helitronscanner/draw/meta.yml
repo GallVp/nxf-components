@@ -38,12 +38,24 @@ input:
         description: |
           Whether this is being run on the reverse complement output files
 output:
-  - - meta:
+output:
+  - head:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+      - "*.head":
+          type: file
+          description: Scanned Helitrons
+          pattern: "*.head"
+  - draw:
+    - meta:
         type: map
         description: |
           Groovy Map containing sample information
           e.g. `[ id:'sample1', single_end:false ]`
-    - draw:
+    - files:
         type: files
         description: Output of the HelitronScanner draw command
         pattern: "*.draw.*"
