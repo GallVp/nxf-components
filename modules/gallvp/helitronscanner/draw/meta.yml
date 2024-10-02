@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
-name: "helitronscanner_pairends"
+name: "helitronscanner_draw"
 description: HelitronScanner for Helitron transposons in genomes
 keywords:
   - genomics
@@ -38,16 +38,15 @@ input:
         description: |
           Whether this is being run on the reverse complement output files
 output:
-  - head:
-      - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'sample1', single_end:false ]`
-      - "*.head":
-          type: file
-          description: Scanned Helitrons
-          pattern: "*.head"
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
+    - draw:
+        type: files
+        description: Output of the HelitronScanner draw command
+        pattern: "*.draw.*"
   - versions:
       - versions.yml:
           type: file

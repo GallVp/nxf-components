@@ -1,4 +1,4 @@
-process HELITRONSCANNER_SCANHEAD {
+process HELITRONSCANNER_DRAW {
     tag "$meta.id"
     label 'process_high'
 
@@ -11,12 +11,10 @@ process HELITRONSCANNER_SCANHEAD {
     tuple val(meta), path(fasta)
     path(head)
     path(tail)
-    val rc
 
     output:
-    tuple val(meta), path("*.pairends"), emit: pairends
-    tuple val(meta), path("*.draw")    , emit: draw
-    path "versions.yml"                , emit: versions
+    tuple val(meta), path("*.draw*")    , emit: draw
+    path "versions.yml"                 , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -24,9 +22,8 @@ process HELITRONSCANNER_SCANHEAD {
     script:
     def args        = task.ext.args     ?: ''
     def prefix      = task.ext.prefix   ?: "${meta.id}"
-    if ( !task.memory ) { error '[HELITRONSCANNER_SCANHEAD] Available memory not known. Specify process memory requirements to fix this.' }
+    if ( !task.memory ) { error '[HELITRONSCANNER_DRAW] Available memory not known. Specify process memory requirements to fix this.' }
     def avail_mem   = (task.memory.giga*0.8).intValue()
-    def rc_suffix   = rc ? '.rc' : ''
     """
     # Nextflow changes the container --entrypoint to /bin/bash (container default entrypoint: /usr/local/env-execute)
     # Check for container variable initialisation script and source it.
