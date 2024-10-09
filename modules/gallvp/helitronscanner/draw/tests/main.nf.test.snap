@@ -1,0 +1,68 @@
+{
+    "actinidia_chinensis-genome_1_fasta_gz-success": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.draw.hel.fa:md5,54a7737239510a7fe93f7d5b00fd713a"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,4b206968a702782fa04d2ba560c89728"
+                ],
+                "draw": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.draw.hel.fa:md5,54a7737239510a7fe93f7d5b00fd713a"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,4b206968a702782fa04d2ba560c89728"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-10T12:08:41.447695"
+    },
+    "stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.draw:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,4b206968a702782fa04d2ba560c89728"
+                ],
+                "draw": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.draw:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,4b206968a702782fa04d2ba560c89728"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-10T12:08:56.653145"
+    }
+}
