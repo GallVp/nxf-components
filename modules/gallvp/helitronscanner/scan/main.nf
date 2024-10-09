@@ -1,4 +1,4 @@
-process HELITRONSCANNER_SCANHEAD {
+process HELITRONSCANNER_SCAN {
     tag "$meta.id"
     label 'process_high'
 
@@ -9,21 +9,28 @@ process HELITRONSCANNER_SCANHEAD {
 
     input:
     tuple val(meta), path(fasta)
+    val command
     path lcv_filepath
     val buffer_size
 
     output:
-    tuple val(meta), path("*.head") , emit: head
-    path "versions.yml"             , emit: versions
+    tuple val(meta), path("*.$command") , emit: scan
+    path "versions.yml"                 , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
+    if ( command !in [ 'head', 'tail' ] ) error "[HELITRONSCANNER_SCAN] command argument should be 'head' or 'tail'"
+    if ( !task.memory ) { error '[HELITRONSCANNER_SCAN] Available memory not known. Specify process memory requirements to fix this.' }
+
     def args        = task.ext.args     ?: ''
     def prefix      = task.ext.prefix   ?: "${meta.id}"
-    def lcv_arg     = lcv_filepath      ? "-lcv_filepath $lcv_filepath" : '-lcv_filepath $HELITRONSCANNER_TRAININGSET_PATH/head.lcvs'
-    if ( !task.memory ) { error '[HELITRONSCANNER_SCANHEAD] Available memory not known. Specify process memory requirements to fix this.' }
+
+    def is_head     = { command == 'head' }
+    def subcommand  = is_head           ? 'scanHead'    : 'scanTail'
+    def lcvs_file   = is_head           ? 'head.lcvs'   : 'tail.lcvs'
+    def lcv_arg     = lcv_filepath      ? "-lcv_filepath $lcv_filepath" : "-lcv_filepath \$HELITRONSCANNER_TRAININGSET_PATH/$lcvs_file"
     def avail_mem   = (task.memory.giga*0.8).intValue()
     """
     # Nextflow changes the container --entrypoint to /bin/bash (container default entrypoint: /usr/local/env-execute)
@@ -35,14 +42,14 @@ process HELITRONSCANNER_SCANHEAD {
     fi
 
     HelitronScanner \\
-        scanHead \\
+        $subcommand \\
         -Xmx${avail_mem}g \\
         $lcv_arg \\
         -genome $fasta \\
         -buffer_size $buffer_size \\
         -threads_LCV $task.cpus \\
         $args \\
-        -output ${prefix}.head
+        -output ${prefix}.${command}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -51,10 +58,11 @@ process HELITRONSCANNER_SCANHEAD {
     """
 
     stub:
-    def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    if ( command !in [ 'head', 'tail' ] ) error "[HELITRONSCANNER_SCAN] command argument should be 'head' or 'tail'"
+    def args        = task.ext.args     ?: ''
+    def prefix      = task.ext.prefix   ?: "${meta.id}"
     """
-    touch ${prefix}.head
+    touch ${prefix}.${command}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
