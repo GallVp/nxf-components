@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
-name: "helitronscanner_scanhead"
-description: HelitronScanner for Helitron transposons in genomes
+name: "helitronscanner_scan"
+description: HelitronScanner scanHead and scanTail tools for Helitron transposons
+  in genomes
 keywords:
   - genomics
   - helitron
@@ -20,11 +21,14 @@ input:
         type: map
         description: |
           Groovy Map containing sample information
-          e.g. `[ id:'sample1', single_end:false ]`
+          e.g. `[ id:'sample1' ]`
     - fasta:
         type: file
         description: Genome data to scan for Helitrons
         pattern: "*.{fa,fsa,fasta}"
+  - - command:
+        type: string
+        description: Command to execute. One of [ 'head', 'tail' ]
   - - lcv_filepath:
         type: file
         description: LCV file path. If not provided by setting it to [], the LCV file
@@ -35,16 +39,16 @@ input:
         description: Genome slice size (use negative or zero for non-buffer, i.e. treat
           every whole chromosome)
 output:
-  - head:
+  - scan:
       - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'sample1', single_end:false ]`
-      - "*.head":
-          type: file
-          description: Scanned Helitrons
-          pattern: "*.head"
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+      - "*.$command":
+        type: file
+        description: Head or tail file depending on the command
+        pattern: "*.$command"
   - versions:
       - versions.yml:
           type: file
