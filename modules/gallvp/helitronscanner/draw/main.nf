@@ -9,8 +9,8 @@ process HELITRONSCANNER_DRAW {
 
     input:
     tuple val(meta), path(fasta)
-    path(head)
-    path(tail)
+    tuple val(meta2), path(head)
+    tuple val(meta3), path(tail)
 
     output:
     tuple val(meta), path("*.draw*")    , emit: draw
@@ -21,6 +21,7 @@ process HELITRONSCANNER_DRAW {
 
     script:
     def args        = task.ext.args     ?: ''
+    def args2       = task.ext.args2    ?: ''
     def prefix      = task.ext.prefix   ?: "${meta.id}"
     if ( !task.memory ) { error '[HELITRONSCANNER_DRAW] Available memory not known. Specify process memory requirements to fix this.' }
     def avail_mem   = (task.memory.giga*0.8).intValue()
@@ -38,14 +39,16 @@ process HELITRONSCANNER_DRAW {
         -Xmx${avail_mem}g \\
         -head_score $head \\
         -tail_score $tail \\
-        -output ${prefix}${rc_suffix}.pairends
+        -output ${prefix}.pairends \\
+        ${args2}
 
     HelitronScanner \\
         draw \\
+        -Xmx${avail_mem}g \\
         -pscore ${prefix}.pairends \\
         -g $fasta \\
-        -output ${prefix}${rc_suffix}.draw \\
-        -pure_helitron
+        -output ${prefix}.draw \\
+        ${args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -57,7 +60,7 @@ process HELITRONSCANNER_DRAW {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch ${prefix}.head
+    touch ${prefix}.draw
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
