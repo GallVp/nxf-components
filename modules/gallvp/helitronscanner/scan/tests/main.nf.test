@@ -64,7 +64,7 @@ nextflow_process {
         then {
             assertAll(
                 { assert process.success },
-                { assert path(process.out.scan[0][1]).text.contains('2729827:1 2729980:1 2730005:1') },
+                { assert path(process.out.scan[0][1]).text.contains('7265:1 7951:1 9264:2 9398:1') },
                 { assert snapshot(process.out.versions).match() }
             )
         }
