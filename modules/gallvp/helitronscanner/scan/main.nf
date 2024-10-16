@@ -27,7 +27,7 @@ process HELITRONSCANNER_SCAN {
     def args        = task.ext.args     ?: ''
     def prefix      = task.ext.prefix   ?: "${meta.id}"
 
-    def is_head     = { command == 'head' }
+    def is_head     = { command == 'head' }()
     def subcommand  = is_head           ? 'scanHead'    : 'scanTail'
     def lcvs_file   = is_head           ? 'head.lcvs'   : 'tail.lcvs'
     def lcv_arg     = lcv_filepath      ? "-lcv_filepath $lcv_filepath" : "-lcv_filepath \$HELITRONSCANNER_TRAININGSET_PATH/$lcvs_file"

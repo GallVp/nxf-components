@@ -2,6 +2,7 @@ nextflow_process {
 
     name "Test Process HELITRONSCANNER_DRAW"
     script "../main.nf"
+    config "./nextflow.config"
     process "HELITRONSCANNER_DRAW"
 
     tag "modules"
@@ -51,8 +52,7 @@ nextflow_process {
             }
         }
     }
-    
-    /*
+
     test("actinidia_chinensis-genome_1_fasta_gz-success") {
 
         when {
@@ -72,9 +72,8 @@ nextflow_process {
             )
         }
 
-    } */
+    }
 
-/*
     test("sarscov2 - genome - success") {
 
         setup {
@@ -127,11 +126,12 @@ nextflow_process {
         then {
             assertAll(
                 { assert process.success },
-                { assert snapshot(process.out).match() }
+                { assert process.out.draw[0][1] != null },
+                { assert snapshot(process.out.versions).match() }
             )
         }
 
-    } */
+    }
 
     test("stub") {
 

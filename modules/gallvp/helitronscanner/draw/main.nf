@@ -13,7 +13,7 @@ process HELITRONSCANNER_DRAW {
     tuple val(meta3), path(tail)
 
     output:
-    tuple val(meta), path("*.draw*")    , emit: draw
+    tuple val(meta), path("*.draw")     , emit: draw
     path "versions.yml"                 , emit: versions
 
     when:
@@ -49,6 +49,9 @@ process HELITRONSCANNER_DRAW {
         -g $fasta \\
         -output ${prefix}.draw \\
         ${args}
+
+    mv ${prefix}.draw.hel.fa \\
+        ${prefix}.draw
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

@@ -7,7 +7,7 @@
                         {
                             "id": "test"
                         },
-                        "test.draw.hel.fa:md5,54a7737239510a7fe93f7d5b00fd713a"
+                        "test.draw:md5,434aaaa70c294464e6bae93b2895b13c"
                     ]
                 ],
                 "1": [
@@ -18,7 +18,7 @@
                         {
                             "id": "test"
                         },
-                        "test.draw.hel.fa:md5,54a7737239510a7fe93f7d5b00fd713a"
+                        "test.draw:md5,434aaaa70c294464e6bae93b2895b13c"
                     ]
                 ],
                 "versions": [
@@ -30,7 +30,7 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2024-10-10T12:08:41.447695"
+        "timestamp": "2024-10-17T11:51:49.477212"
     },
     "stub": {
         "content": [
@@ -63,6 +63,18 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2024-10-10T12:08:56.653145"
+        "timestamp": "2024-10-17T11:52:47.744899"
+    },
+    "sarscov2 - genome - success": {
+        "content": [
+            [
+                "versions.yml:md5,4b206968a702782fa04d2ba560c89728"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-17T11:58:21.800568"
     }
 }

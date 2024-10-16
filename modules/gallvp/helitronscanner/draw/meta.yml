@@ -1,6 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "helitronscanner_draw"
-## TODO nf-core: Add a description of the module and list keywords
 description: HelitronScanner draw tool for Helitron transposons in genomes
 keywords:
   - genomics
@@ -17,27 +16,34 @@ tools:
       licence: ["GPL v3-or-later"]
       identifier: ""
 
-## TODO nf-core: Add a description of all of the variables used as input
 input:
   - - meta:
         type: map
         description: |
           Groovy Map containing sample information
-          e.g. `[ id:'sample1', single_end:false ]`
+          e.g. `[ id:'sample1' ]`
     - fasta:
         type: file
         description: Genome data to scan for Helitrons
         pattern: "*.{fa,fsa,fasta}"
-  - - head:
+  - - meta2:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - head:
         type: file
         description: Output of the HelitronScanner head command
         pattern: "*.head"
-  - - tail:
+  - - meta3:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - tail:
         type: file
         description: Output of the HelitronScanner tail command
         pattern: "*.tail"
-
-## TODO nf-core: Add a description of all of the variables used as output
 output:
   - draw:
       - meta:
@@ -45,13 +51,12 @@ output:
           description: |
             Groovy Map containing sample information
             e.g. `[ id:'sample1', single_end:false ]`
-          pattern: "*.draw.*"
-      - "*.draw*":
+          pattern: "*.draw"
+      - "*.draw":
           type: map
           description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'sample1', single_end:false ]`
-          pattern: "*.draw.*"
+            The draw output from HelitronScanner
+          pattern: "*.draw"
   - versions:
       - versions.yml:
           type: file
