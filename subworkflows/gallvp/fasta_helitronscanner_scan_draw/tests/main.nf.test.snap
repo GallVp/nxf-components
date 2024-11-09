@@ -1,0 +1,75 @@
+{
+    "actinidia_chinensis - genome_1_fasta_gz": {
+        "content": [
+            {
+                "0": [
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9"
+                ],
+                "versions": [
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-31T12:03:39.855324"
+    },
+    "stub": {
+        "content": [
+            {
+                "0": [
+                    "versions.yml:md5,42ab90da7ef86125b9dec685f4f08e84",
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9",
+                    "versions.yml:md5,f3b6aa20e81f04fd731fad64f7ea3c14"
+                ],
+                "versions": [
+                    "versions.yml:md5,42ab90da7ef86125b9dec685f4f08e84",
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9",
+                    "versions.yml:md5,f3b6aa20e81f04fd731fad64f7ea3c14"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-31T12:04:05.620956"
+    },
+    "sarscov2 - genome": {
+        "content": [
+            {
+                "0": [
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9"
+                ],
+                "versions": [
+                    "versions.yml:md5,9b6a0f2f56d89451cf16702e2f358520",
+                    "versions.yml:md5,a928ae7c94a23e5c62c27915dada660c",
+                    "versions.yml:md5,c417497b1caea1cd51f8440df92daa40",
+                    "versions.yml:md5,d786d80e914a86ce0361cfc0bc62cda9"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-10-31T11:59:39.134364"
+    }
+}
