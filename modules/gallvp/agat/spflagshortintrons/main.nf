@@ -1,4 +1,4 @@
-process AGAT_SPEXTRACTSEQUENCES {
+process AGAT_SPFLAGSHORTINTRONS {
     tag "$meta.id"
     label 'process_single'
 
@@ -9,12 +9,11 @@ process AGAT_SPEXTRACTSEQUENCES {
 
     input:
     tuple val(meta), path(gxf)
-    path fasta
     path config
 
     output:
-    tuple val(meta), path("*.fasta")    , emit: fasta
-    path "versions.yml"                 , emit: versions
+    tuple val(meta), path("*.gff")  , emit: gff
+    path "versions.yml"             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -23,30 +22,29 @@ process AGAT_SPEXTRACTSEQUENCES {
     def args        = task.ext.args ?: ''
     def prefix      = task.ext.prefix ?: "${meta.id}"
     def config_arg  = config ? "-c $config" : ''
-    if( "$fasta" == "${prefix}.fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$gxf" == "${prefix}.gff" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
-    agat_sp_extract_sequences.pl \\
+    agat_sp_flag_short_introns.pl \\
         $args \\
         -g $gxf \\
-        -f $fasta \\
         $config_arg \\
-        -o ${prefix}.fasta
+        -o ${prefix}.gff
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        agat: \$(agat_sp_extract_sequences.pl -h | sed -n 's/.*(AGAT) - Version: \\(.*\\) .*/\\1/p')
+        agat: \$(agat_sp_flag_short_introns.pl -h | sed -n 's/.*(AGAT) - Version: \\(.*\\) .*/\\1/p')
     END_VERSIONS
     """
 
     stub:
     def prefix  = task.ext.prefix ?: "${meta.id}"
-    if( "$fasta" == "${prefix}.fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$gxf" == "${prefix}.gff" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
-    touch ${prefix}.fasta
+    touch ${prefix}.gff
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        agat: \$(agat_sp_extract_sequences.pl -h | sed -n 's/.*(AGAT) - Version: \\(.*\\) .*/\\1/p')
+        agat: \$(agat_sp_flag_short_introns.pl -h | sed -n 's/.*(AGAT) - Version: \\(.*\\) .*/\\1/p')
     END_VERSIONS
     """
 }
