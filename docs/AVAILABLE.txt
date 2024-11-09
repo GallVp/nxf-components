@@ -37,5 +37,6 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/busco/busco">modules/gallvp/busco/busco</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3">modules/gallvp/braker3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/annosine">modules/gallvp/annosine</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spflagshortintrons">modules/gallvp/agat/spflagshortintrons</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spaddintrons">modules/gallvp/agat/spaddintrons</a></li>
