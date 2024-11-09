@@ -3,4 +3,4 @@ channels:
   - bioconda
 
 dependencies:
-  - bioconda::agat=1.4.0
+  - "bioconda::agat=1.4.1"
