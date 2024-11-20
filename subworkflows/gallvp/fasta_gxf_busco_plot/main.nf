@@ -68,7 +68,7 @@ workflow FASTA_GXF_BUSCO_PLOT {
     ch_versions                                 = ch_versions.mix(BUSCO_ASSEMBLY.out.versions.first())
 
     // MODULE: BUSCO_GENERATEPLOT as PLOT_ASSEMBLY
-    ch_assembly_plot_inputs                     = ch_assembly_short_summaries_txt
+    ch_assembly_plot_summary                    = ch_assembly_short_summaries_txt
                                                 | map { meta, txt ->
                                                     def lineage_name = meta.lineage.split('_odb')[0]
                                                     [
@@ -77,9 +77,8 @@ workflow FASTA_GXF_BUSCO_PLOT {
                                                     ]
                                                 }
                                                 | collectFile
-                                                | collect
 
-    PLOT_ASSEMBLY( ch_assembly_plot_inputs )
+    PLOT_ASSEMBLY( ch_assembly_plot_summary.collect() )
 
     ch_assembly_png                             = PLOT_ASSEMBLY.out.png
     ch_versions                                 = ch_versions.mix(PLOT_ASSEMBLY.out.versions)
@@ -138,18 +137,17 @@ workflow FASTA_GXF_BUSCO_PLOT {
     ch_versions                                 = ch_versions.mix(BUSCO_ANNOTATION.out.versions.first())
 
     // MODULE: BUSCO_GENERATEPLOT as PLOT_ANNOTATION
-    ch_annotation_plot_inputs                   = ch_annotation_short_summaries_txt
+    ch_annotation_plot_summary                  = ch_annotation_short_summaries_txt
                                                 | map { meta, txt ->
                                                     def lineage_name = meta.lineage.split('_odb')[0]
                                                     [
-                                                        "short_summary.specific.${meta.lineage}.${meta.id}_${lineage_name}.txt",
+                                                        "short_summary.specific.${meta.lineage}.${meta.id}_${lineage_name}.proteins.txt",
                                                         txt.text
                                                     ]
                                                 }
                                                 | collectFile
-                                                | collect
 
-    PLOT_ANNOTATION( ch_annotation_plot_inputs )
+    PLOT_ANNOTATION( ch_annotation_plot_summary.collect() )
 
     ch_annotation_png                           = PLOT_ANNOTATION.out.png
     ch_versions                                 = ch_versions.mix(PLOT_ANNOTATION.out.versions)
@@ -159,11 +157,12 @@ workflow FASTA_GXF_BUSCO_PLOT {
     assembly_batch_summary                      = ch_assembly_batch_summary             // channel: [ meta3, txt ]; meta3 ~ meta + [ val(mode), val(lineage) ]
     assembly_short_summaries_txt                = ch_assembly_short_summaries_txt       // channel: [ meta3, txt ]
     assembly_short_summaries_json               = ch_assembly_short_summaries_json      // channel: [ meta3, json ]
+    assembly_plot_summary_txt                   = ch_assembly_plot_summary              // channel: [ text ]
     assembly_png                                = ch_assembly_png                       // channel: [ png ]
     annotation_batch_summary                    = ch_annotation_batch_summary           // channel: [ meta3, txt ]
     annotation_short_summaries_txt              = ch_annotation_short_summaries_txt     // channel: [ meta3, txt ]
     annotation_short_summaries_json             = ch_annotation_short_summaries_json    // channel: [ meta3, json ]
+    annotation_plot_summary_txt                 = ch_annotation_plot_summary            // channel: [ txt ]
     annotation_png                              = ch_annotation_png                     // channel: [ png ]
     versions                                    = ch_versions                           // channel: [ versions.yml ]
 }
-
