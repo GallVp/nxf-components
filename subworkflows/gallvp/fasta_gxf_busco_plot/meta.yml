@@ -112,8 +112,6 @@ output:
         File containing software versions
         Structure: [ path(versions.yml) ]
       pattern: "versions.yml"
-  - annotation_plot_summary_txt:
-      description: ""
 authors:
   - "@GallVp"
 maintainers:
