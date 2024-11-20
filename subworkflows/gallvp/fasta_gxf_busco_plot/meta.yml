@@ -64,6 +64,12 @@ output:
         Channel containing BUSCO short summaries corresponding to fasta files
         Structure: [ val(meta), json ]
       pattern: "*.json"
+  - assembly_plot_summary_txt:
+      type: file
+      description: |
+        Channel containing BUSCO short summaries corresponding to fasta files renamed to include lineage in sample id
+        Structure: [ txt ]
+      pattern: "*.txt"
   - assembly_png:
       type: file
       description: |
@@ -88,6 +94,12 @@ output:
         Channel containing BUSCO short summaries corresponding to annotation files
         Structure: [ val(meta), json ]
       pattern: "*.json"
+  - annotation_plot_summary_txt:
+      type: file
+      description: |
+        Channel containing BUSCO short summaries corresponding to annotation files renamed to include lineage in sample id
+        Structure: [ txt ]
+      pattern: "*.txt"
   - annotation_png:
       type: file
       description: |
@@ -100,6 +112,8 @@ output:
         File containing software versions
         Structure: [ path(versions.yml) ]
       pattern: "versions.yml"
+  - annotation_plot_summary_txt:
+      description: ""
 authors:
   - "@GallVp"
 maintainers:
