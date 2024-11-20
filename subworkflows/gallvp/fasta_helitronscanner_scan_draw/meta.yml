@@ -13,13 +13,25 @@ components:
   - helitronscanner/scan
   - helitronscanner/draw
 input:
-  - ch_fata:
+  - ch_fasta:
       type: file
       description: |
-        The input channel containing the FASTA file
-        Structure: [ val(meta), path(fasta) ]
+        Genome fasta
+        Structure: [ val(meta), fasta ]
       pattern: "*.fasta"
 output:
+  - helitronscanner_draw:
+      type: file
+      description: |
+        Helitronscanner draw file
+        Structure: [ val(meta), draw ]
+      pattern: "*.draw"
+  - helitronscanner_draw_rc:
+      type: file
+      description: |
+        Helitronscanner reverse complement draw file
+        Structure: [ val(meta), rc.draw ]
+      pattern: "*.rc.draw"
   - versions:
       type: file
       description: |

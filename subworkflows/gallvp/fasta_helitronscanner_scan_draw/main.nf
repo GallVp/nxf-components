@@ -76,9 +76,11 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
         ch_helitronscanner_scan_tail_rc
     )
 
-    ch_helitronscanner_draw_rc      = HELITRONSCANNER_DRAW.out.draw
+    ch_helitronscanner_draw_rc      = HELITRONSCANNER_DRAW_RC.out.draw
     ch_versions                     = ch_versions.mix(HELITRONSCANNER_DRAW_RC.out.versions)
 
     emit:
-    versions = ch_versions                     // channel: [ versions.yml ]
+    helitronscanner_draw            = ch_helitronscanner_draw       // channel: [ val(meta), draw ]
+    helitronscanner_draw_rc         = ch_helitronscanner_draw_rc    // channel: [ val(meta), rc.draw ]
+    versions                        = ch_versions                   // channel: [ versions.yml ]
 }
