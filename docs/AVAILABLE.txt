@@ -2,6 +2,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat">subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster">subworkflows/gallvp/fastq_bwa_mem_samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_gxf_busco_plot">subworkflows/gallvp/fasta_gxf_busco_plot</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
