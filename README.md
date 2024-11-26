@@ -33,7 +33,7 @@ Following modules have been submitted and added (✅︎) to nf-core/modules and 
 | Module                   | Pull request                                          |
 | ------------------------ | ----------------------------------------------------- |
 | pbtk/pbindex ✅︎ ⛔      | [#5901](https://github.com/nf-core/modules/pull/5901) |
-| fastq_bwa_mem_samblaster | [#5582](https://github.com/nf-core/modules/pull/5582) |
+| fasta_gxf_busco_plot ✅︎ | [#7051](https://github.com/nf-core/modules/pull/7051) |
 
 And [more...](./SUBMITTED.md)
 
