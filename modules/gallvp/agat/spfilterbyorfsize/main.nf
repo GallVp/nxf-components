@@ -30,11 +30,11 @@ process AGAT_SPFILTERBYORFSIZE {
         $args \\
         $config_arg \\
         -o $prefix
-    
+
     mv \\
         ${prefix}_NOT* \\
         "${prefix}.failed.gff"
-    
+
     mv \\
         ${prefix}_* \\
         "${prefix}.passed.gff"
