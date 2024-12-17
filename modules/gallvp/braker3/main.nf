@@ -30,8 +30,8 @@ process BRAKER3 {
     prefix          = task.ext.prefix           ?: "${meta.id}"
     def rna_ids     = rnaseq_sets_ids           ? "--rnaseq_sets_ids=$rnaseq_sets_ids"      : ''
     def rna_dirs    = rnaseq_sets_dirs          ? "--rnaseq_sets_dirs=$rnaseq_sets_dirs"    : ''
-    def bam         = bam                       ? "--bam=$bam"                              : ''
-    def proteins    = proteins                  ? "--prot_seq=$proteins"                    : ''
+    def bam_arg     = bam                       ? "--bam=$bam"                              : ''
+    def prot_arg    = proteins                  ? "--prot_seq=$proteins"                    : ''
     def hints       = hintsfile                 ? "--hints=$hintsfile"                      : ''
     def new_species = args.contains('--species')? ''                                        : '--species new_species'
     """
@@ -53,8 +53,8 @@ process BRAKER3 {
         --threads $task.cpus \\
         $rna_ids \\
         $rna_dirs \\
-        $bam \\
-        $proteins \\
+        $bam_arg \\
+        $prot_arg \\
         $hints \\
         $args
 

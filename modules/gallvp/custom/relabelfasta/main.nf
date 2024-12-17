@@ -19,14 +19,12 @@ process CUSTOM_RELABELFASTA {
     task.ext.when == null || task.ext.when
 
     script:
-    def args    = task.ext.args ?: ''
     prefix      = task.ext.prefix ?: "${meta.id}"
     if ( "${prefix}.fasta" == "$fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     template 'relabelfasta.py'
 
     stub:
-    def args    = task.ext.args ?: ''
-    def prefix  = task.ext.prefix ?: "${meta.id}"
+    prefix      = task.ext.prefix ?: "${meta.id}"
     if ( "${prefix}.fasta" == "$fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     touch ${prefix}.fasta
