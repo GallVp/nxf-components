@@ -30,9 +30,9 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
                                         | collectFile
                                         | map { gxf -> [ gxf.baseName.replace('.nointrons', ''), gxf ] }
                                         | join(
-                                            ch_gxf.map { meta, gxf -> [ meta.id, meta ] }
+                                            ch_gxf.map { meta, _gxf -> [ meta.id, meta ] }
                                         )
-                                        | map { id, gxf, meta -> [ meta, gxf ] }
+                                        | map { _id, gxf, meta -> [ meta, gxf ] }
 
     // MODULE: AGAT_SPADDINTRONS
     AGAT_SPADDINTRONS ( ch_gxf_purged, [] )
@@ -46,11 +46,11 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
                                         | join(
                                             ch_fasta.map { meta2, fasta -> [ meta2.id, fasta ] }
                                         )
-                                        | map { id, meta, gff3, fasta -> [ meta, gff3, fasta ] }
+                                        | map { _id, meta, gff3, fasta -> [ meta, gff3, fasta ] }
 
     AGAT_SPEXTRACTSEQUENCES(
-        ch_gxf_fasta.map { meta, gff3, fasta -> [ meta, gff3 ] },
-        ch_gxf_fasta.map { meta, gff3, fasta -> fasta },
+        ch_gxf_fasta.map { meta , gff3  , _fasta    -> [ meta, gff3 ] },
+        ch_gxf_fasta.map { _meta, _gff3 , fasta     -> fasta },
         [] // config
     )
 
@@ -61,16 +61,20 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     ch_splice_motifs                    = ch_intron_sequences
                                         | map { meta, fasta ->
                                             def splice_motifs = fasta.splitFasta ( record: [id: true, seqString: true] )
-                                                .collect { el -> [ el.id, "${el.seqString[0..1]}${el.seqString[-2..-1]}" ].join('\t') }
+                                                .collect { el ->
+                                                    el.seqString.size() < 4
+                                                    ? [ el.id, '-' ].join('\t')
+                                                    : [ el.id, "${el.seqString[0..1]}${el.seqString[-2..-1]}" ].join('\t')
+                                                }
 
                                             [ "${meta.id}.motifs.tsv", splice_motifs.join('\n') ]
                                         }
                                         | collectFile
                                         | map { tsv -> [ tsv.baseName.replace('.motifs', ''), tsv ] }
                                         | join(
-                                            ch_gxf_purged.map { meta, gxf -> [ meta.id, meta ] }
+                                            ch_gxf_purged.map { meta, _gxf -> [ meta.id, meta ] }
                                         )
-                                        | map { id, tsv, meta -> [ meta, tsv ] }
+                                        | map { _id, tsv, meta -> [ meta, tsv ] }
 
     // collectFile: Mark gff3
     ch_marked_gff3                      = ch_introns_gff
@@ -106,9 +110,9 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
                                         | collectFile
                                         | map { gff3 -> [ gff3.baseName.replace('.marked', ''), gff3 ] }
                                         | join(
-                                            ch_gxf_purged.map { meta, gxf -> [ meta.id, meta ] }
+                                            ch_gxf_purged.map { meta, _gxf -> [ meta.id, meta ] }
                                         )
-                                        | map { id, gff3, meta -> [ meta, gff3 ] }
+                                        | map { _id, gff3, meta -> [ meta, gff3 ] }
 
     emit:
     motifs_tsv                          = ch_splice_motifs  // channel: [ val(meta), tsv ]
