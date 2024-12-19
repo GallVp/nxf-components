@@ -9,7 +9,7 @@ include { HELITRONSCANNER_DRAW as HELITRONSCANNER_DRAW_RC       } from '../../..
 workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
 
     take:
-    ch_fasta                        // channel: [ val(meta), fasta ]
+    ch_fasta                        // Channel: < val(meta), fasta >
 
     main:
 
@@ -38,10 +38,19 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_TAIL.out.versions)
 
     // MODULE: HELITRONSCANNER_DRAW
+    ch_scanner_draw_inputs          = ch_fasta
+                                    | join(ch_helitronscanner_scan_head)
+                                    | join(ch_helitronscanner_scan_tail)
+                                    | multiMap { meta, fasta, head, tail ->
+                                        fasta   : [ meta, fasta ]
+                                        head    : [ meta, head ]
+                                        tail    : [ meta, tail ]
+                                    }
+
     HELITRONSCANNER_DRAW (
-        ch_fasta,
-        ch_helitronscanner_scan_head,
-        ch_helitronscanner_scan_tail
+        ch_scanner_draw_inputs.fasta,
+        ch_scanner_draw_inputs.head,
+        ch_scanner_draw_inputs.tail
     )
 
     ch_helitronscanner_draw         = HELITRONSCANNER_DRAW.out.draw
@@ -70,10 +79,19 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_TAIL_RC.out.versions)
 
     // MODULE: HELITRONSCANNER_DRAW as HELITRONSCANNER_DRAW_RC
+    ch_scanner_draw_rc_inputs       = ch_fasta
+                                    | join(ch_helitronscanner_scan_head_rc)
+                                    | join(ch_helitronscanner_scan_tail_rc)
+                                    | multiMap { meta, fasta, head, tail ->
+                                        fasta   : [ meta, fasta ]
+                                        head    : [ meta, head ]
+                                        tail    : [ meta, tail ]
+                                    }
+
     HELITRONSCANNER_DRAW_RC (
-        ch_fasta,
-        ch_helitronscanner_scan_head_rc,
-        ch_helitronscanner_scan_tail_rc
+        ch_scanner_draw_rc_inputs.fasta,
+        ch_scanner_draw_rc_inputs.head,
+        ch_scanner_draw_rc_inputs.tail
     )
 
     ch_helitronscanner_draw_rc      = HELITRONSCANNER_DRAW_RC.out.draw
