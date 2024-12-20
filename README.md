@@ -30,10 +30,10 @@ pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git
 
 Following modules have been submitted and added (✅︎) to nf-core/modules and may be removed (⛔) from this repository without notice.
 
-| Module                   | Pull request                                          |
-| ------------------------ | ----------------------------------------------------- |
-| pbtk/pbindex ✅︎ ⛔      | [#5901](https://github.com/nf-core/modules/pull/5901) |
-| fasta_gxf_busco_plot ✅︎ | [#7051](https://github.com/nf-core/modules/pull/7051) |
+| Module                      | Pull request                                          |
+| --------------------------- | ----------------------------------------------------- |
+| pbtk/pbindex ✅︎ ⛔         | [#5901](https://github.com/nf-core/modules/pull/5901) |
+| fasta_gxf_busco_plot ✅︎ ⛔ | [#7051](https://github.com/nf-core/modules/pull/7051) |
 
 And [more...](./SUBMITTED.md)
 
