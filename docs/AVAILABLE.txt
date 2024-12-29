@@ -3,7 +3,6 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster">subworkflows/gallvp/fastq_bwa_mem_samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_gxf_busco_plot">subworkflows/gallvp/fasta_gxf_busco_plot</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tesorter">modules/gallvp/tesorter</a></li>
@@ -35,8 +34,6 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index">modules/gallvp/bwa/index</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/busco/generateplot">modules/gallvp/busco/generateplot</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/busco/busco">modules/gallvp/busco/busco</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3">modules/gallvp/braker3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/annosine">modules/gallvp/annosine</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spflagshortintrons">modules/gallvp/agat/spflagshortintrons</a></li>
