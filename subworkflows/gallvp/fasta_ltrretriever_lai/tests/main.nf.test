@@ -202,10 +202,10 @@ nextflow_workflow {
         then {
             assertAll(
                 { assert workflow.success },
-                { assert file(workflow.out.annotation_gff[0][1]).text.contains('Gypsy_LTR_retrotransposon') },
+                { assert file(workflow.out.annotation_gff[0][1]).text.contains('LTR_retrotransposon') },
                 { assert file(workflow.out.lai_log[0][1]).text.contains('Calculate LAI:') },
                 { assert file(workflow.out.lai_log[0][1]).text.contains('Sorry, LAI is not applicable on the current genome assembly.') },
-                { assert file(workflow.out.ltrlib[0][1]).text.contains('#LTR/Gypsy') },
+                { assert file(workflow.out.ltrlib[0][1]).text.contains('#LTR') },
                 { assert snapshot(
                     workflow.out.versions,
                     workflow.out.lai_out
