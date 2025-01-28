@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/subworkflows/yaml-schema.json
+name: "gff_fasta_gffread_eggnogmapper_agat_gt"
+description: |
+  Addeds annotations to a gff file using eggnogmapper, can optionally remove models
+  with no hits and optionally add eggnog descriptions to the gff file
+keywords:
+  - genomics
+  - annotation
+  - eggnog
+  - gff
+  - fasta
+  - agat
+  - gffread
+  - GenomeTools
+components:
+  - gffread
+  - eggnogmapper
+  - agat/spfilterfeaturefromkilllist
+  - gt/gff3
+input:
+  - ch_gff:
+      description: "Input Gff"
+  - ch_fasta:
+      description: "Input Fasta"
+  - db_folder:
+      description: "EggNOG database folder"
+  - val_purge_nohits:
+      description: "Remove models with no hits?"
+  - val_describe_gff:
+      description: "Add EggNOG descriptions to the GFF file?"
+output:
+  - versions:
+      type: file
+      description: |
+        File containing software versions
+        Structure: [ path(versions.yml) ]
+      pattern: "versions.yml"
+  - eggnogmapper_annotations:
+      description: "EggNOG annotations"
+  - eggnogmapper_orthologs:
+      description: "EggNOG orthologs"
+  - eggnogmapper_hits:
+      description: "EggNOG hits"
+  - final_gff:
+      description: "Final GFF file"
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"

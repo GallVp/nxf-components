@@ -25,6 +25,9 @@ cp_hybrid_module "ltrretriever/ltrretriever"
 cp_hybrid_module "ltrretriever/lai"
 cp_hybrid_module "gffread"
 cp_hybrid_module "seqkit/seq"
+cp_hybrid_module "eggnogmapper"
+cp_hybrid_module "agat/spfilterfeaturefromkilllist"
+cp_hybrid_module "diamond/makedb"
 
 # Modules for sub workflow testing
 mkdir -p ./modules/nf-core/gunzip
