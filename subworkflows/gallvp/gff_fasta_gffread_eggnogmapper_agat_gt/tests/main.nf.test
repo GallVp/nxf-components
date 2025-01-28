@@ -1,0 +1,51 @@
+nextflow_workflow {
+
+    name "Test Subworkflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT"
+    script "../main.nf"
+    config './nextflow.config'
+    workflow "GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT"
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/gff_fasta_gffread_eggnogmapper_agat_gt"
+
+    tag "eggnogmapper"
+    tag "agat/spfilterfeaturefromkilllist"
+    tag "gt/gff3"
+    tag "gffread"
+
+    test("sarscov2 - gff - fasta - stub") {
+        options '-stub'
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.gff3', checkIfExists: true)
+                ])
+                input[1] = Channel.of([
+                    [ id:'test' ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ])
+
+                eggnog_db = file("https://github.com/nf-core/test-datasets/raw/eddf5b0e3336e0f93c81d4b4843b07257f9efaec/data/delete_me/eggnogmapper/eggnog.db", checkIfExists: true)
+                eggnog_db.copyTo("${workDir}/tmp/eggnog.db")
+                eggnog_data_dir = "${workDir}/tmp/"
+
+                input[2] = eggnog_data_dir // val_db_folder
+
+                input[3] = true // val_purge_nohits
+                input[4] = true // val_describe_gff
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+}
