@@ -4,8 +4,8 @@ process EGGNOGMAPPER {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/eggnog-mapper:2.1.12--pyhdfd78af_0':
-        'biocontainers/eggnog-mapper:2.1.12--pyhdfd78af_0' }"
+        'https://depot.galaxyproject.org/singularity/eggnog-mapper:2.1.12--pyhdfd78af_1':
+        'biocontainers/eggnog-mapper:2.1.12--pyhdfd78af_1' }"
 
     input:
     tuple val(meta), path(fasta)
