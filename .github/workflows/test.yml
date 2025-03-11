@@ -185,6 +185,12 @@ jobs:
             path: modules/gallvp/edta/edta
           - profile: conda
             path: subworkflows/gallvp/fasta_edta_lai
+          - profile: conda
+            path: modules/gallvp/eggnogmapper
+          - profile: conda
+            path: modules/gallvp/ltrretriever/ltrretriever
+          - profile: conda
+            path: modules/gallvp/tesorter
     env:
       NXF_ANSI_LOG: false
       NF_TEST_VER: "0.9.2"
