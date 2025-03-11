@@ -26,7 +26,8 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
     // MODULE: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX(
         ch_fasta,
-        [ [], [] ]
+        [ [], [] ],
+        false // get_sizes
     )
 
     ch_fai                                      = SAMTOOLS_FAIDX.out.fai
@@ -122,7 +123,15 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
         sequenceLengths[parts[0]] = parts[1]
     }
 
-    for ( line in gff3Lines ) {
+    def return_value = [
+        meta,
+        [
+            "All tests passed..."
+        ], // success log
+        [] // error log
+    ]
+
+    gff3Lines.each { line ->
         def parts = line.split('\t')
         def name = parts[0]
         def start = parts[3].toInteger()
@@ -130,7 +139,7 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
         def seqLength = sequenceLengths[name].toInteger()
 
         if ( start > seqLength ) {
-            return [
+            return_value = [
                 meta,
                 [], // success log
                 [
@@ -141,6 +150,7 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
                     "Start: $start"
                 ] // error log
             ]
+            return
         }
 
         if ( end > seqLength ) {
@@ -154,7 +164,7 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
             }
 
             if ( ! regionLine ) {
-                return [
+                return_value = [
                     meta,
                     [], // success log
                     [
@@ -165,15 +175,16 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
                         "End: $end"
                     ] // error log
                 ]
+                return
             }
 
             def regionAtts = regionLine.split('\t')[8]
             def isCircular = regionAtts.contains('circular=true')
 
             // Models on circular molecules are allowed to exceed sequence length
-            if ( isCircular ) { continue }
+            if ( isCircular ) { return }
 
-            return [
+            return_value = [
                 meta,
                 [], // success log
                 [
@@ -184,15 +195,10 @@ def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {
                     "End: $end"
                 ] // error log
             ]
+            return
 
         }
     }
 
-    return [
-        meta,
-        [
-            "All tests passed..."
-        ], // success log
-        [] // error log
-    ]
+    return return_value
 }

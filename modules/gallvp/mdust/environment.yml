@@ -4,4 +4,4 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - "bioconda::mdust=2006.10.17"
+  - bioconda::mdust=2006.10.17
