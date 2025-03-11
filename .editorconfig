@@ -8,7 +8,7 @@ trim_trailing_whitespace = true
 indent_size = 4
 indent_style = space
 
-[*.{md,yml,yaml,cff}]
+[*.{md,yml,yaml,cff,sh}]
 indent_size = 2
 
 [*.nf.test]

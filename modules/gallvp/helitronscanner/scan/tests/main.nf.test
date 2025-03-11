@@ -48,7 +48,7 @@ nextflow_process {
 
     }
 
-     test("actinidia_chinensis - genome_1_fasta_gz - tail - success") {
+    test("actinidia_chinensis - genome_1_fasta_gz - tail - success") {
 
         when {
             process {

@@ -48,15 +48,4 @@ process GT_GFF3 {
         genometools: \$(gt --version | head -1 | sed 's/gt (GenomeTools) //')
     END_VERSIONS
     """
-
-    stub:
-    def prefix = task.ext.prefix ?: "${meta.id}"
-    """
-    touch "${prefix}.gt.gff3"
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        genometools: \$(gt --version | head -1 | sed 's/gt (GenomeTools) //')
-    END_VERSIONS
-    """
 }
