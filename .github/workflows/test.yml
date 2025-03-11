@@ -187,7 +187,7 @@ jobs:
             path: subworkflows/gallvp/fasta_edta_lai
     env:
       NXF_ANSI_LOG: false
-      NFTEST_VER: "0.9.0"
+      NF_TEST_VER: "0.9.2"
 
     steps:
       - uses: actions/checkout@v4.2.2
@@ -201,10 +201,12 @@ jobs:
 
       - name: Install nf-test
         uses: nf-core/setup-nf-test@v1.3.2
+        with:
+          version: ${{ env.NF_TEST_VER }}
 
       - name: Setup apptainer
         if: matrix.profile == 'singularity'
-        uses: eWaterCycle/setup-apptainer@v2.0.0
+        uses: eWaterCycle/setup-apptainer@3f706d898c9db585b1d741b4692e66755f3a1b40 # Changes after v2.0.0
 
       - name: Set up Singularity
         if: matrix.profile == 'singularity'
