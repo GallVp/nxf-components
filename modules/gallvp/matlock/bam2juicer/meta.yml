@@ -25,7 +25,7 @@ input:
         description: Sorted BAM/CRAM/SAM file
         pattern: "*.{bam,cram,sam}"
         ontologies:
-          - edam: "http://edamontology.org/format_25722"
+          - edam: "http://edamontology.org/format_2572"
           - edam: "http://edamontology.org/format_2573"
           - edam: "http://edamontology.org/format_3462"
 
