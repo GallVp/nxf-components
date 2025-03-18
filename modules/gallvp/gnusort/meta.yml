@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "gnusort"
+description: |
+  Sorts a text file using GNU sort utility
+keywords:
+  - sort
+  - GNU
+  - text
+tools:
+  - "gnusort":
+      description: "sort sorts, merges, or compares all the lines from the given files, or standard input if none are given or for a file of '-'. By default, sort writes the results to standard output."
+      homepage: "https://www.gnu.org"
+      documentation: "https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html"
+      tool_dev_url: "https://github.com/coreutils/coreutils"
+      licence: ["GLP-3.0"]
+      identifier: ""
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - txt_file:
+        type: file
+        description: Text file
+        pattern: "*.{txt}"
+output:
+  - sorted_txt:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test' ]`
+      - '*_sorted.txt':
+          type: file
+          description: Sorted text file
+          pattern: "*.{txt}"
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+authors:
+  - "@ignacio3437"
+maintainers:
+  - "@ignacio3437"
