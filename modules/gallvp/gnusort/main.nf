@@ -6,7 +6,7 @@ process GNUSORT {
         'nf-core/ubuntu:20.04' }"
 
     input:
-    tuple val(meta), path(txt_file)
+    tuple val(meta), path(input_file)
 
     output:
     tuple val(meta), path("*.${extension}")                   , emit: sorted
