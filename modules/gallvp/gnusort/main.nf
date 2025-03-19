@@ -9,7 +9,7 @@ process GNUSORT {
     tuple val(meta), path(txt_file)
 
     output:
-    tuple val(meta), path("*_sorted.txt")                   , emit: sorted_txt
+    tuple val(meta), path("*.${extension}")                   , emit: sorted
     path "versions.yml"                                     , emit: versions
 
     when:
