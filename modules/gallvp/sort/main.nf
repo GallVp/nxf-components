@@ -7,10 +7,10 @@ process SORT {
         : 'community.wave.seqera.io/library/coreutils_grep_gzip_lbzip2_pruned:838ba80435a629f8'}"
 
     input:
-    tuple val(meta), path(txt_file)
+    tuple val(meta), path(input_file)
 
     output:
-    tuple val(meta), path("*_sorted.txt")                   , emit: sorted_txt
+    tuple val(meta), path("*.${extension}")                   , emit: sorted
     path "versions.yml"                                     , emit: versions
 
     when:
@@ -19,11 +19,12 @@ process SORT {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
+    extension = input_file.extension
     """
     sort --parallel=${task.cpus} \\
         $args \\
         $txt_file \\
-        > ${prefix}_sorted.txt
+        > ${prefix}.${extension}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
