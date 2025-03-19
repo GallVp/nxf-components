@@ -19,7 +19,7 @@ process SORT {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    extension = input_file.extension    
+    extension = input_file.extension
     if ("${input_file}" == "${prefix}.${extension}") error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     sort --parallel=${task.cpus} \\
