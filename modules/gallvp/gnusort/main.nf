@@ -23,7 +23,7 @@ process GNUSORT {
     sort --parallel=${task.cpus} \\
         $args \\
         $txt_file \\
-        > ${prefix}_sorted.txt
+        > ${prefix}.${extension}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
