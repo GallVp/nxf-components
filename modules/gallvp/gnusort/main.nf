@@ -18,6 +18,7 @@ process GNUSORT {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
+    extension = input_file.extension
     """
     sort --parallel=${task.cpus} \\
         $args \\
