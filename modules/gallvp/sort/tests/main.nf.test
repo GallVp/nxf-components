@@ -1,12 +1,12 @@
 nextflow_process {
 
-    name "Test Process GNUSORT"
+    name "Test Process SORT"
     script "../main.nf"
-    process "GNUSORT"
+    process "SORT"
 
     tag "modules"
     tag "modules_gallvp"
-    tag "gnusort"
+    tag "sort"
 
     test("nanopore - test_sequencing_summary") {
         when {
