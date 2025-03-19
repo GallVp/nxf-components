@@ -20,18 +20,18 @@ input:
         description: |
           Groovy Map containing sample information
           e.g. `[ id:'sample1' ]`
-    - txt_file:
+    - input_file:
         type: file
         description: Text file
         pattern: "*.{txt}"
 output:
-  - sorted_txt:
+  - sorted:
       - meta:
           type: map
           description: |
             Groovy Map containing sample information
             e.g. `[ id:'test' ]`
-      - "*_sorted.txt":
+      - "*.${extension}":
           type: file
           description: Sorted text file
           pattern: "*.{txt}"
