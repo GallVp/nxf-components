@@ -17,6 +17,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/plotsr">modules/gallvp/plotsr</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/mdust">modules/gallvp/mdust</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/matlock/bam2juicer">modules/gallvp/matlock/bam2juicer</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever">modules/gallvp/ltrretriever/ltrretriever</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai">modules/gallvp/ltrretriever/lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest">modules/gallvp/ltrharvest</a></li>
