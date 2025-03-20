@@ -4,4 +4,4 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - "bioconda::helitronscanner=1.0"
+  - bioconda::helitronscanner=1.0
