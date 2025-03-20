@@ -1,0 +1,68 @@
+{
+    "nanopore - test_sequencing_summary stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.txt:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,fc27544bdb85c9b1399a963d92304228"
+                ],
+                "sorted": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.txt:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,fc27544bdb85c9b1399a963d92304228"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.2"
+        },
+        "timestamp": "2025-03-20T00:04:10.685068915"
+    },
+    "nanopore - test_sequencing_summary": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.sorted.txt:md5,56ef18b392e17b5f1dd9309f7983c867"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,fc27544bdb85c9b1399a963d92304228"
+                ],
+                "sorted": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.sorted.txt:md5,56ef18b392e17b5f1dd9309f7983c867"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,fc27544bdb85c9b1399a963d92304228"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.2"
+        },
+        "timestamp": "2025-03-20T00:13:44.819626533"
+    }
+}
