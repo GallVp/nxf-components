@@ -23,7 +23,7 @@ input:
     - input_file:
         type: file
         description: Text file
-        pattern: "*.{txt}"
+        pattern: "*.{txt,tsv,csv}"
 output:
   - sorted:
       - meta:
@@ -34,7 +34,7 @@ output:
       - "*.${extension}":
           type: file
           description: Sorted text file
-          pattern: "*.{txt}"
+          pattern: "*.{txt,tsv,csv}"
   - versions:
       - "versions.yml":
           type: file

@@ -30,7 +30,7 @@
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
         },
-        "timestamp": "2025-03-19T22:59:58.761013457"
+        "timestamp": "2025-03-20T00:04:10.685068915"
     },
     "nanopore - test_sequencing_summary": {
         "content": [
@@ -63,6 +63,6 @@
             "nf-test": "0.9.2",
             "nextflow": "24.10.2"
         },
-        "timestamp": "2025-03-19T22:59:51.650555073"
+        "timestamp": "2025-03-20T00:13:44.819626533"
     }
 }
