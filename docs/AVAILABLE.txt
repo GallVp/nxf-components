@@ -45,4 +45,5 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist">modules/gallvp/agat/spfilterfeaturefromkilllist</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterbyorfsize">modules/gallvp/agat/spfilterbyorfsize</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations">modules/gallvp/agat/spcomplementannotations</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spaddintrons">modules/gallvp/agat/spaddintrons</a></li>
