@@ -29,6 +29,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3validator">modules/gallvp/gt/gff3validator</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3">modules/gallvp/gt/gff3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gffread">modules/gallvp/gffread</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/falint">modules/gallvp/falint</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/eggnogmapper">modules/gallvp/eggnogmapper</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/edta/edta">modules/gallvp/edta/edta</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/diamond/makedb">modules/gallvp/diamond/makedb</a></li>
