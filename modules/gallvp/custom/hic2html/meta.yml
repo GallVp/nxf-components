@@ -1,0 +1,53 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "custom_hic2html"
+description: |
+  Creates a juicebox hi-c heatmap html. Shows hi-c contact heatmap with
+  contig and scaffolding annotations. 
+keywords:
+  - hi-c
+  - juicebox
+  - report
+  - html
+  - scaffolding
+  - assembly
+tools:
+  - "python":
+      description: |
+        Python is a programming language that lets you work quickly
+        and integrate systems more effectively
+      homepage: "https://www.python.org"
+      documentation: "https://docs.python.org/3/"
+      tool_dev_url: "https://github.com/python/cpython"
+      licence: ["MIT"]
+      identifier: ""
+  - "juicebox":
+      description: |
+        Visualization and analysis software for Hi-C data - 
+      homepage: "https://igv.org/doc/juiceboxjs.html"
+      documentation: "https://igvteam.github.io/juicebox-web/"
+      tool_dev_url: "https://github.com/aidenlab/Juicebox"
+      licence: ["MIT"]
+      identifier: ""
+input:
+    - fasta:
+        type: file
+        description: Hi-C file to be vizualized with Juicebox. 
+        pattern: "*.hic"
+
+output:
+  - html:
+        type: file
+        description: Output html file
+        pattern: "*.hmtl"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+authors:
+  - "@ignacio3437"
+  - "@GallVp"
+maintainers:
+  - "@ignacio3437"
+  - "@GallVp"
