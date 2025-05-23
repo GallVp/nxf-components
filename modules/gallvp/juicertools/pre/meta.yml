@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "juicertools_pre"
+description: Creates a HiC file
+keywords:
+  - genomics
+  - hic
+  - qc
+tools:
+  - "juicertools":
+      description: "Visualization and analysis software for Hi-C data"
+      homepage: "https://github.com/aidenlab/Juicebox"
+      documentation: "https://github.com/aidenlab/Juicebox"
+      tool_dev_url: "https://github.com/aidenlab/Juicebox"
+      licence: ["MIT"]
+      identifier: ""
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - txt:
+        type: file
+        description: Text file containing HiC contacts
+        pattern: "*.{txt}"
+        ontologies:
+          - edam: "http://edamontology.org/format_2572" # BAM
+          - edam: "http://edamontology.org/format_2573" # CRAM
+          - edam: "http://edamontology.org/format_3462" # SAM
+
+  - - sizes:
+        type: file
+        description: File containing the sizes of the chromosomes obtained from samtools
+          faidx first two columns
+        pattern: "*.{sizes}"
+
+        ontologies: []
+output:
+  - hic:
+      #Only when we have meta
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.hic":
+          type: file
+          description: Output HiC file
+          pattern: "*.{hic}"
+          ontologies:
+            - edam: "http://edamontology.org/format_2572" # BAM
+            - edam: "http://edamontology.org/format_2573" # CRAM
+            - edam: "http://edamontology.org/format_3462" # SAM
+
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+
+          ontologies:
+            - edam: http://edamontology.org/format_3750 # YAML
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
