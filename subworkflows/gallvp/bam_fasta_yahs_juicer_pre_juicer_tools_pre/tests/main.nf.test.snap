@@ -1,0 +1,45 @@
+{
+    "hongyang - bam - fasta": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.hic:md5,80d6f191efdceb8e7f7bbdcb5c522043"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,280e60b94741058316edef181421ce5b",
+                    "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
+                    "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                ],
+                "hic": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.hic:md5,80d6f191efdceb8e7f7bbdcb5c522043"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,280e60b94741058316edef181421ce5b",
+                    "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
+                    "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "24.10.6"
+        },
+        "timestamp": "2025-05-26T11:46:26.101184"
+    }
+}
