@@ -5,6 +5,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre">modules/gallvp/yahs/juicerpre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tesorter">modules/gallvp/tesorter</a></li>
