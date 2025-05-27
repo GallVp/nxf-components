@@ -26,6 +26,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrfinder">modules/gallvp/ltrfinder</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicertools/pre">modules/gallvp/juicertools/pre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/makeagpfromfasta">modules/gallvp/juiceboxscripts/makeagpfromfasta</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hicqc">modules/gallvp/hicqc</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/scan">modules/gallvp/helitronscanner/scan</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/draw">modules/gallvp/helitronscanner/draw</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gunzip">modules/gallvp/gunzip</a></li>
