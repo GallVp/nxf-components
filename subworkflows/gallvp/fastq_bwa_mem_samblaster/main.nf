@@ -7,23 +7,24 @@ workflow FASTQ_BWA_MEM_SAMBLASTER {
     take:
     ch_fastq                // channel: [ val(meta), [ fq ] ]
     ch_reference            // channel: [ val(meta2), fasta, index ]; fasta | index
+    val_sort_bam            // boolean: true|false
 
     main:
     ch_versions             = Channel.empty()
 
     ch_has_index            = ch_reference
-                            | branch { meta2, fasta, index ->
+                            | branch { _meta2, _fasta, index ->
                                 yes: index
                                 no: !index
                             }
 
     // MODULE: BWA_INDEX
-    BWA_INDEX ( ch_has_index.no.map { meta2, fasta, index -> [ meta2, fasta ] } )
+    BWA_INDEX ( ch_has_index.no.map { meta2, fasta, _index -> [ meta2, fasta ] } )
 
     ch_bwa_index            = BWA_INDEX.out.index
                             | mix(
                                 ch_has_index.yes
-                                | map { meta2, fasta, index ->
+                                | map { meta2, _fasta, index ->
                                     [ meta2, index ]
                                 }
                             )
@@ -39,12 +40,11 @@ workflow FASTQ_BWA_MEM_SAMBLASTER {
                                 [ meta + [ ref_id: meta2.id ], fq, index ]
                             }
 
-    def sort_bam            = false
     BWA_MEM(
-        ch_mem_inputs.map { meta, fq, index -> [ meta, fq ] },
-        ch_mem_inputs.map { meta, fq, index -> [ [], index ] },
+        ch_mem_inputs.map { meta, fq, _index -> [ meta, fq ] },
+        ch_mem_inputs.map { _meta, _fq, index -> [ [], index ] },
         [ [], [] ],
-        sort_bam
+        val_sort_bam
     )
 
     ch_mem_bam              = BWA_MEM.out.bam
@@ -53,7 +53,6 @@ workflow FASTQ_BWA_MEM_SAMBLASTER {
     // MODULE: SAMBLASTER
     SAMBLASTER ( ch_mem_bam )
 
-    ch_blasted_bam          = SAMBLASTER.out.bam
     ch_versions             = ch_versions.mix(SAMBLASTER.out.versions.first())
 
     emit:
