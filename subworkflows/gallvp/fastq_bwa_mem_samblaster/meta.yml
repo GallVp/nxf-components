@@ -32,6 +32,10 @@ input:
       type: file
       description: BWA genome index files
       pattern: "Directory containing BWA index *.{amb,ann,bwt,pac,sa}"
+  - val_sort_bam:
+      type: boolean
+      description: To sort or not to sort the BAM file
+
 output:
   - meta:
       type: map
