@@ -7,7 +7,7 @@
                 "nf-core": {
                     "agat/spfilterfeaturefromkilllist": {
                         "branch": "master",
-                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
+                        "git_sha": "e2684f20ddc22b76879d4d9afdf12180036c6ca0",
                         "installed_by": ["modules"]
                     },
                     "bwa/index": {
@@ -27,7 +27,7 @@
                     },
                     "diamond/makedb": {
                         "branch": "master",
-                        "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "git_sha": "dc71da5a29cee04ab99390d6f5f5d2fb9a8cb9ec",
                         "installed_by": ["modules"]
                     },
                     "eggnogmapper": {
@@ -42,12 +42,12 @@
                     },
                     "gt/gff3": {
                         "branch": "master",
-                        "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "git_sha": "8864afe586537bf562eac7b83349c26207f3cb4d",
                         "installed_by": ["modules"]
                     },
                     "gt/gff3validator": {
                         "branch": "master",
-                        "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "git_sha": "8864afe586537bf562eac7b83349c26207f3cb4d",
                         "installed_by": ["modules"]
                     },
                     "gt/stat": {
@@ -72,7 +72,7 @@
                     },
                     "ltrretriever/lai": {
                         "branch": "master",
-                        "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "git_sha": "8864afe586537bf562eac7b83349c26207f3cb4d",
                         "installed_by": ["modules"]
                     },
                     "ltrretriever/ltrretriever": {
@@ -87,7 +87,7 @@
                     },
                     "minimap2/align": {
                         "branch": "master",
-                        "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "git_sha": "a532706a19b3d83f14b1d48a6a815ed33eb48b0c",
                         "installed_by": ["modules"]
                     },
                     "samblaster": {
