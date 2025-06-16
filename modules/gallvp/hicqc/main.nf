@@ -2,8 +2,7 @@ process HICQC {
     tag "$meta.id"
     label 'process_single'
 
-    // Bioconda recipe is pending: https://github.com/bioconda/bioconda-recipes/pull/55921
-    container "docker.io/gallvp/hic_qc:v1.3"
+    container "ghcr.io/gallvp/hic_qc:v1.3.1"
 
     input:
     tuple val(meta), path(bam)
@@ -26,14 +25,14 @@ process HICQC {
     export MPLCONFIGDIR=./matplotlib/config
     export XDG_CACHE_HOME=./matplotlib/cache
 
-    hic_qc.py \\
+    hic_qc \\
         $args \\
         -b $bam \\
         --outfile_prefix "$prefix"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        hic_qc.py: \$(hic_qc.py --version)
+        hic_qc.py: \$(hic_qc --version)
     END_VERSIONS
     """
 
@@ -44,7 +43,7 @@ process HICQC {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        hic_qc.py: \$(hic_qc.py --version)
+        hic_qc.py: \$(hic_qc --version)
     END_VERSIONS
     """
 }
