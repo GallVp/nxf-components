@@ -2,7 +2,7 @@
     "hongyang - bam": {
         "content": [
             [
-                "versions.yml:md5,d8f5bd4c7db89f17c564f3b1c8770d7f"
+                "versions.yml:md5,7d85ef9681fa4f32ac7ee79d11babc66"
             ],
             "test_qc_report.pdf",
             "test_qc_report.html",
@@ -15,9 +15,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.6"
+            "nextflow": "25.04.2"
         },
-        "timestamp": "2025-05-27T15:07:01.177127"
+        "timestamp": "2025-06-16T17:03:45.03109"
     },
     "hongyang - bam - stub": {
         "content": [
@@ -41,7 +41,7 @@
                     ]
                 ],
                 "2": [
-                    "versions.yml:md5,d8f5bd4c7db89f17c564f3b1c8770d7f"
+                    "versions.yml:md5,7d85ef9681fa4f32ac7ee79d11babc66"
                 ],
                 "html": [
                     [
@@ -62,14 +62,14 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,d8f5bd4c7db89f17c564f3b1c8770d7f"
+                    "versions.yml:md5,7d85ef9681fa4f32ac7ee79d11babc66"
                 ]
             }
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.6"
+            "nextflow": "25.04.2"
         },
-        "timestamp": "2025-05-27T11:12:42.637405"
+        "timestamp": "2025-06-16T17:03:50.517529"
     }
 }
