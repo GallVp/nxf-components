@@ -89,6 +89,18 @@ output:
           pattern: "*.liftover.agp"
 
           ontologies: []
+  - sizes:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.sizes":
+          type: file
+          description: Sizes file for the assembly mode
+          pattern: "*.sizes"
+
+          ontologies: []
   - versions:
       - "versions.yml":
           type: file
