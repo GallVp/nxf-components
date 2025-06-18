@@ -26,7 +26,7 @@ process YAHS_JUICERPRE {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def sizes_cmd = '-a' in "$args" ? "sed -n 's|PRE_C_SIZE: \\(.*\\)|\\1|p' ${prefix}.stdout > ${prefix}.sizes" : ''
+    def sizes_cmd = '-a' in "$args".tokenize() ? "sed -n 's|PRE_C_SIZE: \\(.*\\)|\\1|p' ${prefix}.stdout > ${prefix}.sizes" : ''
     """
     juicer pre \\
         $args \\
