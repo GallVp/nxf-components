@@ -1,0 +1,101 @@
+nextflow_process {
+
+    name "Test Process HAPHIC_REFSORT"
+    script "../main.nf"
+    config "./nextflow.config"
+    process "HAPHIC_REFSORT"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "haphic"
+    tag "haphic/refsort"
+    tag "minimap2/align"
+    tag "gunzip"
+
+    setup {
+        run("MINIMAP2_ALIGN") {
+            script "../../../minimap2/align/main.nf"
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.gz', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
+                ]
+                input[2] = false
+                input[3] = []
+                input[4] = false
+                input[5] = false
+                """
+            }
+        }
+    }
+
+    test("hongyang - hic - fasta") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.agp', checkIfExists: true),
+                ]
+                input[1] = MINIMAP2_ALIGN.out.paf.map { it[1] }
+                input[2] = []
+                input[3] = []
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("hongyang - hic - fasta - fout") {
+
+        setup {
+            run("GUNZIP") {
+                script "../../../gunzip/main.nf"
+                process {
+                    """
+                    input[0] = [
+                        [ id:'test', single_end:true ], // meta map
+                        file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.gz', checkIfExists: true)
+                    ]
+                    """
+                }
+            }
+        }
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.agp', checkIfExists: true),
+                ]
+                input[1] = MINIMAP2_ALIGN.out.paf.map { it[1] }
+                input[2] = GUNZIP.out.gunzip.map { it[1] }
+                input[3] = []
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
