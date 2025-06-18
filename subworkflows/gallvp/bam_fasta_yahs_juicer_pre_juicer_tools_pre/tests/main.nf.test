@@ -34,6 +34,11 @@ nextflow_workflow {
     test("hongyang - bam - fasta") {
 
         when {
+            params {
+                sort = '-k2,2d -k6,6d'
+                juicerpre = ''
+                juicertoolspre = ''
+            }
             workflow {
                 """
                 input[0] = Channel.of([
@@ -41,6 +46,35 @@ nextflow_workflow {
                     file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.bam', checkIfExists: true)
                 ])
                 input[1] = GUNZIP.out.gunzip
+                input[2] = false // val_assembly_mode
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("hongyang - bam - fasta - assembly") {
+
+        when {
+            params {
+                sort = '-k2,2d -k6,6d'
+                juicerpre = '-a'
+                juicertoolspre = '-r 1000'
+            }
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', ref_id:'genome' ],
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.bam', checkIfExists: true)
+                ])
+                input[1] = GUNZIP.out.gunzip
+                input[2] = true // val_assembly_mode
                 """
             }
         }

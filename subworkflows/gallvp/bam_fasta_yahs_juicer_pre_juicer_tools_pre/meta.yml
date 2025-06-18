@@ -24,6 +24,10 @@ input:
         The input channel containing the FASTA file
         Structure: [ val(meta2), path(fasta) ]
       pattern: "*.{fasta}"
+  - val_assembly_mode:
+      type: Boolean
+      description: |
+        Turn on/off assembly mode '-a' for YAHS_JUICERPRE
 output:
   - versions:
       type: file
@@ -37,6 +41,18 @@ output:
         The output channel containing the HiC file
         Structure: [ val(meta), path(fasta) ]
       pattern: "*.{hic}"
+  - assembly:
+      type: file
+      description: |
+        The output channel containing the assembly file
+        Structure: [ val(meta), path(assembly) ]
+      pattern: "*.{assembly}"
+  - assembly_agp:
+      type: file
+      description: |
+        The output channel containing the assembly agp file
+        Structure: [ val(meta), path(assembly) ]
+      pattern: "*.{agp}"
 authors:
   - "@GallVp"
 maintainers:

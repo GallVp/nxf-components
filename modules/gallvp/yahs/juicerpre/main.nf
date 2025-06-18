@@ -17,6 +17,7 @@ process YAHS_JUICERPRE {
     tuple val(meta), path("*.assembly")     , emit: assembly        , optional: true
     tuple val(meta), path("*.assembly.agp") , emit: assembly_agp    , optional: true
     tuple val(meta), path("*.liftover.agp") , emit: liftover_agp    , optional: true
+    tuple val(meta), path("*.sizes")        , emit: sizes           , optional: true
     path "versions.yml"                     , emit: versions
 
     when:
@@ -25,13 +26,17 @@ process YAHS_JUICERPRE {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
+    def sizes_cmd = '-a' in "$args" ? "sed -n 's|PRE_C_SIZE: \\(.*\\)|\\1|p' ${prefix}.stdout > ${prefix}.sizes" : ''
     """
     juicer pre \\
         $args \\
         $bam_or_bin \\
         $agp \\
         $fai \\
-        -o ${prefix}
+        -o ${prefix} \\
+        2>| >(tee ${prefix}.stdout >&2)
+
+    $sizes_cmd
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
