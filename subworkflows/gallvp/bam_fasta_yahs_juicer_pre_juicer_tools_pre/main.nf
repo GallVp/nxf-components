@@ -10,6 +10,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     ch_bam                          // channel: [ val(meta), bam ]; meta: [ id, ref_id ]
     ch_fasta                        // channel: [ val(meta2), fasta ]; meta2: [ id ]
                                     // meta2.id = meta.ref_id
+    val_assembly_mode               // true|false; Turn on/off assembly mode '-a' for YAHS_JUICERPRE
 
     main:
     ch_versions                     = Channel.empty()
@@ -59,13 +60,23 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     ch_versions                     = ch_versions.mix(YAHS_JUICERPRE.out.versions.first())
 
     // MODULE: SORT
-    SORT ( YAHS_JUICERPRE.out.txt )
-
+    ch_sort_input                   = ! val_assembly_mode
+                                    ? YAHS_JUICERPRE.out.txt
+                                    : Channel.empty()
+    SORT ( ch_sort_input )
     ch_versions                     = ch_versions.mix(SORT.out.versions.first())
 
     // MODULE: JUICERTOOLS_PRE
-    ch_juicertools_pre_inputs       = SORT.out.sorted
-                                    | join ( ch_yahs_juicerpre_inputs.sizes )
+    ch_juicertools_pre_inputs       = (
+                                        val_assembly_mode
+                                        ? YAHS_JUICERPRE.out.txt
+                                        : SORT.out.sorted
+                                    )
+                                    | join (
+                                        val_assembly_mode
+                                        ? YAHS_JUICERPRE.out.sizes
+                                        : ch_yahs_juicerpre_inputs.sizes
+                                    )
                                     | multiMap { meta, sorted, sizes ->
                                         sorted: [ meta, sorted ]
                                         sizes: sizes
@@ -80,6 +91,8 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
 
     emit:
 
-    hic                             = JUICERTOOLS_PRE.out.hic   // channel: [ meta, hic ]
-    versions                        = ch_versions               // channel: [ versions.yml ]
+    hic                             = JUICERTOOLS_PRE.out.hic           // channel: [ meta, hic ]
+    assembly                        = YAHS_JUICERPRE.out.assembly       // channel: [ meta, assembly ]
+    assembly_agp                    = YAHS_JUICERPRE.out.assembly_agp   // channel: [ meta, agp ]
+    versions                        = ch_versions                       // channel: [ versions.yml ]
 }

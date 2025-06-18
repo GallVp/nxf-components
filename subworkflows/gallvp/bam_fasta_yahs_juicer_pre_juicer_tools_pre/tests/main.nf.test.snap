@@ -1,4 +1,81 @@
 {
+    "hongyang - bam - fasta - assembly": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.hic:md5,4bcdf548b354e625c81bb23061e365db"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.assembly:md5,2154e1e2f2c12dd43765bc35a2003826"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.assembly.agp:md5,1389ded06e1056dd03d44a849788c4ad"
+                    ]
+                ],
+                "3": [
+                    "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
+                    "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                ],
+                "assembly": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.assembly:md5,2154e1e2f2c12dd43765bc35a2003826"
+                    ]
+                ],
+                "assembly_agp": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.assembly.agp:md5,1389ded06e1056dd03d44a849788c4ad"
+                    ]
+                ],
+                "hic": [
+                    [
+                        {
+                            "id": "test",
+                            "ref_id": "genome"
+                        },
+                        "test.hic:md5,4bcdf548b354e625c81bb23061e365db"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
+                    "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-18T14:34:04.064695"
+    },
     "hongyang - bam - fasta": {
         "content": [
             {
@@ -12,11 +89,23 @@
                     ]
                 ],
                 "1": [
+                    
+                ],
+                "2": [
+                    
+                ],
+                "3": [
                     "versions.yml:md5,280e60b94741058316edef181421ce5b",
                     "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
                     "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
                     "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
                     "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                ],
+                "assembly": [
+                    
+                ],
+                "assembly_agp": [
+                    
                 ],
                 "hic": [
                     [
@@ -38,8 +127,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.6"
+            "nextflow": "25.04.2"
         },
-        "timestamp": "2025-05-26T11:46:26.101184"
+        "timestamp": "2025-06-18T14:33:51.199948"
     }
 }
