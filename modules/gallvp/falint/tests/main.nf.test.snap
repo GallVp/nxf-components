@@ -15,7 +15,7 @@
                     
                 ],
                 "2": [
-                    "versions.yml:md5,8298b2514200e1266de26c8f2a18c10d"
+                    "versions.yml:md5,8fdbf4fa23101f225056b3ac1e3f8bde"
                 ],
                 "error_log": [
                     
@@ -30,7 +30,7 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,8298b2514200e1266de26c8f2a18c10d"
+                    "versions.yml:md5,8fdbf4fa23101f225056b3ac1e3f8bde"
                 ]
             }
         ],
@@ -38,19 +38,19 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-10T09:45:10.983828"
+        "timestamp": "2025-06-18T19:30:49.758303"
     },
     "sarscov2-gff3-invalid": {
         "content": [
             [
-                "versions.yml:md5,8298b2514200e1266de26c8f2a18c10d"
+                "versions.yml:md5,8fdbf4fa23101f225056b3ac1e3f8bde"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-10T09:45:20.494381"
+        "timestamp": "2025-06-18T19:30:58.028027"
     },
     "sarscov2-fasta-valid-stub": {
         "content": [
@@ -68,7 +68,7 @@
                     
                 ],
                 "2": [
-                    "versions.yml:md5,8298b2514200e1266de26c8f2a18c10d"
+                    "versions.yml:md5,8fdbf4fa23101f225056b3ac1e3f8bde"
                 ],
                 "error_log": [
                     
@@ -83,7 +83,7 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,8298b2514200e1266de26c8f2a18c10d"
+                    "versions.yml:md5,8fdbf4fa23101f225056b3ac1e3f8bde"
                 ]
             }
         ],
@@ -91,6 +91,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.2"
         },
-        "timestamp": "2025-06-10T09:45:15.632173"
+        "timestamp": "2025-06-18T19:30:53.706933"
     }
 }
