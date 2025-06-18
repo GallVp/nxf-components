@@ -29,6 +29,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hicqc">modules/gallvp/hicqc</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/scan">modules/gallvp/helitronscanner/scan</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/draw">modules/gallvp/helitronscanner/draw</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/haphic/refsort">modules/gallvp/haphic/refsort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gunzip">modules/gallvp/gunzip</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/stat">modules/gallvp/gt/stat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3validator">modules/gallvp/gt/gff3validator</a></li>

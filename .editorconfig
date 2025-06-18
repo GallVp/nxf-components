@@ -10,6 +10,3 @@ indent_style = space
 
 [*.{md,yml,yaml,cff,sh}]
 indent_size = 2
-
-[*.nf.test]
-insert_final_newline = false
