@@ -7,7 +7,7 @@
                 "nf-core": {
                     "agat/spfilterfeaturefromkilllist": {
                         "branch": "master",
-                        "git_sha": "e2684f20ddc22b76879d4d9afdf12180036c6ca0",
+                        "git_sha": "48c86d92fe761cb3faafdb38e4d8ca3bf6d1c657",
                         "installed_by": ["modules"]
                     },
                     "bwa/index": {
