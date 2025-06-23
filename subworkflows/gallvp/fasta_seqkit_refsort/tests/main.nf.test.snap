@@ -1,0 +1,167 @@
+{
+    "HY - actinidia_chinensis - fasta - no - sort - combinations": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "query_ref"
+                        },
+                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                    ],
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "HYh1h2_Chr01_6000000_6015000.fasta:md5,698715c5989f43041a04f6fdca846974"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "genome.fasta:md5,d07bc737a8ba2db4ea02872a73dace0b"
+                    ]
+                ],
+                "1": [
+                    
+                ],
+                "fasta": [
+                    [
+                        {
+                            "id": "query_ref"
+                        },
+                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                    ],
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "HYh1h2_Chr01_6000000_6015000.fasta:md5,698715c5989f43041a04f6fdca846974"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "genome.fasta:md5,d07bc737a8ba2db4ea02872a73dace0b"
+                    ]
+                ],
+                "versions": [
+                    
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-23T16:38:22.908092"
+    },
+    "HY - actinidia_chinensis - fasta": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "query.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "ref.fasta:md5,7315276c0e677b424e673562f48b9873"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,7cd4eb452407fcd946428f758c97442d"
+                ],
+                "fasta": [
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "query.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "ref.fasta:md5,7315276c0e677b424e673562f48b9873"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,7cd4eb452407fcd946428f758c97442d"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-23T16:37:58.264534"
+    },
+    "HY - actinidia_chinensis - fasta - combinations": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "query_ref"
+                        },
+                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                    ],
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "query.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "ref.fasta:md5,7315276c0e677b424e673562f48b9873"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,0b0eba6b6f07300cd87c276e0a55424d",
+                    "versions.yml:md5,7cd4eb452407fcd946428f758c97442d",
+                    "versions.yml:md5,c2aa26eec40ab4040601c089970c815c",
+                    "versions.yml:md5,c8fc50b7f6a91b026265c5202a63fbc7"
+                ],
+                "fasta": [
+                    [
+                        {
+                            "id": "query_ref"
+                        },
+                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                    ],
+                    [
+                        {
+                            "id": "query"
+                        },
+                        "query.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                    ],
+                    [
+                        {
+                            "id": "ref"
+                        },
+                        "ref.fasta:md5,7315276c0e677b424e673562f48b9873"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,0b0eba6b6f07300cd87c276e0a55424d",
+                    "versions.yml:md5,7cd4eb452407fcd946428f758c97442d",
+                    "versions.yml:md5,c2aa26eec40ab4040601c089970c815c",
+                    "versions.yml:md5,c8fc50b7f6a91b026265c5202a63fbc7"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.2"
+        },
+        "timestamp": "2025-06-23T16:38:13.293525"
+    }
+}
