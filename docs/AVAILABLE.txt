@@ -2,6 +2,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt">subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat">subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster">subworkflows/gallvp/fastq_bwa_mem_samblaster</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_seqkit_refsort">subworkflows/gallvp/fasta_seqkit_refsort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
@@ -10,6 +11,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/sort">modules/gallvp/sort</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/sort">modules/gallvp/seqkit/sort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq">modules/gallvp/seqkit/seq</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx">modules/gallvp/samtools/faidx</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
