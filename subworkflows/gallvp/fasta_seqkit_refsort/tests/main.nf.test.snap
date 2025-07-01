@@ -7,7 +7,7 @@
                         {
                             "id": "query_ref"
                         },
-                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                        "query_ref.fasta:md5,7e52d0a17de86f5b11dd4d77c8332fa6"
                     ],
                     [
                         {
@@ -23,14 +23,14 @@
                     ]
                 ],
                 "1": [
-                    
+                    "versions.yml:md5,5772594d0b3e1f41b2730f1dda23465b"
                 ],
                 "fasta": [
                     [
                         {
                             "id": "query_ref"
                         },
-                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                        "query_ref.fasta:md5,7e52d0a17de86f5b11dd4d77c8332fa6"
                     ],
                     [
                         {
@@ -46,15 +46,15 @@
                     ]
                 ],
                 "versions": [
-                    
+                    "versions.yml:md5,5772594d0b3e1f41b2730f1dda23465b"
                 ]
             }
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
+            "nextflow": "25.04.4"
         },
-        "timestamp": "2025-06-23T16:38:22.908092"
+        "timestamp": "2025-07-02T10:18:34.182968"
     },
     "HY - actinidia_chinensis - fasta": {
         "content": [
@@ -109,7 +109,7 @@
                         {
                             "id": "query_ref"
                         },
-                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                        "query_ref.fasta:md5,7e52d0a17de86f5b11dd4d77c8332fa6"
                     ],
                     [
                         {
@@ -126,6 +126,7 @@
                 ],
                 "1": [
                     "versions.yml:md5,0b0eba6b6f07300cd87c276e0a55424d",
+                    "versions.yml:md5,5772594d0b3e1f41b2730f1dda23465b",
                     "versions.yml:md5,7cd4eb452407fcd946428f758c97442d",
                     "versions.yml:md5,c2aa26eec40ab4040601c089970c815c",
                     "versions.yml:md5,c8fc50b7f6a91b026265c5202a63fbc7"
@@ -135,7 +136,7 @@
                         {
                             "id": "query_ref"
                         },
-                        "query_ref.fasta:md5,e19cbdd8a0367b44921ddc357cad3f45"
+                        "query_ref.fasta:md5,7e52d0a17de86f5b11dd4d77c8332fa6"
                     ],
                     [
                         {
@@ -152,6 +153,7 @@
                 ],
                 "versions": [
                     "versions.yml:md5,0b0eba6b6f07300cd87c276e0a55424d",
+                    "versions.yml:md5,5772594d0b3e1f41b2730f1dda23465b",
                     "versions.yml:md5,7cd4eb452407fcd946428f758c97442d",
                     "versions.yml:md5,c2aa26eec40ab4040601c089970c815c",
                     "versions.yml:md5,c8fc50b7f6a91b026265c5202a63fbc7"
@@ -160,8 +162,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
+            "nextflow": "25.04.4"
         },
-        "timestamp": "2025-06-23T16:38:13.293525"
+        "timestamp": "2025-07-02T10:18:26.935545"
     }
 }

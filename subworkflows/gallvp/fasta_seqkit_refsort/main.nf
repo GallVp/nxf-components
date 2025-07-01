@@ -2,6 +2,7 @@ include { SEQKIT_SORT                       } from '../../../modules/gallvp/seqk
 include { MINIMAP2_ALIGN                    } from '../../../modules/gallvp/minimap2/align/main'
 include { JUICEBOXSCRIPTS_MAKEAGPFROMFASTA  } from '../../../modules/gallvp/juiceboxscripts/makeagpfromfasta/main'
 include { HAPHIC_REFSORT                    } from '../../../modules/gallvp/haphic/refsort/main'
+include { CUSTOM_INTERLEAVEFASTA            } from '../../../modules/gallvp/custom/interleavefasta/main'
 
 workflow FASTA_SEQKIT_REFSORT {
 
@@ -138,56 +139,33 @@ workflow FASTA_SEQKIT_REFSORT {
                                             }
                                             : ch_paired_fastas
 
-    // Channel: ch_interleaved_fasta
-    ch_interleaved_fasta                    = ch_ref_sorted_paired_fastas
-                                            | map { meta2, fastas ->
+    // MODULE:CUSTOM_INTERLEAVEFASTA
+    ch_interleave_input                     = ch_ref_sorted_paired_fastas
+                                            | multiMap { meta2, fastas ->
                                                 def query_fasta = fastas.first()
                                                 def ref_fasta  = fastas.last()
 
-                                                def query_fasta_records = query_fasta.splitFasta( record: [ id: true, sequence: true, width:80 ] )
-                                                def ref_fasta_records = ref_fasta.splitFasta( record: [ id: true, sequence: true, width:80 ] )
+                                                def query_prefix = meta2.query
+                                                def ref_prefix = meta2.ref
 
-                                                def query_ids = query_fasta_records.collect { it.id }
-                                                def ref_ids = ref_fasta_records.collect { it.id }
-
-                                                def n_query = query_ids.size()
-                                                def n_ref = ref_ids.size()
-                                                def max_n = Math.max ( n_query, n_ref )
-
-                                                def should_prefix = query_ids.any { it in ref_ids }
-                                                def query_prefix = should_prefix ? meta2.query : ''
-                                                def ref_prefix = should_prefix ? meta2.ref : ''
-
-                                                def interleaved_fasta_records = ( 0..<max_n ).collect { i ->
-                                                    def query_record = ( i < n_query)
-                                                        ? [ ">" + query_prefix + query_fasta_records[i].id + '\n', query_fasta_records[i].sequence ]
-                                                        : []
-
-                                                    def ref_record = ( i < n_ref)
-                                                        ? [ ">" + ref_prefix + ref_fasta_records[i].id + '\n', ref_fasta_records[i].sequence ]
-                                                        : []
-
-                                                    [
-                                                        query_record,
-                                                        ref_record
-                                                    ]
-                                                }.flatten()
-
-                                                [
-                                                    "${meta2.id}.fasta",
-                                                    interleaved_fasta_records.join('')
-                                                ]
+                                                fasta1:         [ [ id: meta2.id ], query_fasta ]
+                                                fasta2:         ref_fasta
+                                                fasta1_prefix:  query_prefix
+                                                fasta2_prefix:  ref_prefix
                                             }
-                                            | collectFile
-                                            | map { fasta ->
-                                                [
-                                                    [ id: fasta.simpleName ], // meta3
-                                                    fasta
-                                                ]
-                                            }
+
+    CUSTOM_INTERLEAVEFASTA (
+        ch_interleave_input.fasta1,
+        ch_interleave_input.fasta2,
+        ch_interleave_input.fasta1_prefix,
+        ch_interleave_input.fasta2_prefix,
+    )
+
+    ch_interleaved_fasta                    = CUSTOM_INTERLEAVEFASTA.out.fasta
+    ch_versions                             = ch_versions.mix(CUSTOM_INTERLEAVEFASTA.out.versions.first())
 
     emit:
     fasta                                   = ch_interleaved_fasta
-                                            | mix ( ch_single_fasta )   // channel: [ meta3, fasta ]
+                                            | mix ( ch_single_fasta )   // channel: [ meta3, fasta ]; meta3 ~ [ id ]
     versions                                = ch_versions               // channel: [ versions.yml ]
 }

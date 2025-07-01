@@ -12,6 +12,7 @@ components:
   - juiceboxscripts/makeagpfromfasta
   - minimap2/align
   - seqkit/sort
+  - custom/interleavefasta
 input:
   - ch_fasta:
       type: file
