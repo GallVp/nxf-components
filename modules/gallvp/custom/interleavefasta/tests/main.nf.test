@@ -1,0 +1,85 @@
+nextflow_process {
+
+    name "Test Process CUSTOM_INTERLEAVEFASTA"
+    script "../main.nf"
+    process "CUSTOM_INTERLEAVEFASTA"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "custom"
+    tag "custom/interleavefasta"
+
+    test("interleavefasta - standard") {
+        when {
+            process {
+                """
+                def test1_fasta = new File("test1.fasta")
+                test1_fasta.text = ">a1\\nACGT\\n>a2\\nTGCA\\n"
+
+                def test2_fasta = new File("test2.fasta")
+                test2_fasta.text = ">b1\\nAAAA\\n>b2\\nCCCC\\n"
+
+                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
+                input[1] = [ test2_fasta.toPath() ]
+                input[2] = '' // fasta1_prefix
+                input[3] = '' // fasta2_prefix
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert file(process.out.fasta[0][1]).text == ">a1\nACGT\n>b1\nAAAA\n>a2\nTGCA\n>b2\nCCCC\n"
+            assert snapshot(process.out).match()
+
+        }
+    }
+
+    test("interleavefasta - empty input") {
+        when {
+            process {
+                """
+                def test1_fasta = new File("test1.fasta")
+                test1_fasta.text = ""
+
+                def test2_fasta = new File("test2.fasta")
+                test2_fasta.text = ">b1\\nAAAA\\n"
+
+                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
+                input[1] = [ test2_fasta.toPath() ]
+                input[2] = '' // fasta1_prefix
+                input[3] = '' // fasta2_prefix
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert file(process.out.fasta[0][1]).text == ">b1\nAAAA\n"
+            assert snapshot(process.out).match()
+        }
+    }
+
+    test("interleavefasta - id collision triggers prefix") {
+        when {
+            process {
+                """
+                def test1_fasta = new File("test1.fasta")
+                test1_fasta.text = ">id1\\nAAA\\n"
+
+                def test2_fasta = new File("test2.fasta")
+                test2_fasta.text = ">id1\\nCCC\\n"
+
+                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
+                input[1] = [ test2_fasta.toPath() ]
+                input[2] = 'A_' // fasta1_prefix
+                input[3] = 'B_' // fasta2_prefix
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert file(process.out.fasta[0][1]).text == ">A_id1\nAAA\n>B_id1\nCCC\n"
+            assert snapshot(process.out).match()
+        }
+    }
+
+}

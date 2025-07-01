@@ -1,0 +1,72 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "custom_interleavefasta"
+description: Interleaves two FASTA files, optionally prefixing IDs if there are collisions, and outputs a single interleaved FASTA file.
+keywords:
+  - fasta
+  - interleave
+  - sequence
+  - genomics
+  - merge
+  - biopython
+  - custom
+  - utility
+tools:
+  - "python":
+      description: |
+        Python is a programming language that lets you work quickly
+        and integrate systems more effectively
+      homepage: "https://www.python.org"
+      documentation: "https://docs.python.org/3/"
+      tool_dev_url: "https://github.com/python/cpython"
+      licence: ["MIT"]
+      identifier: ""
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - fasta1:
+        type: file
+        description: First input FASTA file
+        pattern: "*.fasta"
+        ontologies:
+          - edam: "http://edamontology.org/format_1929" # FASTA
+  - - fasta2:
+        type: file
+        description: Second input FASTA file
+        pattern: "*.fasta"
+        ontologies:
+          - edam: "http://edamontology.org/format_1929" # FASTA
+  - - fasta1_prefix:
+        type: string
+        description: Prefix to add to IDs from the first FASTA file if there are collisions
+  - - fasta2_prefix:
+        type: string
+        description: Prefix to add to IDs from the second FASTA file if there are collisions
+
+output:
+  - fasta:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.fasta":
+          type: file
+          description: Interleaved FASTA file
+          pattern: "*.fasta"
+          ontologies:
+            - edam: "http://edamontology.org/format_1929" # FASTA
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
