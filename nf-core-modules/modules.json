@@ -5,6 +5,11 @@
         "https://github.com/nf-core/modules.git": {
             "modules": {
                 "nf-core": {
+                    "agat/spextractsequences": {
+                        "branch": "master",
+                        "git_sha": "e2684f20ddc22b76879d4d9afdf12180036c6ca0",
+                        "installed_by": ["modules"]
+                    },
                     "agat/spfilterfeaturefromkilllist": {
                         "branch": "master",
                         "git_sha": "48c86d92fe761cb3faafdb38e4d8ca3bf6d1c657",
@@ -58,6 +63,16 @@
                     "gunzip": {
                         "branch": "master",
                         "git_sha": "05954dab2ff481bcb999f24455da29a5828af08d",
+                        "installed_by": ["modules"]
+                    },
+                    "helitronscanner/draw": {
+                        "branch": "master",
+                        "git_sha": "f5b63a2afb3f855c5960026e71c65b2d33d0d383",
+                        "installed_by": ["modules"]
+                    },
+                    "helitronscanner/scan": {
+                        "branch": "master",
+                        "git_sha": "73b7e5380e6fc4ccf9e9af420fe1a4e3e46c1122",
                         "installed_by": ["modules"]
                     },
                     "ltrfinder": {

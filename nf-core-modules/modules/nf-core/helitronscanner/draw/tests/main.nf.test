@@ -6,7 +6,7 @@ nextflow_process {
     process "HELITRONSCANNER_DRAW"
 
     tag "modules"
-    tag "modules_gallvp"
+    tag "modules_nfcore"
     tag "helitronscanner"
     tag "helitronscanner/draw"
     tag "helitronscanner/scan"

@@ -33,12 +33,12 @@ Following modules have been submitted and added (✅︎) to nf-core/modules and 
 | Module                          | Pull request                                          |
 | ------------------------------- | ----------------------------------------------------- |
 | braker3 ✅︎                     | [#7824](https://github.com/nf-core/modules/pull/7824) |
-| agat/spextractsequences ✅︎     | [#7827](https://github.com/nf-core/modules/pull/7827) |
 | plotsr ✅︎                      | [#7828](https://github.com/nf-core/modules/pull/7828) |
 | syri ✅︎                        | [#7829](https://github.com/nf-core/modules/pull/7829) |
 | tirlearner ✅︎                  | [#7830](https://github.com/nf-core/modules/pull/7830) |
-| helitronscanner/draw ✅︎        | [#7833](https://github.com/nf-core/modules/pull/7833) |
-| helitronscanner/scan ✅︎        | [#7834](https://github.com/nf-core/modules/pull/7834) |
+| agat/spextractsequences ✅︎ ⛔  | [#7827](https://github.com/nf-core/modules/pull/7827) |
+| helitronscanner/draw ✅︎ ⛔     | [#7833](https://github.com/nf-core/modules/pull/7833) |
+| helitronscanner/scan ✅︎ ⛔     | [#7834](https://github.com/nf-core/modules/pull/7834) |
 | pbtk/pbindex ✅︎ ⛔             | [#5901](https://github.com/nf-core/modules/pull/5901) |
 | fasta_gxf_busco_plot ✅︎ ⛔     | [#7051](https://github.com/nf-core/modules/pull/7051) |
 | agat/spflagshortintrons ✅︎ ⛔  | [#7821](https://github.com/nf-core/modules/pull/7821) |
