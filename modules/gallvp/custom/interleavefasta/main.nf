@@ -8,10 +8,9 @@ process CUSTOM_INTERLEAVEFASTA {
         'biocontainers/biopython:1.75' }"
 
     input:
-    tuple val(meta), path(fasta1)
-    path(fasta2)
-    val(fasta1_prefix)
-    val(fasta2_prefix)
+    tuple val(meta), path(fastas)
+    val(fasta_prefixes)
+
 
     output:
     tuple val(meta), path("*.fasta")    , emit: fasta
@@ -22,12 +21,12 @@ process CUSTOM_INTERLEAVEFASTA {
 
     script:
     prefix = task.ext.prefix ?: "${meta.id}"
-    if ("${prefix}.fasta" == "$fasta1" || "${prefix}.fasta" == "$fasta2") error "Input and output names are the same, use 'prefix' to disambiguate!"
+    if ("${prefix}.fasta" in fastas) error "Input and output names are the same, use 'prefix' to disambiguate!"
     template 'interleave_fasta.py'
 
     stub:
     prefix = task.ext.prefix ?: "${meta.id}"
-    if ("${prefix}.fasta" == "$fasta1" || "${prefix}.fasta" == "$fasta2") error "Input and output names are the same, use 'prefix' to disambiguate!"
+    if ("${prefix}.fasta" in fastas) error "Input and output names are the same, use 'prefix' to disambiguate!"
     """
     touch ${prefix}.fasta
 

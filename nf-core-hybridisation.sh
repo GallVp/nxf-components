@@ -9,6 +9,7 @@ cp_hybrid_module() {
 # Modules for module testing
 cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
+cp_hybrid_module "repeatmasker/repeatmasker"
 
 # Modules for hybrid sub-workflows
 cp_hybrid_module "agat/spextractsequences"

@@ -19,10 +19,8 @@ nextflow_process {
                 def test2_fasta = new File("test2.fasta")
                 test2_fasta.text = ">b1\\nAAAA\\n>b2\\nCCCC\\n"
 
-                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
-                input[1] = [ test2_fasta.toPath() ]
-                input[2] = '' // fasta1_prefix
-                input[3] = '' // fasta2_prefix
+                input[0] = [ [ id: 'test'], [ test1_fasta.toPath(), test2_fasta.toPath() ] ]
+                input[1] = ''
                 """
             }
         }
@@ -44,10 +42,8 @@ nextflow_process {
                 def test2_fasta = new File("test2.fasta")
                 test2_fasta.text = ">b1\\nAAAA\\n"
 
-                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
-                input[1] = [ test2_fasta.toPath() ]
-                input[2] = '' // fasta1_prefix
-                input[3] = '' // fasta2_prefix
+                input[0] = [ [ id: 'test'], [ test1_fasta.toPath(), test2_fasta.toPath() ] ]
+                input[1] = ''
                 """
             }
         }
@@ -68,10 +64,8 @@ nextflow_process {
                 def test2_fasta = new File("test2.fasta")
                 test2_fasta.text = ">id1\\nCCC\\n"
 
-                input[0] = [ [ id: 'test'], test1_fasta.toPath() ]
-                input[1] = [ test2_fasta.toPath() ]
-                input[2] = 'A_' // fasta1_prefix
-                input[3] = 'B_' // fasta2_prefix
+                input[0] = [ [ id: 'test'], [ test1_fasta.toPath(), test2_fasta.toPath() ] ]
+                input[1] = 'A_ B_'
                 """
             }
         }
@@ -79,6 +73,49 @@ nextflow_process {
             assert process.success
             assert file(process.out.fasta[0][1]).text == ">A_id1\nAAA\n>B_id1\nCCC\n"
             assert snapshot(process.out).match()
+        }
+    }
+
+    test("interleavefasta - five files") {
+        when {
+            process {
+                """
+                def f1 = new File("f1.fasta"); f1.text = ">id\\nA\\n"
+                def f2 = new File("f2.fasta"); f2.text = ">id\\nB\\n"
+                def f3 = new File("f3.fasta"); f3.text = ">id\\nC\\n"
+                def f4 = new File("f4.fasta"); f4.text = ">id\\nD\\n"
+                def f5 = new File("f5.fasta"); f5.text = ">id\\nE\\n"
+
+                input[0] = [ [ id: 'test'], [ f1.toPath(), f2.toPath(), f3.toPath(), f4.toPath(), f5.toPath() ] ]
+                input[1] = 'P1_ P2_ P3_ P4_ P5_'
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert file(process.out.fasta[0][1]).text == ">P1_id\nA\n>P2_id\nB\n>P3_id\nC\n>P4_id\nD\n>P5_id\nE\n"
+            assert snapshot(process.out).match()
+        }
+    }
+
+    test("interleavefasta - id collision triggers prefix - fails due to no prefix input") {
+        when {
+            process {
+                """
+                def test1_fasta = new File("test1.fasta")
+                test1_fasta.text = ">id1\\nAAA\\n"
+
+                def test2_fasta = new File("test2.fasta")
+                test2_fasta.text = ">id1\\nCCC\\n"
+
+                input[0] = [ [ id: 'test'], [ test1_fasta.toPath(), test2_fasta.toPath() ] ]
+                input[1] = ''
+                """
+            }
+        }
+        then {
+            assert ! process.success
+            assert process.stdout.toString().contains( 'is not equal to the number of fasta files' )
         }
     }
 
