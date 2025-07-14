@@ -1,7 +1,7 @@
----
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_interleavefasta"
-description: Interleaves two FASTA files, optionally prefixing IDs if there are collisions, and outputs a single interleaved FASTA file.
+description: Interleaves two FASTA files, optionally prefixing IDs if there are
+  collisions, and outputs a single interleaved FASTA file.
 keywords:
   - fasta
   - interleave
@@ -28,28 +28,17 @@ input:
         description: |
           Groovy Map containing sample information
           e.g. `[ id:'sample1' ]`
-    - fasta1:
-        type: file
-        description: First input FASTA file
-        pattern: "*.fasta"
-        ontologies:
-          - edam: "http://edamontology.org/format_1929" # FASTA
-  - - fasta2:
-        type: file
-        description: Second input FASTA file
-        pattern: "*.fasta"
-        ontologies:
-          - edam: "http://edamontology.org/format_1929" # FASTA
-  - - fasta1_prefix:
-        type: string
-        description: Prefix to add to IDs from the first FASTA file if there are collisions
-  - - fasta2_prefix:
-        type: string
-        description: Prefix to add to IDs from the second FASTA file if there are collisions
+    - fastas:
+        type: list
+        description: A list of fasta files
+
+  - fasta_prefixes:
+      type: string
+      description: A space separated list of prefixes to add to IDs from the second FASTA file if there are collisions
 
 output:
-  - fasta:
-      - meta:
+  fasta:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -60,12 +49,14 @@ output:
           pattern: "*.fasta"
           ontologies:
             - edam: "http://edamontology.org/format_1929" # FASTA
-  - versions:
-      - "versions.yml":
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
 
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:
