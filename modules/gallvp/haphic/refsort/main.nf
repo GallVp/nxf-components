@@ -27,8 +27,8 @@ process HAPHIC_REFSORT {
     def fasta_arg = fasta ? "--fasta $fasta" : ''
     def ref_order_arg = ref_order ? "--ref_order $ref_order" : ''
     def fout_arg = fasta ? "--fout ${prefix}.fasta" : ''
-    if( "$agp" == "${prefix}.agp" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
-    if( "$fasta" == "${prefix}.fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$agp" == "${prefix}.agp" ) error "Input and output AGP names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$fasta" == "${prefix}.fasta" ) error "Input and output Fasta names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     haphic \\
         refsort \\
@@ -48,8 +48,8 @@ process HAPHIC_REFSORT {
 
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    if( "$agp" == "${prefix}.agp" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
-    if( "$fasta" == "${prefix}.fasta" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$agp" == "${prefix}.agp" ) error "Input and output AGP names are the same, use \"task.ext.prefix\" to disambiguate!"
+    if( "$fasta" == "${prefix}.fasta" ) error "Input and output Fasta names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     touch ${prefix}.agp
 

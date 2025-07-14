@@ -146,10 +146,10 @@
                     ],
                     [
                         {
-                            "id": "query2",
-                            "comb": "query2"
+                            "id": "query1",
+                            "comb": "query1"
                         },
-                        "query2.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                        "query1.fasta:md5,bcc14495671d77033b36be11fc20652c"
                     ],
                     [
                         {
@@ -172,10 +172,10 @@
                     ],
                     [
                         {
-                            "id": "query2",
-                            "comb": "query2"
+                            "id": "query1",
+                            "comb": "query1"
                         },
-                        "query2.fasta:md5,bcc14495671d77033b36be11fc20652c"
+                        "query1.fasta:md5,bcc14495671d77033b36be11fc20652c"
                     ],
                     [
                         {
@@ -194,7 +194,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-14T11:12:05.128217"
+        "timestamp": "2025-07-14T14:50:26.212818"
     },
     "HY - actinidia_chinensis - fasta - combinations": {
         "content": [
