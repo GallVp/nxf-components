@@ -31,25 +31,25 @@ input:
         pattern: "*.{agp}"
 
         ontologies: []
-  - - paf:
-        type: file
-        description: Alignment PAF
-        pattern: "*.{paf}"
+  - paf:
+      type: file
+      description: Alignment PAF
+      pattern: "*.{paf}"
 
-        ontologies: []
-  - - fasta:
-        type: file
-        description: Query Fasta
-        pattern: "*.{fasta}"
+      ontologies: []
+  - fasta:
+      type: file
+      description: Query Fasta
+      pattern: "*.{fasta}"
 
-        ontologies: []
-  - - ref_order:
-        type: string
-        description: Order of reference chromosomes
+      ontologies: []
+  - ref_order:
+      type: string
+      description: Order of reference chromosomes
 
 output:
-  - agp:
-      - meta:
+  agp:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -60,8 +60,8 @@ output:
           pattern: "*.{agp}"
 
           ontologies: []
-  - fasta:
-      - meta:
+  fasta:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -72,14 +72,14 @@ output:
           pattern: "*.{fasta}"
 
           ontologies: []
-  - versions:
-      - "versions.yml":
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
 
-          ontologies:
-            - edam: http://edamontology.org/format_3750 # YAML
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:
