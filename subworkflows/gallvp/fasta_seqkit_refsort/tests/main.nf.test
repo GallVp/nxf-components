@@ -27,6 +27,10 @@ nextflow_workflow {
                         file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.gz')
                     ],
                     [
+                        [ id: 'query1' ],
+                        file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.gz')
+                    ],
+                    [
                         [ id: 'ref' ],
                         file(params.modules_testdata_base_path + 'genomics/eukaryotes/actinidia_chinensis/genome/chr1/genome.fasta.gz', checkIfExists: true)
                     ],
@@ -65,6 +69,27 @@ nextflow_workflow {
                 """
                 input[0] = GUNZIP.out.gunzip
                 input[1] = "query query:ref ref"
+                input[2] = true
+                input[3] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("HY - actinidia_chinensis - fasta - combinations - 3") {
+
+        when {
+            workflow {
+                """
+                input[0] = GUNZIP.out.gunzip
+                input[1] = "query query1:query:ref ref"
                 input[2] = true
                 input[3] = true
                 """
