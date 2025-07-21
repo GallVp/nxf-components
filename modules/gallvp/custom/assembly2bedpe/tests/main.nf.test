@@ -1,0 +1,93 @@
+nextflow_process {
+
+    name "Test Process CUSTOM_ASSEMBLY2BEDPE"
+    script "../main.nf"
+    config "./nextflow.config"
+    process "CUSTOM_ASSEMBLY2BEDPE"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "custom"
+    tag "custom/assembly2bedpe"
+
+    test("inline - assembly") {
+
+        when {
+            process {
+                """
+                def test_file = new File('inline.assembly')
+                test_file.text = ">HYh1_Chr01:6000000-6015000 1 15001\\n>HYh2_Chr01:6000000-6015000 2 15001\\n1\\n2"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("inline - assembly - stub") {
+
+        options '-stub'
+
+        when {
+            process {
+                """
+                def test_file = new File('inline.assembly')
+                test_file.text = ">HYh1_Chr01:6000000-6015000 1 15001\\n>HYh2_Chr01:6000000-6015000 2 15001\\n1\\n2"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("inline - assembly - single scaffold") {
+
+        when {
+            params {
+                assembly2bedpe = '-s'
+            }
+            process {
+                """
+                def test_file = new File('inline.assembly')
+                test_file.text = ">HYh1_Chr01:6000000-6015000 1 15001\\n>HYh2_Chr01:6000000-6015000 2 15001\\n1\\n2"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
