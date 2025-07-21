@@ -8,6 +8,8 @@ keywords:
 components:
   - samtools/faidx
   - juiceboxscripts/makeagpfromfasta
+  - juiceboxscripts/agp2assembly
+  - custom/assembly2bedpe
   - juicertools/pre
   - yahs/juicerpre
   - sort
@@ -47,12 +49,18 @@ output:
         The output channel containing the assembly file
         Structure: [ val(meta), path(assembly) ]
       pattern: "*.{assembly}"
-  - assembly_agp:
+  - bedpe:
       type: file
       description: |
-        The output channel containing the assembly agp file
+        The output channel containing the assembly bedpe
         Structure: [ val(meta), path(assembly) ]
-      pattern: "*.{agp}"
+      pattern: "*.{bedpe}"
+  - bed:
+      type: file
+      description: |
+        The output channel containing the assembly bed file
+        Structure: [ val(meta), path(assembly) ]
+      pattern: "*.{bed}"
 authors:
   - "@GallVp"
 maintainers:

@@ -13,6 +13,8 @@ nextflow_workflow {
     tag "yahs/juicerpre"
     tag "gunzip"
     tag "juiceboxscripts/makeagpfromfasta"
+    tag "juiceboxscripts/agp2assembly"
+    tag "custom/assembly2bedpe"
     tag "juicertools/pre"
     tag "sort"
 
@@ -38,6 +40,7 @@ nextflow_workflow {
                 sort = '-k2,2d -k6,6d'
                 juicerpre = ''
                 juicertoolspre = ''
+                assembly2bedpe = ''
             }
             workflow {
                 """
@@ -66,6 +69,7 @@ nextflow_workflow {
                 sort = '-k2,2d -k6,6d'
                 juicerpre = '-a'
                 juicertoolspre = '-r 1000'
+                assembly2bedpe = '-s'
             }
             workflow {
                 """

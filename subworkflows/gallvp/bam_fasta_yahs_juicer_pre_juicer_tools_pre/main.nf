@@ -1,5 +1,7 @@
 include { SAMTOOLS_FAIDX                    } from '../../../modules/gallvp/samtools/faidx/main'
 include { JUICEBOXSCRIPTS_MAKEAGPFROMFASTA  } from '../../../modules/gallvp/juiceboxscripts/makeagpfromfasta/main'
+include { JUICEBOXSCRIPTS_AGP2ASSEMBLY      } from '../../../modules/gallvp/juiceboxscripts/agp2assembly/main'
+include { CUSTOM_ASSEMBLY2BEDPE             } from '../../../modules/gallvp/custom/assembly2bedpe/main'
 include { YAHS_JUICERPRE                    } from '../../../modules/gallvp/yahs/juicerpre/main'
 include { SORT                              } from '../../../modules/gallvp/sort/main'
 include { JUICERTOOLS_PRE                   } from '../../../modules/gallvp/juicertools/pre/main'
@@ -32,6 +34,21 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     ch_fasta_fai_sizes_agp          = ch_fasta_fai_sizes
                                     | join(JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.agp)
     ch_versions                     = ch_versions.mix(JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.versions.first())
+
+    // MODULES: JUICEBOXSCRIPTS_AGP2ASSEMBLY > CUSTOM_ASSEMBLY2BEDPE
+    JUICEBOXSCRIPTS_AGP2ASSEMBLY (
+        val_assembly_mode
+        ? JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.agp
+        : Channel.empty()
+    )
+
+    CUSTOM_ASSEMBLY2BEDPE (
+        JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.assembly
+    )
+
+    ch_versions                     = ch_versions
+                                    | mix(JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.versions.first())
+                                    | mix(CUSTOM_ASSEMBLY2BEDPE.out.versions.first())
 
     // MODULE: YAHS_JUICERPRE
     ch_yahs_juicerpre_inputs        = ch_bam
@@ -90,9 +107,9 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     ch_versions                     = ch_versions.mix(JUICERTOOLS_PRE.out.versions.first())
 
     emit:
-
-    hic                             = JUICERTOOLS_PRE.out.hic           // channel: [ meta, hic ]
-    assembly                        = YAHS_JUICERPRE.out.assembly       // channel: [ meta, assembly ]
-    assembly_agp                    = YAHS_JUICERPRE.out.assembly_agp   // channel: [ meta, agp ]
-    versions                        = ch_versions                       // channel: [ versions.yml ]
+    hic                             = JUICERTOOLS_PRE.out.hic                   // channel: [ meta, hic ]
+    assembly                        = JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.assembly // channel: [ meta, assembly ]
+    bedpe                           = CUSTOM_ASSEMBLY2BEDPE.out.bedpe           // channel: [ meta, bedpe ]
+    bed                             = CUSTOM_ASSEMBLY2BEDPE.out.bed             // channel: [ meta, bed ]
+    versions                        = ch_versions                               // channel: [ versions.yml ]
 }

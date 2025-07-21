@@ -14,43 +14,57 @@
                 "1": [
                     [
                         {
-                            "id": "test",
-                            "ref_id": "genome"
+                            "id": "genome"
                         },
-                        "test.assembly:md5,2154e1e2f2c12dd43765bc35a2003826"
+                        "genome.assembly:md5,48f07547635ccfd80eddc5b9a0d8040f"
                     ]
                 ],
                 "2": [
                     [
                         {
-                            "id": "test",
-                            "ref_id": "genome"
+                            "id": "genome"
                         },
-                        "test.assembly.agp:md5,1389ded06e1056dd03d44a849788c4ad"
+                        "genome.bedpe:md5,511c63569e96a71cc3c14d13c7198f15"
                     ]
                 ],
                 "3": [
+                    [
+                        {
+                            "id": "genome"
+                        },
+                        "genome.bed:md5,ff0dc82bcd1f6e19089f1ab8a1a35a16"
+                    ]
+                ],
+                "4": [
                     "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
                     "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,8c78cd6cf3c2091662f765ced185c8e9",
                     "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
-                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a",
+                    "versions.yml:md5,d774719f806b09fd573710d9c356f726"
                 ],
                 "assembly": [
                     [
                         {
-                            "id": "test",
-                            "ref_id": "genome"
+                            "id": "genome"
                         },
-                        "test.assembly:md5,2154e1e2f2c12dd43765bc35a2003826"
+                        "genome.assembly:md5,48f07547635ccfd80eddc5b9a0d8040f"
                     ]
                 ],
-                "assembly_agp": [
+                "bed": [
                     [
                         {
-                            "id": "test",
-                            "ref_id": "genome"
+                            "id": "genome"
                         },
-                        "test.assembly.agp:md5,1389ded06e1056dd03d44a849788c4ad"
+                        "genome.bed:md5,ff0dc82bcd1f6e19089f1ab8a1a35a16"
+                    ]
+                ],
+                "bedpe": [
+                    [
+                        {
+                            "id": "genome"
+                        },
+                        "genome.bedpe:md5,511c63569e96a71cc3c14d13c7198f15"
                     ]
                 ],
                 "hic": [
@@ -65,16 +79,18 @@
                 "versions": [
                     "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
                     "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
+                    "versions.yml:md5,8c78cd6cf3c2091662f765ced185c8e9",
                     "versions.yml:md5,ae6033bef2d56e168d019ac38ed69b94",
-                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a"
+                    "versions.yml:md5,cdb6d83bee1c2f4c6142fa46e523ce8a",
+                    "versions.yml:md5,d774719f806b09fd573710d9c356f726"
                 ]
             }
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2025-06-18T14:34:04.064695"
+        "timestamp": "2025-07-21T16:42:49.981416"
     },
     "hongyang - bam - fasta": {
         "content": [
@@ -95,6 +111,9 @@
                     
                 ],
                 "3": [
+                    
+                ],
+                "4": [
                     "versions.yml:md5,280e60b94741058316edef181421ce5b",
                     "versions.yml:md5,3d43ea23d3e662d51066c58979db7731",
                     "versions.yml:md5,4711b00bd24130a52a938ff8e4b47175",
@@ -104,7 +123,10 @@
                 "assembly": [
                     
                 ],
-                "assembly_agp": [
+                "bed": [
+                    
+                ],
+                "bedpe": [
                     
                 ],
                 "hic": [
@@ -127,8 +149,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.2"
+            "nextflow": "25.04.6"
         },
-        "timestamp": "2025-06-18T14:33:51.199948"
+        "timestamp": "2025-07-21T16:36:10.137402"
     }
 }
