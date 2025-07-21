@@ -41,6 +41,16 @@ output:
           type: file
           description: BEDPE file
           ontologies: []
+  bed:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.bed":
+          type: file
+          description: BED file
+          ontologies: []
   versions:
     - versions.yml:
         type: file

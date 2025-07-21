@@ -12,6 +12,7 @@ process CUSTOM_ASSEMBLY2BEDPE {
 
     output:
     tuple val(meta), path("*.bedpe"), emit: bedpe
+    tuple val(meta), path("*.bed"), emit: bed
     path "versions.yml", emit: versions
 
     when:
@@ -29,6 +30,7 @@ process CUSTOM_ASSEMBLY2BEDPE {
     echo ${args}
 
     touch ${prefix}.bedpe
+    touch ${prefix}.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

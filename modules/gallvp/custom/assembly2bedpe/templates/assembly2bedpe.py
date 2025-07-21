@@ -43,7 +43,17 @@ def write_bedpe(prefix, bed_pe_list, is_single_assembly_scaffold):
         for row in bed_pe_list:
             scaffold_name = "assembly" if is_single_assembly_scaffold else row["name"][1:]
             f.write(
-                f"{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{row['name'].replace('>', '')}{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}0,0,255{NEWLINE_TOKEN}"
+                f"{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{row['name'][1:]}{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}0,0,255{NEWLINE_TOKEN}"
+            )
+
+
+def write_bed(prefix, bed_pe_list, is_single_assembly_scaffold):
+    with open(f"{prefix}.bed", "w") as f:
+        f.write(f"chrom{TAB_TOKEN}chromStart{TAB_TOKEN}chromEnd{TAB_TOKEN}name{NEWLINE_TOKEN}")
+        for row in bed_pe_list:
+            scaffold_name = "assembly" if is_single_assembly_scaffold else row["name"][1:]
+            f.write(
+                f"{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{row['name'][1:]}{NEWLINE_TOKEN}"
             )
 
 
@@ -54,6 +64,7 @@ if __name__ == "__main__":
     is_single_assembly_scaffold = "-s" in args
 
     write_bedpe(prefix, bedpe_rows, is_single_assembly_scaffold)
+    write_bed(prefix, bedpe_rows, is_single_assembly_scaffold)
 
     with open("versions.yml", "w") as f_versions:
         f_versions.write('"${task.process}":\\n')
