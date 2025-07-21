@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "custom_assembly2bedpe"
+description: Converts an assembly to BEDPE format
+keywords:
+  - genomics
+  - assembly
+  - bedpe
+  - biopython
+  - custom
+  - utility
+tools:
+  - "python":
+      description: |
+        Python is a programming language that lets you work quickly
+        and integrate systems more effectively
+      homepage: "https://www.python.org"
+      documentation: "https://docs.python.org/3/"
+      tool_dev_url: "https://github.com/python/cpython"
+      licence: ["MIT"]
+      identifier: ""
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - assembly:
+        type: file
+        description: Input assembly file
+        pattern: "*.assembly"
+        ontologies: []
+output:
+  bedpe:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.bedpe":
+          type: file
+          description: BEDPE file
+          ontologies: []
+  bed:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.bed":
+          type: file
+          description: BED file
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
