@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "juiceboxscripts_agp2assembly"
+description: Convert an AGP file to assembly format
+keywords:
+  - genomics
+  - fasta
+  - agp
+  - convert
+  - assembly
+tools:
+  - "juiceboxscripts":
+      description: "A collection of scripts for working with Hi-C data, Juicebox, and
+        other genomic file formats"
+      homepage: "https://github.com/phasegenomics/juicebox_scripts"
+      documentation: "https://github.com/phasegenomics/juicebox_scripts"
+      tool_dev_url: "https://github.com/phasegenomics/juicebox_scripts"
+      licence: ["GNU GPL v3"]
+      identifier: ""
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - agp:
+        description: AGP file
+        type: file
+        pattern: "*.agp"
+        ontologies: []
+output:
+  assembly:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.assembly":
+          description: Assembly file
+          type: file
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: "http://edamontology.org/format_3750" # YAML
+
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
