@@ -1,0 +1,252 @@
+nextflow_process {
+
+    name "Test Process WINNOWMAP"
+    script "../main.nf"
+    process "WINNOWMAP"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "winnowmap"
+    tag "meryl/count"
+
+    setup {
+        run("MERYL_COUNT") {
+            script "../../meryl/count/main.nf"
+            process {
+                """
+                input[0] = [
+                    [id: 'test'],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[1] = 15
+                """
+            }
+        }
+    }
+
+    test("sarscov2 - fastq, fasta, true, [], false, false") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = []
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    bam(process.out.bam[0][1]).getHeader(),
+                    bam(process.out.bam[0][1]).getReadsMD5(),
+                    process.out.versions
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - fastq, fasta, true, 'bai', false, false") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = 'bai'
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    bam(process.out.bam[0][1]).getHeader(),
+                    bam(process.out.bam[0][1]).getReadsMD5(),
+                    file(process.out.index[0][1]).name,
+                    process.out.versions
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - [fastq1, fastq2], fasta, true, false, false") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    [
+                        file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true),
+                        file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_2.fastq.gz', checkIfExists: true)
+                    ]
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = []
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    bam(process.out.bam[0][1]).getHeader(),
+                    bam(process.out.bam[0][1]).getReadsMD5(),
+                    process.out.versions
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - bam, fasta, true, [], false, false") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/bam/test3.single_end.markduplicates.sorted.bam', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = []
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    bam(process.out.bam[0][1]).getHeader(),
+                    bam(process.out.bam[0][1]).getReadsMD5(),
+                    process.out.versions
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - bam, fasta, true, 'bai', false, false") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/bam/test3.single_end.markduplicates.sorted.bam', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = 'bai'
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    bam(process.out.bam[0][1]).getHeader(),
+                    bam(process.out.bam[0][1]).getReadsMD5(),
+                    file(process.out.index[0][1]).name,
+                    process.out.versions
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - fastq, fasta, true, [], false, false - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:true ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
+                ]
+                input[1] = [
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
+                input[2] = MERYL_COUNT.out.meryl_db
+                input[3] = 0.9998
+                input[4] = true
+                input[5] = []
+                input[6] = false
+                input[7] = false
+                input[8] = true
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
