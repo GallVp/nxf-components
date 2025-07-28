@@ -43,6 +43,7 @@ nextflow_process {
                 input[5] = []
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }
@@ -79,6 +80,7 @@ nextflow_process {
                 input[5] = 'bai'
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }
@@ -119,6 +121,7 @@ nextflow_process {
                 input[5] = []
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }
@@ -155,6 +158,7 @@ nextflow_process {
                 input[5] = []
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }
@@ -191,6 +195,7 @@ nextflow_process {
                 input[5] = 'bai'
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }
@@ -230,6 +235,7 @@ nextflow_process {
                 input[5] = []
                 input[6] = false
                 input[7] = false
+                input[8] = true
                 """
             }
         }

@@ -67,6 +67,10 @@ input:
       description: |
         Write CIGAR with >65535 ops at the CG tag. This is recommended when
         doing XYZ (https://github.com/lh3/minimap2#working-with-65535-cigar-operations)
+  - sort_bam:
+      type: boolean
+      description: |
+        To sort or not to sort the output bam
 output:
   paf:
     - - meta:
