@@ -10,6 +10,7 @@ cp_hybrid_module() {
 cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
 cp_hybrid_module "repeatmasker/repeatmasker"
+cp_hybrid_module "meryl/count"
 
 # Modules for hybrid sub-workflows
 cp_hybrid_module "agat/spextractsequences"
