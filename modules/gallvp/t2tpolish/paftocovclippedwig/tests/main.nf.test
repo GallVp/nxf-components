@@ -1,0 +1,63 @@
+
+nextflow_process {
+
+    name "Test Process T2TPOLISH_PAFTOCOVCLIPPEDWIG"
+    script "../main.nf"
+    process "T2TPOLISH_PAFTOCOVCLIPPEDWIG"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "t2tpolish"
+    tag "t2tpolish/paftocovclippedwig"
+
+    test("sarscov2 - genome - paf") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.paf', checkIfExists: true)
+                ]
+                input[1] = 'Test track'
+                input[2] = '128'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - genome - paf - stub") {
+
+        options '-stub'
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.paf', checkIfExists: true)
+                ]
+                input[1] = 'Test track'
+                input[2] = '128'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
