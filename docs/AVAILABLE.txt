@@ -10,6 +10,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre">modules/gallvp/yahs/juicerpre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/winnowmap">modules/gallvp/winnowmap</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/t2tpolish/paftocovclippedwig">modules/gallvp/t2tpolish/paftocovclippedwig</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/sort">modules/gallvp/sort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/sort">modules/gallvp/seqkit/sort</a></li>
