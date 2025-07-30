@@ -34,6 +34,7 @@ cp_hybrid_module "samtools/faidx"
 cp_hybrid_module "samblaster"
 cp_hybrid_module "seqkit/seq"
 cp_hybrid_module "seqkit/sort"
+cp_hybrid_module "paftools/sam2paf"
 
 # Modules for sub workflow testing
 mkdir -p ./modules/nf-core/gunzip

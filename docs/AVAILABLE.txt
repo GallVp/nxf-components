@@ -5,6 +5,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_seqkit_refsort">subworkflows/gallvp/fasta_seqkit_refsort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_fastq_winnowmap_coverage">subworkflows/gallvp/fasta_fastq_winnowmap_coverage</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre">modules/gallvp/yahs/juicerpre</a></li>
@@ -19,6 +20,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker">modules/gallvp/repeatmasker/repeatmasker</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/plotsr">modules/gallvp/plotsr</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf">modules/gallvp/paftools/sam2paf</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/meryl/count">modules/gallvp/meryl/count</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/matlock/bam2juicer">modules/gallvp/matlock/bam2juicer</a></li>

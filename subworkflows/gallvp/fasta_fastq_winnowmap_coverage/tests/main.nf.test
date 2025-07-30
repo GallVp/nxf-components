@@ -1,0 +1,74 @@
+nextflow_workflow {
+
+    name "Test Subworkflow FASTA_FASTQ_WINNOWMAP_COVERAGE"
+    script "../main.nf"
+    config "./nextflow.config"
+    workflow "FASTA_FASTQ_WINNOWMAP_COVERAGE"
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/fasta_fastq_winnowmap_coverage"
+
+    tag "meryl/count"
+    tag "paftools/sam2paf"
+    tag "winnowmap"
+    tag "t2tpolish/paftocovclippedwig"
+
+    test("sarscov2 - fasta - fastq") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ])
+                input[1] = Channel.of([
+                    [ id:'test', single_end:true, ref_id: 'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
+                ])
+                input[2] = 15
+                input[3] = 0.9998
+                input[4] = 1024
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("sarscov2 - fasta - fastq - stub") {
+
+        options '-stub'
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ])
+                input[1] = Channel.of([
+                    [ id:'test', single_end:true, ref_id: 'test_ref' ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
+                ])
+                input[2] = 15
+                input[3] = 0.9998
+                input[4] = 1024
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+}
