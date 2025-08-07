@@ -29,17 +29,16 @@ input:
           - edam: "http://edamontology.org/format_2573" # CRAM
           - edam: "http://edamontology.org/format_3462" # SAM
 
-  - - sizes:
-        type: file
-        description: File containing the sizes of the chromosomes obtained from samtools
-          faidx first two columns
-        pattern: "*.{sizes}"
+  - sizes:
+      type: file
+      description: File containing the sizes of the chromosomes obtained from
+        samtools faidx first two columns
+      pattern: "*.{sizes}"
 
-        ontologies: []
+      ontologies: []
 output:
-  - hic:
-      #Only when we have meta
-      - meta:
+  hic:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -53,14 +52,14 @@ output:
             - edam: "http://edamontology.org/format_2573" # CRAM
             - edam: "http://edamontology.org/format_3462" # SAM
 
-  - versions:
-      - "versions.yml":
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
 
-          ontologies:
-            - edam: http://edamontology.org/format_3750 # YAML
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:

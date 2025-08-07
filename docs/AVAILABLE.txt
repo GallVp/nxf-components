@@ -28,6 +28,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai">modules/gallvp/ltrretriever/lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest">modules/gallvp/ltrharvest</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrfinder">modules/gallvp/ltrfinder</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicer/indexbychr">modules/gallvp/juicer/indexbychr</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicertools/pre">modules/gallvp/juicertools/pre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/makeagpfromfasta">modules/gallvp/juiceboxscripts/makeagpfromfasta</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/agp2assembly">modules/gallvp/juiceboxscripts/agp2assembly</a></li>
