@@ -4,6 +4,7 @@ include { JUICEBOXSCRIPTS_AGP2ASSEMBLY      } from '../../../modules/gallvp/juic
 include { CUSTOM_ASSEMBLY2BEDPE             } from '../../../modules/gallvp/custom/assembly2bedpe/main'
 include { YAHS_JUICERPRE                    } from '../../../modules/gallvp/yahs/juicerpre/main'
 include { SORT                              } from '../../../modules/gallvp/sort/main'
+include { JUICER_INDEXBYCHR                 } from '../../../modules/gallvp/juicer/indexbychr/main'
 include { JUICERTOOLS_PRE                   } from '../../../modules/gallvp/juicertools/pre/main'
 
 workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
@@ -83,8 +84,8 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     SORT ( ch_sort_input )
     ch_versions                     = ch_versions.mix(SORT.out.versions.first())
 
-    // MODULE: JUICERTOOLS_PRE
-    ch_juicertools_pre_inputs       = (
+    // MODULE: JUICER_INDEXBYCHR
+    ch_juicer_indexbychr_inputs     = (
                                         val_assembly_mode
                                         ? YAHS_JUICERPRE.out.txt
                                         : SORT.out.sorted
@@ -94,13 +95,28 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
                                         ? YAHS_JUICERPRE.out.sizes
                                         : ch_yahs_juicerpre_inputs.sizes
                                     )
-                                    | multiMap { meta, sorted, sizes ->
+
+    JUICER_INDEXBYCHR (
+        ch_juicer_indexbychr_inputs.map { meta, sorted, _sizes -> [ meta, sorted ] },
+        500000 // chunk_size
+    )
+
+    ch_versions                     = ch_versions.mix(JUICER_INDEXBYCHR.out.versions.first())
+
+    // MODULE: JUICERTOOLS_PRE
+    ch_juicertools_pre_inputs       = ch_juicer_indexbychr_inputs
+                                    | join(
+                                        JUICER_INDEXBYCHR.out.index
+                                    )
+                                    | multiMap { meta, sorted, sizes, index ->
                                         sorted: [ meta, sorted ]
+                                        index: index
                                         sizes: sizes
                                     }
 
     JUICERTOOLS_PRE (
         ch_juicertools_pre_inputs.sorted,
+        ch_juicertools_pre_inputs.index,
         ch_juicertools_pre_inputs.sizes
     )
 
