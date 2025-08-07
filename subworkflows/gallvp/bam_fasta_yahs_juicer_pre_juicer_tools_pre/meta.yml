@@ -13,6 +13,7 @@ components:
   - juicertools/pre
   - yahs/juicerpre
   - sort
+  - juicer/indexbychr
 input:
   - ch_bam:
       type: file

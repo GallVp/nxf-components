@@ -9,6 +9,7 @@ process JUICERTOOLS_PRE {
 
     input:
     tuple val(meta), path(txt)
+    path(index)
     path(sizes)
 
     output:
@@ -21,6 +22,7 @@ process JUICERTOOLS_PRE {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
+    def index_arg = index ? "-i $index" : ''
     def avail_mem = (task.memory.giga*0.8).intValue()
     """
     mkdir user_home
@@ -30,6 +32,7 @@ process JUICERTOOLS_PRE {
         pre \\
         $args \\
         --threads $task.cpus \\
+        $index_arg \\
         $txt \\
         ${prefix}.hic \\
         $sizes

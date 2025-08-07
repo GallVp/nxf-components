@@ -17,6 +17,7 @@ nextflow_workflow {
     tag "custom/assembly2bedpe"
     tag "juicertools/pre"
     tag "sort"
+    tag "juicer/indexbychr"
 
     setup {
         run("GUNZIP") {
