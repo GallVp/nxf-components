@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "juicer_indexbychr"
+description: Creates index for mnd file for HiC creation by JuicerTools pre
+keywords:
+  - genomics
+  - HiC
+  - index
+tools:
+  - "juicer":
+      description: A One-Click System for Analyzing Loop-Resolution Hi-C
+        Experiments
+      homepage: https://github.com/aidenlab/juicer
+      documentation: https://github.com/aidenlab/juicer
+      tool_dev_url: https://github.com/aidenlab/juicer
+      licence: ["MIT"]
+      identifier: biotools:juicer
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+    - txt:
+        type: file
+        description: Input mnd text file
+        pattern: "*.{txt}"
+
+        ontologies: []
+  - chunk_size:
+      description: Chunk size
+      type: integer
+output:
+  index:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.txt":
+          type: file
+          description: Index
+          pattern: "*.{txt}"
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: "http://edamontology.org/format_3750" # YAML
+
+authors:
+  - "@GallVp"
+maintainers:
+  - "@GallVp"
