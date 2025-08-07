@@ -69,7 +69,7 @@ nextflow_process {
 
     }
 
-    test("hongyang - hic - mode - assembly") {
+    test("hongyang - hic - mode - assembly - stub") {
 
         options '-stub'
 
