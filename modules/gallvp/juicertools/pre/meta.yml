@@ -29,6 +29,11 @@ input:
           - edam: "http://edamontology.org/format_2573" # CRAM
           - edam: "http://edamontology.org/format_3462" # SAM
 
+  - index:
+      description: Index file
+      type: file
+      pattern: "*.{txt}"
+      ontologies: []
   - sizes:
       type: file
       description: File containing the sizes of the chromosomes obtained from
