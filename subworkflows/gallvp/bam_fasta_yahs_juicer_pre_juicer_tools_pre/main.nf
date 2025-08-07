@@ -14,6 +14,9 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     ch_fasta                        // channel: [ val(meta2), fasta ]; meta2: [ id ]
                                     // meta2.id = meta.ref_id
     val_assembly_mode               // true|false; Turn on/off assembly mode '-a' for YAHS_JUICERPRE
+    val_use_index                   // true|false; Turn on/off the use of JUICER_INDEXBYCHR
+                                    // Currently, JUICER_INDEXBYCHR leads to a broken HiC map and
+                                    // its use is not recommended
 
     main:
     ch_versions                     = Channel.empty()
@@ -97,20 +100,29 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
                                     )
 
     JUICER_INDEXBYCHR (
-        ch_juicer_indexbychr_inputs.map { meta, sorted, _sizes -> [ meta, sorted ] },
+        val_use_index
+        ? ch_juicer_indexbychr_inputs.map { meta, sorted, _sizes -> [ meta, sorted ] }
+        : Channel.empty(),
         500000 // chunk_size
     )
 
     ch_versions                     = ch_versions.mix(JUICER_INDEXBYCHR.out.versions.first())
 
     // MODULE: JUICERTOOLS_PRE
-    ch_juicertools_pre_inputs       = ch_juicer_indexbychr_inputs
+    ch_juicertools_pre_inputs       = val_use_index
+                                    ? ch_juicer_indexbychr_inputs
                                     | join(
                                         JUICER_INDEXBYCHR.out.index
                                     )
                                     | multiMap { meta, sorted, sizes, index ->
                                         sorted: [ meta, sorted ]
                                         index: index
+                                        sizes: sizes
+                                    }
+                                    : ch_juicer_indexbychr_inputs
+                                    | multiMap { meta, sorted, sizes ->
+                                        sorted: [ meta, sorted ]
+                                        index: []
                                         sizes: sizes
                                     }
 
