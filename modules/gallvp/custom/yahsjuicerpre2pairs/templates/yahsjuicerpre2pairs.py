@@ -47,6 +47,7 @@ def process_data_and_write(data_path, output_path):
                 sys.stderr.write(f"[Error][{datetime.now()}] Line {idx} does not have 8 fields{NEWLINE_DELIMITER}")
                 sys.exit(1)
             read_id = f"read{idx}"
+            # The field selection is based on https://github.com/c-zhou/yahs/blob/6c46061ea1665073068cccbed81c6707e3bd07bf/juicer.c#L419-L422 and https://github.com/aidenlab/juicer/wiki/Pre#short-with-score-format
             frag1 = fields[3]
             if frag1 == "0":
                 chr1 = fields[1]
