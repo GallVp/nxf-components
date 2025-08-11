@@ -1,0 +1,98 @@
+
+nextflow_process {
+
+    name "Test Process HICTK_ZOOMIFY"
+    script "../main.nf"
+    config "./nextflow.config"
+    process "HICTK_ZOOMIFY"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "hictk"
+    tag "hictk/zoomify"
+    tag "custom/yahsjuicerpre2pairs"
+    tag "yahs/juicerpre"
+    tag "hictk/load"
+
+    setup {
+        run('YAHS_JUICERPRE') {
+            script '../../../yahs/juicerpre/main.nf'
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file( 'https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.bam' , checkIfExists: true)
+                ]
+
+                input[1] = file( 'https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.agp' , checkIfExists: true)
+                input[2] = file( 'https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.fai' , checkIfExists: true)
+                """
+            }
+        }
+
+        run('CUSTOM_YAHSJUICERPRE2PAIRS') {
+            script '../../../custom/yahsjuicerpre2pairs/main.nf'
+            process {
+                """
+                input[0] = YAHS_JUICERPRE.out.txt
+
+                def sizes = new File('hongyang.sizes')
+                sizes.text = "HYh1_Chr01:6000000-6015000\\t15001\\nHYh2_Chr01:6000000-6015000\\t15001\\n"
+
+                input[1] = sizes.toPath()
+                """
+            }
+        }
+
+        run('HICTK_LOAD') {
+            script '../../../hictk/load/main.nf'
+
+            process {
+                """
+                input[0] = CUSTOM_YAHSJUICERPRE2PAIRS.out.pairs
+                input[1] = '4dn' // format
+                """
+            }
+        }
+    }
+
+    test("hongyang - hic") {
+
+        when {
+            process {
+                """
+                input[0] = HICTK_LOAD.out.hic
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("hongyang - hic - stub") {
+        options '-stub'
+
+        when {
+            process {
+                """
+                input[0] = HICTK_LOAD.out.hic
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}
