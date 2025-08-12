@@ -8,6 +8,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_fastq_winnowmap_coverage">subworkflows/gallvp/fasta_fastq_winnowmap_coverage</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre">modules/gallvp/yahs/juicerpre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/winnowmap">modules/gallvp/winnowmap</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
@@ -47,6 +48,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/eggnogmapper">modules/gallvp/eggnogmapper</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/edta/edta">modules/gallvp/edta/edta</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/diamond/makedb">modules/gallvp/diamond/makedb</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2tracks">modules/gallvp/custom/yahsjuicerpre2tracks</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2pairs">modules/gallvp/custom/yahsjuicerpre2pairs</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/shortenfastaids">modules/gallvp/custom/shortenfastaids</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/rmouttogff3">modules/gallvp/custom/rmouttogff3</a></li>

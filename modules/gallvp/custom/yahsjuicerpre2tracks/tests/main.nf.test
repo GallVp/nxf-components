@@ -1,0 +1,63 @@
+nextflow_process {
+
+    name "Test Process CUSTOM_YAHSJUICERPRE2TRACKS"
+    script "../main.nf"
+    process "CUSTOM_YAHSJUICERPRE2TRACKS"
+
+    tag "modules"
+    tag "modules_gallvp"
+    tag "custom"
+    tag "custom/yahsjuicerpre2tracks"
+
+    test("inline - agp") {
+
+        when {
+            process {
+                """
+                def test_file = new File('inline.liftover.agp')
+                test_file.text = "ctg00000001.1	1	15001	1	W	HYh1_Chr01:6000000-6015000	1	15001	+\\nctg00000002.1	1	15001	1	W	HYh2_Chr01:6000000-6015000	1	15001	+\\n"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("inline - agp - stub") {
+        options '-stub'
+
+        when {
+            process {
+                """
+                def test_file = new File('inline.liftover.agp')
+                test_file.text = "ctg00000001.1	1	15001	1	W	HYh1_Chr01:6000000-6015000	1	15001	+\\nctg00000002.1	1	15001	1	W	HYh2_Chr01:6000000-6015000	1	15001	+\\n"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

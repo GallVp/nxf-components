@@ -31,21 +31,21 @@ input:
           - edam: "http://edamontology.org/format_2572" # BAM
           - edam: "http://edamontology.org/format_2573" # CRAM
           - edam: "http://edamontology.org/format_3462" # SAM
-  - - agp:
-        type: file
-        description: AGP file
-        pattern: "*.agp"
+  - agp:
+      type: file
+      description: AGP file
+      pattern: "*.agp"
 
-        ontologies: []
-  - - fai:
-        type: file
-        description: FAI file
-        pattern: "*.fai"
+      ontologies: []
+  - fai:
+      type: file
+      description: FAI file
+      pattern: "*.fai"
 
-        ontologies: []
+      ontologies: []
 output:
-  - txt:
-      - meta:
+  txt:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -55,8 +55,8 @@ output:
           description: Links TSV file
           pattern: "*.txt"
           ontologies: []
-  - assembly:
-      - meta:
+  assembly:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -66,8 +66,8 @@ output:
           description: Assembly file
           pattern: "*.assembly"
           ontologies: []
-  - assembly_agp:
-      - meta:
+  assembly_agp:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -77,8 +77,8 @@ output:
           description: Assembly AGP file
           pattern: "*.assembly.agp"
           ontologies: []
-  - liftover_agp:
-      - meta:
+  liftover_agp:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -89,8 +89,8 @@ output:
           pattern: "*.liftover.agp"
 
           ontologies: []
-  - sizes:
-      - meta:
+  sizes:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -101,14 +101,23 @@ output:
           pattern: "*.sizes"
 
           ontologies: []
-  - versions:
-      - "versions.yml":
+  scale:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+      - "*.scale":
           type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+          description: The scale by which the assembly has been shrunk
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
 
-          ontologies:
-            - edam: http://edamontology.org/format_3750 # YAML
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:
