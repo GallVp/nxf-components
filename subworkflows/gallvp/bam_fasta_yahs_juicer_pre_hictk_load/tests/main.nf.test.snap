@@ -35,7 +35,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.bedpe:md5,2eaea22c54e3d8f113ad0b68959e29d2"
+                        "test.bedpe:md5,a4ec178eaaa2e96b724f927ce9678b5a"
                     ]
                 ],
                 "4": [
@@ -44,7 +44,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.bed:md5,8b28b2b9e02fce16121affde2e44ae16"
+                        "test.bed:md5,bc903fc7f717a627853e93ff6c2dfcb3"
                     ]
                 ],
                 "5": [
@@ -71,7 +71,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.bed:md5,8b28b2b9e02fce16121affde2e44ae16"
+                        "test.bed:md5,bc903fc7f717a627853e93ff6c2dfcb3"
                     ]
                 ],
                 "bedpe": [
@@ -80,7 +80,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.bedpe:md5,2eaea22c54e3d8f113ad0b68959e29d2"
+                        "test.bedpe:md5,a4ec178eaaa2e96b724f927ce9678b5a"
                     ]
                 ],
                 "hic": [
@@ -116,7 +116,7 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-12T15:32:52.895355"
+        "timestamp": "2025-08-12T20:38:38.01278"
     },
     "hongyang - bam - fasta": {
         "content": [
