@@ -30,8 +30,6 @@ input:
       type: Boolean
       description: |
         Turn on/off assembly mode '-a' for YAHS_JUICERPRE
-  - //:
-      description: ""
 output:
   - versions:
       type: file
