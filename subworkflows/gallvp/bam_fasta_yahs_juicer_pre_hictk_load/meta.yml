@@ -8,7 +8,7 @@ keywords:
 components:
   - samtools/faidx
   - juiceboxscripts/makeagpfromfasta
-  - custom/assembly2bedpe
+  - custom/yahsjuicerpre2tracks
   - custom/yahsjuicerpre2pairs
   - hictk/load
   - hictk/zoomify
