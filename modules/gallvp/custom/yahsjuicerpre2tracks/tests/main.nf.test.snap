@@ -1,5 +1,5 @@
 {
-    "inline - assembly": {
+    "inline - agp - stub": {
         "content": [
             {
                 "0": [
@@ -8,107 +8,10 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test.bedpe:md5,7fb5ad99989fe47aad4296a9b48298e6"
+                        "test.assembly:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
                 "1": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bed:md5,ffc25eb6bf3a4e624f89569e4057b53b"
-                    ]
-                ],
-                "2": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
-                ],
-                "bed": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bed:md5,ffc25eb6bf3a4e624f89569e4057b53b"
-                    ]
-                ],
-                "bedpe": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bedpe:md5,7fb5ad99989fe47aad4296a9b48298e6"
-                    ]
-                ],
-                "versions": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
-                ]
-            }
-        ],
-        "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2025-08-12T15:09:32.751704"
-    },
-    "inline - assembly - single scaffold": {
-        "content": [
-            {
-                "0": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bedpe:md5,a4ec178eaaa2e96b724f927ce9678b5a"
-                    ]
-                ],
-                "1": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bed:md5,bc903fc7f717a627853e93ff6c2dfcb3"
-                    ]
-                ],
-                "2": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
-                ],
-                "bed": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bed:md5,bc903fc7f717a627853e93ff6c2dfcb3"
-                    ]
-                ],
-                "bedpe": [
-                    [
-                        {
-                            "id": "test",
-                            "single_end": false
-                        },
-                        "test.bedpe:md5,a4ec178eaaa2e96b724f927ce9678b5a"
-                    ]
-                ],
-                "versions": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
-                ]
-            }
-        ],
-        "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2025-08-12T15:09:40.64397"
-    },
-    "inline - assembly - stub": {
-        "content": [
-            {
-                "0": [
                     [
                         {
                             "id": "test",
@@ -117,7 +20,7 @@
                         "test.bedpe:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "1": [
+                "2": [
                     [
                         {
                             "id": "test",
@@ -126,8 +29,17 @@
                         "test.bed:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "2": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
+                "3": [
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
+                ],
+                "assembly": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.assembly:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
                 ],
                 "bed": [
                     [
@@ -148,7 +60,7 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,704c8164e659d86df96218632b156d7a"
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
                 ]
             }
         ],
@@ -156,6 +68,77 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-07-21T16:04:24.260298"
+        "timestamp": "2025-08-12T15:28:39.683616"
+    },
+    "inline - agp": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.assembly:md5,72dfdabd22760a91b81ed4241807a0e7"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bedpe:md5,2eaea22c54e3d8f113ad0b68959e29d2"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bed:md5,8b28b2b9e02fce16121affde2e44ae16"
+                    ]
+                ],
+                "3": [
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
+                ],
+                "assembly": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.assembly:md5,72dfdabd22760a91b81ed4241807a0e7"
+                    ]
+                ],
+                "bed": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bed:md5,8b28b2b9e02fce16121affde2e44ae16"
+                    ]
+                ],
+                "bedpe": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bedpe:md5,2eaea22c54e3d8f113ad0b68959e29d2"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-12T15:22:41.906317"
     }
 }

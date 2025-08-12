@@ -17,7 +17,7 @@ def parse_sizes_file(sizes_path):
     with open(sizes_path) as f:
         for line in f:
             if line.strip():
-                chrom, size = line.strip().split(f"{TAB_DELIMITER}")
+                chrom, size = line.strip().split()
                 chromsizes.append(f"#chromsize: {chrom} {size}")
     return chromsizes
 

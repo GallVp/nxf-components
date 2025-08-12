@@ -7,6 +7,8 @@ include { SORT                              } from '../../../modules/gallvp/sort
 include { JUICER_INDEXBYCHR                 } from '../../../modules/gallvp/juicer/indexbychr/main'
 include { JUICERTOOLS_PRE                   } from '../../../modules/gallvp/juicertools/pre/main'
 
+// DEPRECATED
+// Use bam_fasta_yahs_juicer_pre_hictk_load instead
 workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
 
     take:

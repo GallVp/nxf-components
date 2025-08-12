@@ -1,0 +1,89 @@
+nextflow_workflow {
+
+    name "Test Subworkflow BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD"
+    script "../main.nf"
+    config "./nextflow.config"
+    workflow "BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD"
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/bam_fasta_yahs_juicer_pre_hictk_load"
+    tag "samtools"
+    tag "samtools/faidx"
+    tag "yahs/juicerpre"
+    tag "gunzip"
+    tag "juiceboxscripts/makeagpfromfasta"
+    tag "custom/yahsjuicerpre2tracks"
+    tag "custom/yahsjuicerpre2pairs"
+    tag "hictk/load"
+    tag "hictk/zoomify"
+
+    setup {
+        run("GUNZIP") {
+            script "../../../../modules/gallvp/gunzip/main.nf"
+
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'genome' ],
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.fasta.gz', checkIfExists: true)
+                ])
+                """
+            }
+        }
+    }
+
+    test("hongyang - bam - fasta") {
+
+        when {
+            params {
+                juicerpre = ''
+                hictk_load = '--transpose-lower-triangular-pixels --bin-size 1kbp'
+            }
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', ref_id:'genome' ],
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.bam', checkIfExists: true)
+                ])
+                input[1] = GUNZIP.out.gunzip
+                input[2] = false // val_assembly_mode
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("hongyang - bam - fasta - assembly") {
+
+        when {
+            params {
+                juicerpre = '-a'
+                hictk_load = '--transpose-lower-triangular-pixels --bin-size 1kbp'
+            }
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', ref_id:'genome' ],
+                    file('https://github.com/Plant-Food-Research-Open/assemblyqc/raw/4f9fba392cf7212d61c6245fd72339e09164ce44/tests/hic/testdata/HYh1h2_Chr01_6000000_6015000.bam', checkIfExists: true)
+                ])
+                input[1] = GUNZIP.out.gunzip
+                input[2] = true // val_assembly_mode
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+}

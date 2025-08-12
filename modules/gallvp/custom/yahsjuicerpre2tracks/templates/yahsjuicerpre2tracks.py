@@ -3,23 +3,46 @@
 from importlib.metadata import version
 from platform import python_version
 
-NEWLINE_TOKEN = "\\n"
+LIFTOVER_AGP = "$liftover_agp"
+PREFIX = "$prefix"
+
 TAB_TOKEN = "\\t"
-
-assembly_file_name = "$assembly"
-args = "$args"  # Set -s for single scaffold 'assembly'
-prefix = "$prefix"
+NEWLINE_TOKEN = "\\n"
 
 
-def read_assembly_rows(assembly_file_name):
-    with open(assembly_file_name) as file:
-        lines = file.readlines()
-    rows_of_cols = [line.replace(NEWLINE_TOKEN, "").split(" ") for line in lines]
-    rows_of_three_cols = [cols for cols in rows_of_cols if len(cols) == 3]
+def parse_agp(agp_file):
     rows = []
-    for x in rows_of_three_cols:
-        rows.append({"name": x[0], "number": int(x[1]), "length": int(x[2])})
+    with open(agp_file) as f:
+        for line in f:
+            if line.startswith("#") or not line.strip():
+                continue
+            parts = line.strip().split(f"{TAB_TOKEN}")
+            if len(parts) < 9:
+                continue
+
+            obj = parts[0]
+            obj_start = int(parts[1])
+            obj_end = int(parts[2])
+            name = parts[5]
+            rows.append(
+                {
+                    "name": name,
+                    "obj": obj,
+                    "start": obj_start,
+                    "end": obj_end,
+                    "length": obj_end - obj_start + 1,  # AGP is a 1-based end-inclusive system
+                }
+            )
     return rows
+
+
+def write_assembly(prefix, rows):
+    with open(f"{prefix}.assembly", "w") as f:
+        for row in rows:
+            f.write(f">{row['name']} {row['start']} {row['end']}{NEWLINE_TOKEN}")
+
+        for i, _ in enumerate(rows):
+            f.write(f"{i + 1}{NEWLINE_TOKEN}")
 
 
 def make_bedpe_rows(rows):
@@ -35,38 +58,43 @@ def make_bedpe_rows(rows):
     return rows
 
 
-def write_bedpe(prefix, bed_pe_list, is_single_assembly_scaffold):
+def write_bedpe(prefix, bed_pe_list):
     with open(f"{prefix}.bedpe", "w") as f:
         f.write(
             f"chr1{TAB_TOKEN}x1{TAB_TOKEN}x2{TAB_TOKEN}chr2{TAB_TOKEN}y1{TAB_TOKEN}y2{TAB_TOKEN}name{TAB_TOKEN}score{TAB_TOKEN}strand1{TAB_TOKEN}strand2{TAB_TOKEN}color{NEWLINE_TOKEN}"
         )
         for row in bed_pe_list:
-            scaffold_name = "assembly" if is_single_assembly_scaffold else row["name"][1:]
+            scaffold_name = "assembly"
             f.write(
                 f"{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{row['name'][1:]}{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}.{TAB_TOKEN}0,0,255{NEWLINE_TOKEN}"
             )
 
 
-def write_bed(prefix, bed_pe_list, is_single_assembly_scaffold):
+def write_bed(prefix, bed_pe_list):
     with open(f"{prefix}.bed", "w") as f:
         f.write(f"chrom{TAB_TOKEN}chromStart{TAB_TOKEN}chromEnd{TAB_TOKEN}name{NEWLINE_TOKEN}")
         for row in bed_pe_list:
-            scaffold_name = "assembly" if is_single_assembly_scaffold else row["name"][1:]
+            scaffold_name = "assembly"
             f.write(
                 f"{scaffold_name}{TAB_TOKEN}{row['start_index']}{TAB_TOKEN}{row['end_index']}{TAB_TOKEN}{row['name'][1:]}{NEWLINE_TOKEN}"
             )
 
 
-if __name__ == "__main__":
-    rows = read_assembly_rows(assembly_file_name)
+def main():
+    rows = parse_agp(f"{LIFTOVER_AGP}")
+    write_assembly(f"{PREFIX}", rows)
+
     bedpe_rows = make_bedpe_rows(rows)
 
-    is_single_assembly_scaffold = "-s" in args
+    write_bedpe(f"{PREFIX}", bedpe_rows)
+    write_bed(f"{PREFIX}", bedpe_rows)
 
-    write_bedpe(prefix, bedpe_rows, is_single_assembly_scaffold)
-    write_bed(prefix, bedpe_rows, is_single_assembly_scaffold)
-
+    # Write versions
     with open("versions.yml", "w") as f_versions:
-        f_versions.write('"${task.process}":\\n')
+        f_versions.write('"${{task.process}}":' + f"{NEWLINE_TOKEN}")
         f_versions.write(f"    python: {python_version()}{NEWLINE_TOKEN}")
         f_versions.write(f"    biopython: {version('biopython')}{NEWLINE_TOKEN}")
+
+
+if __name__ == "__main__":
+    main()
