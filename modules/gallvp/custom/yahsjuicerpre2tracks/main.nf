@@ -9,6 +9,7 @@ process CUSTOM_YAHSJUICERPRE2TRACKS {
 
     input:
     tuple val(meta), path(liftover_agp)
+    path(scale)
 
     output:
     tuple val(meta), path("*.assembly"), emit: assembly
