@@ -113,8 +113,8 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD {
                                                 scale: scale
                                             }
     CUSTOM_YAHSJUICERPRE2TRACKS (
-        ch_tracks_input.out.agp,
-        ch_tracks_input.out.scale
+        ch_tracks_input.agp,
+        ch_tracks_input.scale
     )
 
     ch_versions                             = ch_versions

@@ -28,6 +28,10 @@ input:
     - liftover_agp:
         type: file
         description: Liftover AGP from YaHS
+        ontologies: []
+  - scale:
+      type: file
+      description: Scale text file
 output:
   assembly:
     - - meta:
@@ -38,6 +42,7 @@ output:
       - "*.assembly":
           type: file
           description: Assembly file
+          ontologies: []
   bedpe:
     - - meta:
           type: map
