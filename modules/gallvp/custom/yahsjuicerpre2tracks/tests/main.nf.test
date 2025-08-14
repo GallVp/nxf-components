@@ -17,10 +17,43 @@ nextflow_process {
                 def test_file = new File('inline.liftover.agp')
                 test_file.text = "ctg00000001.1	1	15001	1	W	HYh1_Chr01:6000000-6015000	1	15001	+\\nctg00000002.1	1	15001	1	W	HYh2_Chr01:6000000-6015000	1	15001	+\\n"
 
+                def scale_file = new File('inline.scale')
+                scale_file.text = "1\\n"
+
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
                     test_file.toPath()
                 ]
+                input[1] = scale_file.toPath()
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("inline - agp - scale - 2") {
+
+        when {
+            process {
+                """
+                def test_file = new File('inline.liftover.agp')
+                test_file.text = "ctg00000001.1	1	15001	1	W	HYh1_Chr01:6000000-6015000	1	15001	+\\nctg00000002.1	1	15001	1	W	HYh2_Chr01:6000000-6015000	1	15001	+\\n"
+
+                def scale_file = new File('inline.scale')
+                scale_file.text = "2\\n"
+
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    test_file.toPath()
+                ]
+                input[1] = scale_file.toPath()
                 """
             }
         }
@@ -43,10 +76,14 @@ nextflow_process {
                 def test_file = new File('inline.liftover.agp')
                 test_file.text = "ctg00000001.1	1	15001	1	W	HYh1_Chr01:6000000-6015000	1	15001	+\\nctg00000002.1	1	15001	1	W	HYh2_Chr01:6000000-6015000	1	15001	+\\n"
 
+                def scale_file = new File('inline.scale')
+                scale_file.text = "1\\n"
+
                 input[0] = [
                     [ id:'test', single_end:false ], // meta map
                     test_file.toPath()
                 ]
+                input[1] = scale_file.toPath()
                 """
             }
         }

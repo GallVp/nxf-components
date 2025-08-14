@@ -70,6 +70,77 @@
         },
         "timestamp": "2025-08-12T15:28:39.683616"
     },
+    "inline - agp - scale - 2": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.assembly:md5,24dcf28c417a450dc0c10c823ad38c31"
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bedpe:md5,4533bb10160357ac37dd36c33bb15757"
+                    ]
+                ],
+                "2": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bed:md5,1fbc21653249d9f90db49a9a4770e891"
+                    ]
+                ],
+                "3": [
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
+                ],
+                "assembly": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.assembly:md5,24dcf28c417a450dc0c10c823ad38c31"
+                    ]
+                ],
+                "bed": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bed:md5,1fbc21653249d9f90db49a9a4770e891"
+                    ]
+                ],
+                "bedpe": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "test.bedpe:md5,4533bb10160357ac37dd36c33bb15757"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,cab4fe8f578236b699ee2dd5f021ce3c"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-08-15T10:09:24.947718"
+    },
     "inline - agp": {
         "content": [
             {

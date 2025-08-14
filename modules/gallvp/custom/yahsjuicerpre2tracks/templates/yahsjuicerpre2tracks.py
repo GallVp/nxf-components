@@ -4,13 +4,14 @@ from importlib.metadata import version
 from platform import python_version
 
 LIFTOVER_AGP = "$liftover_agp"
+SCALE = "$scale"
 PREFIX = "$prefix"
 
 TAB_TOKEN = "\\t"
 NEWLINE_TOKEN = "\\n"
 
 
-def parse_agp(agp_file):
+def parse_agp(agp_file: str, scale: int):
     rows = []
     with open(agp_file) as f:
         for line in f:
@@ -28,9 +29,9 @@ def parse_agp(agp_file):
                 {
                     "name": name,
                     "obj": obj,
-                    "start": obj_start,
-                    "end": obj_end,
-                    "length": obj_end - obj_start + 1,  # AGP is a 1-based end-inclusive system
+                    "start": obj_start // scale,
+                    "end": obj_end // scale,
+                    "length": (obj_end - obj_start + 1) // scale,  # AGP is a 1-based end-inclusive system
                 }
             )
     return rows
@@ -80,8 +81,14 @@ def write_bed(prefix, bed_pe_list):
             )
 
 
+def read_scale(scale_file: str) -> int:
+    with open(scale_file) as f:
+        return int(f.readline().strip())
+
+
 def main():
-    rows = parse_agp(f"{LIFTOVER_AGP}")
+    scale = read_scale(f"{SCALE}")
+    rows = parse_agp(f"{LIFTOVER_AGP}", scale)
     write_assembly(f"{PREFIX}", rows)
 
     bedpe_rows = make_bedpe_rows(rows)

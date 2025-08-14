@@ -104,8 +104,17 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD {
     ch_versions                             = ch_versions.mix(HICTK_ZOOMIFY.out.versions.first())
 
     // MODULES: CUSTOM_ASSEMBLY2BEDPE
+    ch_tracks_input                         = YAHS_JUICERPRE.out.liftover_agp
+                                            | join(
+                                                YAHS_JUICERPRE.out.scale
+                                            )
+                                            | multiMap { meta, agp, scale ->
+                                                agp: [ meta, agp ]
+                                                scale: scale
+                                            }
     CUSTOM_YAHSJUICERPRE2TRACKS (
-        YAHS_JUICERPRE.out.liftover_agp
+        ch_tracks_input.out.agp,
+        ch_tracks_input.out.scale
     )
 
     ch_versions                             = ch_versions
