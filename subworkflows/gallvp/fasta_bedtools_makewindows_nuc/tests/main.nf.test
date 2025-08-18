@@ -1,0 +1,60 @@
+nextflow_workflow {
+
+    name "Test Subworkflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC"
+    script "../main.nf"
+    config "./nextflow.config"
+    workflow "FASTA_BEDTOOLS_MAKEWINDOWS_NUC"
+
+    tag "subworkflows"
+    tag "subworkflows_gallvp"
+    tag "subworkflows/fasta_bedtools_makewindows_nuc"
+    tag "samtools"
+    tag "samtools/faidx"
+    tag "bedtools"
+    tag "bedtools/makewindows"
+    tag "bedtools/nuc"
+
+
+    test("sarscov2 - fasta") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true),
+                ])
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+
+    test("sarscov2 - fasta - stub") {
+        options '-stub'
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true),
+                ])
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success},
+                { assert snapshot(workflow.out).match()}
+            )
+        }
+    }
+}
