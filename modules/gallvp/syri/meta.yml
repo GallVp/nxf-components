@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "syri"
-description: Syri compares alignments between two chromosome-level assemblies and
-  identifies synteny and structural rearrangements.
+description: Syri compares alignments between two chromosome-level assemblies
+  and identifies synteny and structural rearrangements.
 keywords:
   - genomics
   - synteny
@@ -26,21 +26,24 @@ input:
         type: file
         description: File containing alignment coordinates
         pattern: "*.{table, sam, bam, paf}"
-  - - query_fasta:
-        type: file
-        description: Query genome for the alignments
-        pattern: "*.fasta"
-  - - reference_fasta:
-        type: file
-        description: Reference genome for the alignments
-        pattern: "*.fasta"
-  - - file_type:
-        type: string
-        description: |
-          Input file type which is one of  T: Table, S: SAM, B: BAM, P: PAF
+        ontologies: []
+  - query_fasta:
+      type: file
+      description: Query genome for the alignments
+      pattern: "*.fasta"
+      ontologies: []
+  - reference_fasta:
+      type: file
+      description: Reference genome for the alignments
+      pattern: "*.fasta"
+      ontologies: []
+  - file_type:
+      type: string
+      description: |
+        Input file type which is one of  T: Table, S: SAM, B: BAM, P: PAF
 output:
-  - syri:
-      - meta:
+  syri:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -49,8 +52,9 @@ output:
           type: file
           description: Syri output file
           pattern: "*syri.out"
-  - error:
-      - meta:
+          ontologies: []
+  error:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -61,11 +65,14 @@ output:
             Error log if syri fails. This error log enables the pipeline to detect if syri has failed due to one of its
             known limitations and pass the information to the user in a user-friendly manner such as a HTML report
           pattern: "*.error.log"
-  - versions:
-      - versions.yml:
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:
