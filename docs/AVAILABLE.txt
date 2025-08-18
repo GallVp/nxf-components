@@ -13,14 +13,12 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/winnowmap">modules/gallvp/winnowmap</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner">modules/gallvp/tirlearner</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/t2tpolish/paftocovclippedwig">modules/gallvp/t2tpolish/paftocovclippedwig</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/sort">modules/gallvp/sort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/sort">modules/gallvp/seqkit/sort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq">modules/gallvp/seqkit/seq</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx">modules/gallvp/samtools/faidx</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker">modules/gallvp/repeatmasker/repeatmasker</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/plotsr">modules/gallvp/plotsr</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf">modules/gallvp/paftools/sam2paf</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/meryl/count">modules/gallvp/meryl/count</a></li>
@@ -59,7 +57,6 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index">modules/gallvp/bwa/index</a></li>
-<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3">modules/gallvp/braker3</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist">modules/gallvp/agat/spfilterfeaturefromkilllist</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations">modules/gallvp/agat/spcomplementannotations</a></li>

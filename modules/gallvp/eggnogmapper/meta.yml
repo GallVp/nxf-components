@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/yaml-schema.json
 name: "eggnogmapper"
-description: Fast genome-wide functional annotation through orthology assignment.
+description: Fast genome-wide functional annotation through orthology
+  assignment.
 keywords:
   - annotation
   - orthology
@@ -24,14 +25,17 @@ input:
         type: file
         description: Database of sequences in FASTA format
         pattern: "*.{fasta,fa,fasta.gz,fa.gz}"
-  - - eggnog_db:
-        type: file
-        description: The eggnog database file (e.g. eggnog-mapper/data/eggnog.db)
-        pattern: "*.db"
-  - - eggnog_data_dir:
-        type: directory
-        description: Directory containing eggnog database files (e.g. eggnog-mapper/data)
-        pattern: "*"
+        ontologies: []
+  - eggnog_db:
+      type: file
+      description: The eggnog database file (e.g. eggnog-mapper/data/eggnog.db)
+      pattern: "*.db"
+      ontologies: []
+  - eggnog_data_dir:
+      type: directory
+      description: Directory containing eggnog database files (e.g.
+        eggnog-mapper/data)
+      pattern: "*"
   - - meta2:
         type: map
         description: |
@@ -39,11 +43,13 @@ input:
           e.g. `[ id:'test' ]`
     - eggnog_diamond_db:
         type: file
-        description: The eggnog Diamond protein database file (e.g. eggnog-mapper/data/eggnog_proteins.dmnd)
+        description: The eggnog Diamond protein database file (e.g.
+          eggnog-mapper/data/eggnog_proteins.dmnd)
         pattern: "*.dmnd"
+        ontologies: []
 output:
-  - annotations:
-      - meta:
+  annotations:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -52,19 +58,21 @@ output:
           type: file
           description: TSV with the results from the annotation phase
           pattern: "*.emapper.annotations"
-  - orthologs:
-      - meta:
+          ontologies: []
+  orthologs:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
             e.g. `[ id:'test', single_end:false ]`
       - "*.emapper.seed_orthologs":
           type: file
-          description: TSV with the results from parsing the hits, linking queries with
-            seed orthologs (with commented metadata)
+          description: TSV with the results from parsing the hits, linking queries
+            with seed orthologs (with commented metadata)
           pattern: "*.emapper.seed_orthologs"
-  - hits:
-      - meta:
+          ontologies: []
+  hits:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -73,11 +81,14 @@ output:
           type: file
           description: TSV with the results from the Diamond search phase
           pattern: "*.emapper.hits"
-  - versions:
-      - versions.yml:
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@vagkaratzas"
 maintainers:

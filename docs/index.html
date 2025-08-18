@@ -1,430 +1,393 @@
 <html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Maven+Pro:wght@400..900&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            body {
-                background-color: #333;
-                color: #fff;
-                font-family: "Maven Pro", sans-serif;
-                margin-left: 5%;
-            }
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Maven+Pro:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #333;
+        color: #fff;
+        font-family: "Maven Pro", sans-serif;
+        margin-left: 5%;
+      }
 
-            h1 {
-                font-weight: lighter;
-            }
+      h1 {
+        font-weight: lighter;
+      }
 
-            #searchInput {
-                background-position: 10px 50%;
-                background-repeat: no-repeat;
-                width: 70%;
-                font-size: 24px;
-                padding: 10px 15px 10px 40px;
-                border: 2px solid #555;
-                border-radius: 10px;
-                margin-bottom: 20px;
-                outline: none;
-                transition: border-color;
-                color: #000;
-            }
+      #searchInput {
+        background-position: 10px 50%;
+        background-repeat: no-repeat;
+        width: 70%;
+        font-size: 24px;
+        padding: 10px 15px 10px 40px;
+        border: 2px solid #555;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        outline: none;
+        transition: border-color;
+        color: #000;
+      }
 
-            #searchInput:focus {
-                border-color: #007bff;
-            }
+      #searchInput:focus {
+        border-color: #007bff;
+      }
 
-            #modulesList {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                width: 70%;
-            }
+      #modulesList {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 70%;
+      }
 
-            #modulesList li {
-                border-radius: 10px;
-                background-color: #555;
-                margin-bottom: 10px;
-                padding: 10px;
-            }
+      #modulesList li {
+        border-radius: 10px;
+        background-color: #555;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
 
-            #modulesList li a {
-                text-decoration: none;
-                font-size: 24px;
-                color: #fff;
-                transition: color 0.1s ease-in-out;
-            }
+      #modulesList li a {
+        text-decoration: none;
+        font-size: 24px;
+        color: #fff;
+        transition: color 0.1s ease-in-out;
+      }
 
-            #modulesList li a:hover {
-                color: #070707;
-            }
-        </style>
-        <script>
-            function myFunction() {
-                // Declare variables
-                var input, filter, ul, li, a, i, txtValue;
-                input = document.getElementById("searchInput");
-                filter = input.value.toUpperCase();
-                ul = document.getElementById("modulesList");
-                li = ul.getElementsByTagName("li");
+      #modulesList li a:hover {
+        color: #070707;
+      }
+    </style>
+    <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("modulesList");
+        li = ul.getElementsByTagName("li");
 
-                // Loop through all list items, and hide those who don't match the search query
-                for (i = 0; i < li.length; i++) {
-                    a = li[i].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[i].style.display = "";
-                    } else {
-                        li[i].style.display = "none";
-                    }
-                }
-            }
-        </script>
-    </head>
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
 
-    <body>
-        <h1>gallvp/nxf-components</h1>
-        <input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search.." />
+  <body>
+    <h1>gallvp/nxf-components</h1>
+    <input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search.." />
 
-        <ul id="modulesList">
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences"
-                    >subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt"
-                    >subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat"
-                    >subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster"
-                    >subworkflows/gallvp/fastq_bwa_mem_samblaster</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_seqkit_refsort"
-                    >subworkflows/gallvp/fasta_seqkit_refsort</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai"
-                    >subworkflows/gallvp/fasta_ltrretriever_lai</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw"
-                    >subworkflows/gallvp/fasta_helitronscanner_scan_draw</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_fastq_winnowmap_coverage"
-                    >subworkflows/gallvp/fasta_fastq_winnowmap_coverage</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai"
-                    >subworkflows/gallvp/fasta_edta_lai</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre"
-                    >subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load"
-                    >subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre"
-                    >modules/gallvp/yahs/juicerpre</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/winnowmap"
-                    >modules/gallvp/winnowmap</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner"
-                    >modules/gallvp/tirlearner</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/t2tpolish/paftocovclippedwig"
-                    >modules/gallvp/t2tpolish/paftocovclippedwig</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/syri">modules/gallvp/syri</a>
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/sort">modules/gallvp/sort</a>
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/sort"
-                    >modules/gallvp/seqkit/sort</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq"
-                    >modules/gallvp/seqkit/seq</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx"
-                    >modules/gallvp/samtools/faidx</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster"
-                    >modules/gallvp/samblaster</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker"
-                    >modules/gallvp/repeatmasker/repeatmasker</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/plotsr"
-                    >modules/gallvp/plotsr</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf"
-                    >modules/gallvp/paftools/sam2paf</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align"
-                    >modules/gallvp/minimap2/align</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/meryl/count"
-                    >modules/gallvp/meryl/count</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/matlock/bam2juicer"
-                    >modules/gallvp/matlock/bam2juicer</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever"
-                    >modules/gallvp/ltrretriever/ltrretriever</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai"
-                    >modules/gallvp/ltrretriever/lai</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest"
-                    >modules/gallvp/ltrharvest</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrfinder"
-                    >modules/gallvp/ltrfinder</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicer/indexbychr"
-                    >modules/gallvp/juicer/indexbychr</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicertools/pre"
-                    >modules/gallvp/juicertools/pre</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/makeagpfromfasta"
-                    >modules/gallvp/juiceboxscripts/makeagpfromfasta</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/agp2assembly"
-                    >modules/gallvp/juiceboxscripts/agp2assembly</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hictk/zoomify"
-                    >modules/gallvp/hictk/zoomify</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hictk/load"
-                    >modules/gallvp/hictk/load</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hicqc"
-                    >modules/gallvp/hicqc</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/scan"
-                    >modules/gallvp/helitronscanner/scan</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/draw"
-                    >modules/gallvp/helitronscanner/draw</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/haphic/refsort"
-                    >modules/gallvp/haphic/refsort</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gunzip"
-                    >modules/gallvp/gunzip</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/stat"
-                    >modules/gallvp/gt/stat</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3validator"
-                    >modules/gallvp/gt/gff3validator</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3"
-                    >modules/gallvp/gt/gff3</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gffread"
-                    >modules/gallvp/gffread</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/falint"
-                    >modules/gallvp/falint</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/eggnogmapper"
-                    >modules/gallvp/eggnogmapper</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/edta/edta"
-                    >modules/gallvp/edta/edta</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/diamond/makedb"
-                    >modules/gallvp/diamond/makedb</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2tracks"
-                    >modules/gallvp/custom/yahsjuicerpre2tracks</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2pairs"
-                    >modules/gallvp/custom/yahsjuicerpre2pairs</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/shortenfastaids"
-                    >modules/gallvp/custom/shortenfastaids</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/rmouttogff3"
-                    >modules/gallvp/custom/rmouttogff3</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/restoregffids"
-                    >modules/gallvp/custom/restoregffids</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/relabelfasta"
-                    >modules/gallvp/custom/relabelfasta</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/interleavefasta"
-                    >modules/gallvp/custom/interleavefasta</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/assembly2bedpe"
-                    >modules/gallvp/custom/assembly2bedpe</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat"
-                    >modules/gallvp/cat/cat</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem"
-                    >modules/gallvp/bwa/mem</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index"
-                    >modules/gallvp/bwa/index</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/braker3"
-                    >modules/gallvp/braker3</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist"
-                    >modules/gallvp/agat/spfilterfeaturefromkilllist</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences"
-                    >modules/gallvp/agat/spextractsequences</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations"
-                    >modules/gallvp/agat/spcomplementannotations</a
-                >
-            </li>
-            <li>
-                <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spaddintrons"
-                    >modules/gallvp/agat/spaddintrons</a
-                >
-            </li>
-        </ul>
-    </body>
+    <ul id="modulesList">
+      <li>
+        <a
+          href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences"
+          >subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt"
+          >subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat"
+          >subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster"
+          >subworkflows/gallvp/fastq_bwa_mem_samblaster</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_seqkit_refsort"
+          >subworkflows/gallvp/fasta_seqkit_refsort</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai"
+          >subworkflows/gallvp/fasta_ltrretriever_lai</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw"
+          >subworkflows/gallvp/fasta_helitronscanner_scan_draw</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_fastq_winnowmap_coverage"
+          >subworkflows/gallvp/fasta_fastq_winnowmap_coverage</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai"
+          >subworkflows/gallvp/fasta_edta_lai</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre"
+          >subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load"
+          >subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre"
+          >modules/gallvp/yahs/juicerpre</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/winnowmap"
+          >modules/gallvp/winnowmap</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/tirlearner"
+          >modules/gallvp/tirlearner</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/t2tpolish/paftocovclippedwig"
+          >modules/gallvp/t2tpolish/paftocovclippedwig</a
+        >
+      </li>
+      <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/sort">modules/gallvp/sort</a></li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/sort"
+          >modules/gallvp/seqkit/sort</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/seqkit/seq"
+          >modules/gallvp/seqkit/seq</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx"
+          >modules/gallvp/samtools/faidx</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster"
+          >modules/gallvp/samblaster</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker"
+          >modules/gallvp/repeatmasker/repeatmasker</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf"
+          >modules/gallvp/paftools/sam2paf</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align"
+          >modules/gallvp/minimap2/align</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/meryl/count"
+          >modules/gallvp/meryl/count</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/matlock/bam2juicer"
+          >modules/gallvp/matlock/bam2juicer</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever"
+          >modules/gallvp/ltrretriever/ltrretriever</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/lai"
+          >modules/gallvp/ltrretriever/lai</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrharvest"
+          >modules/gallvp/ltrharvest</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrfinder"
+          >modules/gallvp/ltrfinder</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicer/indexbychr"
+          >modules/gallvp/juicer/indexbychr</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juicertools/pre"
+          >modules/gallvp/juicertools/pre</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/makeagpfromfasta"
+          >modules/gallvp/juiceboxscripts/makeagpfromfasta</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/juiceboxscripts/agp2assembly"
+          >modules/gallvp/juiceboxscripts/agp2assembly</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hictk/zoomify"
+          >modules/gallvp/hictk/zoomify</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hictk/load"
+          >modules/gallvp/hictk/load</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/hicqc">modules/gallvp/hicqc</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/scan"
+          >modules/gallvp/helitronscanner/scan</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/helitronscanner/draw"
+          >modules/gallvp/helitronscanner/draw</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/haphic/refsort"
+          >modules/gallvp/haphic/refsort</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gunzip">modules/gallvp/gunzip</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/stat">modules/gallvp/gt/stat</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3validator"
+          >modules/gallvp/gt/gff3validator</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gt/gff3">modules/gallvp/gt/gff3</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/gffread">modules/gallvp/gffread</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/falint">modules/gallvp/falint</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/eggnogmapper"
+          >modules/gallvp/eggnogmapper</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/edta/edta"
+          >modules/gallvp/edta/edta</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/diamond/makedb"
+          >modules/gallvp/diamond/makedb</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2tracks"
+          >modules/gallvp/custom/yahsjuicerpre2tracks</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/yahsjuicerpre2pairs"
+          >modules/gallvp/custom/yahsjuicerpre2pairs</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/shortenfastaids"
+          >modules/gallvp/custom/shortenfastaids</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/rmouttogff3"
+          >modules/gallvp/custom/rmouttogff3</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/restoregffids"
+          >modules/gallvp/custom/restoregffids</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/relabelfasta"
+          >modules/gallvp/custom/relabelfasta</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/interleavefasta"
+          >modules/gallvp/custom/interleavefasta</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/custom/assembly2bedpe"
+          >modules/gallvp/custom/assembly2bedpe</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a>
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index"
+          >modules/gallvp/bwa/index</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist"
+          >modules/gallvp/agat/spfilterfeaturefromkilllist</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences"
+          >modules/gallvp/agat/spextractsequences</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations"
+          >modules/gallvp/agat/spcomplementannotations</a
+        >
+      </li>
+      <li>
+        <a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spaddintrons"
+          >modules/gallvp/agat/spaddintrons</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

@@ -26,9 +26,11 @@ input:
     - tsv:
         type: file
         description: Input TSV
+        ontologies: []
   - sizes:
       type: file
       description: TSV with contig IDs and sizes
+      ontologies: []
 output:
   pairs:
     - - meta:
@@ -39,6 +41,7 @@ output:
       - "*.pairs":
           type: file
           description: Output pairs file
+          ontologies: []
   versions:
     - versions.yml:
         type: file

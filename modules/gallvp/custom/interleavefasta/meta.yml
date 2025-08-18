@@ -34,7 +34,8 @@ input:
 
   - fasta_prefixes:
       type: string
-      description: A space separated list of prefixes to add to IDs from the second FASTA file if there are collisions
+      description: A space separated list of prefixes to add to IDs from the
+        second FASTA file if there are collisions
 
 output:
   fasta:

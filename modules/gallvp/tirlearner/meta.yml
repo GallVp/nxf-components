@@ -26,13 +26,14 @@ input:
         type: file
         description: Genome sequences in fasta format
         pattern: "*.{fsa,fa,fasta}"
-  - - species:
-        type: string
-        description: |
-          "maize", "rice" or "others"
+        ontologies: []
+  - species:
+      type: string
+      description: |
+        "maize", "rice" or "others"
 output:
-  - log:
-      - meta:
+  log:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -41,8 +42,9 @@ output:
           type: file
           description: Log from TIR-Learner
           pattern: "*.log"
-  - fasta:
-      - meta:
+          ontologies: []
+  fasta:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -51,8 +53,9 @@ output:
           type: file
           description: Putative TIRs in fasta format
           pattern: "*.fa"
-  - gff:
-      - meta:
+          ontologies: []
+  gff:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -61,8 +64,9 @@ output:
           type: file
           description: Putative TIRs in GFF3 format
           pattern: "*.gff3"
-  - filtered_fasta:
-      - meta:
+          ontologies: []
+  filtered_fasta:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -71,8 +75,9 @@ output:
           type: file
           description: Filtered TIRs in fasta format
           pattern: "*.fa"
-  - filtered_gff:
-      - meta:
+          ontologies: []
+  filtered_gff:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -81,11 +86,14 @@ output:
           type: file
           description: Filtered TIRs in GFF3 format
           pattern: "*.gff3"
-  - versions:
-      - versions.yml:
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+          ontologies: []
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@jguhlin"
   - "@GallVp"

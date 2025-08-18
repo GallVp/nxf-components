@@ -19,7 +19,6 @@ nextflow_process {
                     [id:'test'],
                     file(params.modules_testdata_base_path + 'genomics/homo_sapiens/scramble/test.bam', checkIfExists: true)
                 ]
-
                 """
             }
         }

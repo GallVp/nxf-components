@@ -32,6 +32,7 @@ input:
   - scale:
       type: file
       description: Scale text file
+      ontologies: []
 output:
   assembly:
     - - meta:

@@ -25,6 +25,7 @@ input:
     - interactions:
         type: file
         description: Interactions file in TSV format
+        ontologies: []
   - format:
       type: string
       description: Format of the input interactions file
@@ -38,6 +39,7 @@ output:
       - "*.hic":
           type: file
           description: Output hic file
+          ontologies: []
   versions:
     - versions.yml:
         type: file
