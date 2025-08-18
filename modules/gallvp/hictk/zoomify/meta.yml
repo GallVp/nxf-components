@@ -24,6 +24,7 @@ input:
     - hic:
         type: file
         description: Input hic
+        ontologies: []
 output:
   hic:
     - - meta:

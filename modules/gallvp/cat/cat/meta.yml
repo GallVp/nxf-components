@@ -28,7 +28,8 @@ output:
           description: Groovy Map containing sample information
       - ${prefix}:
           type: file
-          description: Concatenated file. Will be gzipped if file_out ends with ".gz"
+          description: Concatenated file. Will be gzipped if file_out ends with
+            ".gz"
           pattern: "${file_out}"
           ontologies: []
   versions:

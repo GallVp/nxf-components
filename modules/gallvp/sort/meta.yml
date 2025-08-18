@@ -8,7 +8,9 @@ keywords:
   - text
 tools:
   - "sort":
-      description: "sort sorts, merges, or compares all the lines from the given files, or standard input if none are given or for a file of '-'. By default, sort writes the results to standard output."
+      description: "sort sorts, merges, or compares all the lines from the given files,
+        or standard input if none are given or for a file of '-'. By default, sort writes
+        the results to standard output."
       homepage: "https://www.gnu.org"
       documentation: "https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html"
       tool_dev_url: "https://github.com/coreutils/coreutils"
@@ -24,9 +26,12 @@ input:
         type: file
         description: Text file
         pattern: "*.{txt,tsv,csv}"
+        ontologies:
+          - edam: http://edamontology.org/format_3475 # TSV
+          - edam: http://edamontology.org/format_3752 # CSV
 output:
-  - sorted:
-      - meta:
+  sorted:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -35,11 +40,16 @@ output:
           type: file
           description: Sorted text file
           pattern: "*.{txt,tsv,csv}"
-  - versions:
-      - "versions.yml":
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+          ontologies:
+            - edam: http://edamontology.org/format_3475 # TSV
+            - edam: http://edamontology.org/format_3752 # CSV
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@ignacio3437"
   - "@gallvp"

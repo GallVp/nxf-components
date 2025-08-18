@@ -110,6 +110,7 @@ output:
       - "*.scale":
           type: file
           description: The scale by which the assembly has been shrunk
+          ontologies: []
   versions:
     - versions.yml:
         type: file

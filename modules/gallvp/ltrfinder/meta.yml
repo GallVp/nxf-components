@@ -20,8 +20,8 @@ tools:
       licence: ["MIT"]
       identifier: ""
   - "LTR_Finder":
-      description: An efficient program for finding full-length LTR retrotranspsons
-        in genome sequences
+      description: An efficient program for finding full-length LTR
+        retrotranspsons in genome sequences
       homepage: "https://github.com/xzhub/LTR_Finder"
       documentation: "https://github.com/xzhub/LTR_Finder"
       tool_dev_url: "https://github.com/xzhub/LTR_Finder"

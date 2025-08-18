@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/yaml-schema.json
 name: "eggnogmapper"
-description: Fast genome-wide functional annotation through orthology assignment.
+description: Fast genome-wide functional annotation through orthology
+  assignment.
 keywords:
   - annotation
   - orthology
@@ -32,7 +33,8 @@ input:
       ontologies: []
   - eggnog_data_dir:
       type: directory
-      description: Directory containing eggnog database files (e.g. eggnog-mapper/data)
+      description: Directory containing eggnog database files (e.g.
+        eggnog-mapper/data)
       pattern: "*"
   - - meta2:
         type: map
@@ -41,7 +43,8 @@ input:
           e.g. `[ id:'test' ]`
     - eggnog_diamond_db:
         type: file
-        description: The eggnog Diamond protein database file (e.g. eggnog-mapper/data/eggnog_proteins.dmnd)
+        description: The eggnog Diamond protein database file (e.g.
+          eggnog-mapper/data/eggnog_proteins.dmnd)
         pattern: "*.dmnd"
         ontologies: []
 output:
@@ -64,8 +67,8 @@ output:
             e.g. `[ id:'test', single_end:false ]`
       - "*.emapper.seed_orthologs":
           type: file
-          description: TSV with the results from parsing the hits, linking queries with
-            seed orthologs (with commented metadata)
+          description: TSV with the results from parsing the hits, linking queries
+            with seed orthologs (with commented metadata)
           pattern: "*.emapper.seed_orthologs"
           ontologies: []
   hits:

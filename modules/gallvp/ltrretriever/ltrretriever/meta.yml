@@ -29,8 +29,8 @@ input:
         ontologies: []
   - harvest:
       type: file
-      description: LTR-RT candidates from GenomeTools ltrharvest in the old tabular
-        format
+      description: LTR-RT candidates from GenomeTools ltrharvest in the old
+        tabular format
       pattern: "*.tabout"
       ontologies: []
   - finder:
@@ -45,8 +45,8 @@ input:
       ontologies: []
   - non_tgca:
       type: file
-      description: Non-canonical LTR-RT candidates from GenomeTools ltrharvest in the
-        old tabular format
+      description: Non-canonical LTR-RT candidates from GenomeTools ltrharvest in
+        the old tabular format
       pattern: "*.tabout"
       ontologies: []
 output:
@@ -69,8 +69,8 @@ output:
             e.g. `[ id:'sample1' ]`
       - ${prefix}.pass.list:
           type: file
-          description: Intact LTR-RTs with coordinate and structural information in
-            summary table format
+          description: Intact LTR-RTs with coordinate and structural information
+            in summary table format
           pattern: "*.pass.list"
           ontologies: []
   pass_list_gff:
@@ -81,8 +81,8 @@ output:
             e.g. `[ id:'sample1' ]`
       - "*.pass.list.gff3":
           type: file
-          description: Intact LTR-RTs with coordinate and structural information in
-            gff3 format
+          description: Intact LTR-RTs with coordinate and structural information
+            in gff3 format
           pattern: "*.pass.list.gff3"
           ontologies: []
   ltrlib:
@@ -115,8 +115,8 @@ output:
             e.g. `[ id:'sample1' ]`
       - "*.out.gff3":
           type: file
-          description: Whole-genome LTR-RT annotation by the non-redundant library in
-            gff3 format
+          description: Whole-genome LTR-RT annotation by the non-redundant library
+            in gff3 format
           pattern: "*.out.gff3"
           ontologies: []
   versions:

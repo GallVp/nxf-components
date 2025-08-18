@@ -13,7 +13,8 @@ keywords:
   - qc
 tools:
   - "lai":
-      description: Assessing genome assembly quality using the LTR Assembly Index (LAI)
+      description: Assessing genome assembly quality using the LTR Assembly Index
+        (LAI)
       homepage: "https://github.com/oushujun/LTR_retriever"
       documentation: "https://github.com/oushujun/LTR_retriever"
       tool_dev_url: "https://github.com/oushujun/LTR_retriever"

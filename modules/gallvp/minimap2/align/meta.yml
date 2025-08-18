@@ -1,5 +1,6 @@
 name: minimap2_align
-description: A versatile pairwise aligner for genomic and spliced nucleotide sequences
+description: A versatile pairwise aligner for genomic and spliced nucleotide
+  sequences
 keywords:
   - align
   - fasta

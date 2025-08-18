@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "seqkit_seq"
-description: Transforms sequences (extract ID, filter by length, remove gaps, reverse
-  complement...)
+description: Transforms sequences (extract ID, filter by length, remove gaps,
+  reverse complement...)
 keywords:
   - genomics
   - fasta

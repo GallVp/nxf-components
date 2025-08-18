@@ -28,8 +28,8 @@ input:
 
         ontologies: []
 output:
-  - pdf:
-      - meta:
+  pdf:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -39,8 +39,8 @@ output:
           description: PDF report
           pattern: "*.{pdf}"
           ontologies: []
-  - html:
-      - meta:
+  html:
+    - - meta:
           type: map
           description: |
             Groovy Map containing sample information
@@ -51,14 +51,14 @@ output:
           pattern: "*.{html}"
 
           ontologies: []
-  - versions:
-      - "versions.yml":
-          type: file
-          description: File containing software versions
-          pattern: "versions.yml"
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
 
-          ontologies:
-            - edam: http://edamontology.org/format_3750 # YAML
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@GallVp"
 maintainers:
