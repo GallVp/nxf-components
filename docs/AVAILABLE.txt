@@ -57,6 +57,8 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index">modules/gallvp/bwa/index</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bedtools/nuc">modules/gallvp/bedtools/nuc</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bedtools/makewindows">modules/gallvp/bedtools/makewindows</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist">modules/gallvp/agat/spfilterfeaturefromkilllist</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations">modules/gallvp/agat/spcomplementannotations</a></li>
