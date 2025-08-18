@@ -7,6 +7,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_helitronscanner_scan_draw">subworkflows/gallvp/fasta_helitronscanner_scan_draw</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_fastq_winnowmap_coverage">subworkflows/gallvp/fasta_fastq_winnowmap_coverage</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_edta_lai">subworkflows/gallvp/fasta_edta_lai</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_bedtools_makewindows_nuc">subworkflows/gallvp/fasta_bedtools_makewindows_nuc</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_juicer_tools_pre</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load">subworkflows/gallvp/bam_fasta_yahs_juicer_pre_hictk_load</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/yahs/juicerpre">modules/gallvp/yahs/juicerpre</a></li>
@@ -57,6 +58,8 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/cat/cat">modules/gallvp/cat/cat</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/mem">modules/gallvp/bwa/mem</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bwa/index">modules/gallvp/bwa/index</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bedtools/nuc">modules/gallvp/bedtools/nuc</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/bedtools/makewindows">modules/gallvp/bedtools/makewindows</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spfilterfeaturefromkilllist">modules/gallvp/agat/spfilterfeaturefromkilllist</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spextractsequences">modules/gallvp/agat/spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/agat/spcomplementannotations">modules/gallvp/agat/spcomplementannotations</a></li>
