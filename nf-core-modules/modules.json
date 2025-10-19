@@ -7,12 +7,12 @@
                 "nf-core": {
                     "agat/spextractsequences": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "55ed5f4aabcdcd7a4cc44e1700f956756c7e8532",
                         "installed_by": ["modules"]
                     },
                     "agat/spfilterfeaturefromkilllist": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "55ed5f4aabcdcd7a4cc44e1700f956756c7e8532",
                         "installed_by": ["modules"]
                     },
                     "bedtools/makewindows": {
@@ -27,12 +27,12 @@
                     },
                     "bwa/index": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "1c46359c837ef768b004519f535c30378e8289fc",
                         "installed_by": ["modules"]
                     },
                     "bwa/mem": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "1c46359c837ef768b004519f535c30378e8289fc",
                         "installed_by": ["modules"]
                     },
                     "cat/cat": {
@@ -42,12 +42,12 @@
                     },
                     "diamond/makedb": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "c44e4bb090eb4c9136f6d3f786285e4a9000f38f",
                         "installed_by": ["modules"]
                     },
                     "eggnogmapper": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "c44e4bb090eb4c9136f6d3f786285e4a9000f38f",
                         "installed_by": ["modules"]
                     },
                     "gffread": {
@@ -137,7 +137,7 @@
                     },
                     "samtools/faidx": {
                         "branch": "master",
-                        "git_sha": "41dfa3f7c0ffabb96a6a813fe321c6d1cc5b6e46",
+                        "git_sha": "c8be52dba1166c678e74cda9c3a3c221635c8bb1",
                         "installed_by": ["modules"]
                     },
                     "seqkit/seq": {

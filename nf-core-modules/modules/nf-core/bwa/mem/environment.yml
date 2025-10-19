@@ -6,6 +6,6 @@ channels:
 
 dependencies:
   # renovate: datasource=conda depName=bioconda/bwa
-  - bioconda::bwa=0.7.18
-  - bioconda::htslib=1.21
-  - bioconda::samtools=1.21
+  - bioconda::bwa=0.7.19
+  - bioconda::htslib=1.22.1
+  - bioconda::samtools=1.22.1

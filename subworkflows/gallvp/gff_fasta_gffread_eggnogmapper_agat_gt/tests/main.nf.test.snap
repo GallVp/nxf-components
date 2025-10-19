@@ -37,7 +37,7 @@
                 "4": [
                     "versions.yml:md5,1df2276825d8a83566e08976ff34ca52",
                     "versions.yml:md5,8685f0bc16b521da445a5334d02898f4",
-                    "versions.yml:md5,dec71213a8a45168d9909495d5eba2bb",
+                    "versions.yml:md5,9737fe1d0d30db4968f0931d10e86dba",
                     "versions.yml:md5,f39180ef2cbf81d45774fc33f9d88a65"
                 ],
                 "eggnogmapper_annotations": [
@@ -75,15 +75,15 @@
                 "versions": [
                     "versions.yml:md5,1df2276825d8a83566e08976ff34ca52",
                     "versions.yml:md5,8685f0bc16b521da445a5334d02898f4",
-                    "versions.yml:md5,dec71213a8a45168d9909495d5eba2bb",
+                    "versions.yml:md5,9737fe1d0d30db4968f0931d10e86dba",
                     "versions.yml:md5,f39180ef2cbf81d45774fc33f9d88a65"
                 ]
             }
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T12:26:02.257931"
+        "timestamp": "2025-10-20T08:56:39.920695"
     }
 }

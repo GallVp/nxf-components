@@ -42,4 +42,3 @@ cp_hybrid_module "bedtools/nuc"
 mkdir -p ./modules/nf-core/gunzip
 cp -r ./nf-core-modules/modules/nf-core/gunzip/* ./modules/nf-core/gunzip
 sed -i 's/modules_nfcore/modules_gallvp/1' ./modules/nf-core/gunzip/tests/main.nf.test
-
