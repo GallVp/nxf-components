@@ -4,7 +4,7 @@
             [
                 "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                 "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                 "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                 "versions.yml:md5,608d746d45680f025562c4be455db461",
                 "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -13,46 +13,46 @@
             ]
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:51:41.419884"
+        "timestamp": "2025-10-21T10:19:16.298523"
     },
     "sarscov2 - fasta - noltr": {
         "content": [
             [
-
+                
             ],
             [
-
+                
             ],
             [
-
+                
             ],
             [
-
+                
             ],
             [
                 "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                 "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                 "versions.yml:md5,608d746d45680f025562c4be455db461",
                 "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
                 "versions.yml:md5,fb42c6cc5c28b6f9d3384171c7b6b143"
             ]
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:52:14.751531"
+        "timestamp": "2025-10-21T10:19:48.400207"
     },
     "homo_sapiens - fasta": {
         "content": [
             [
                 "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                 "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                 "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                 "versions.yml:md5,608d746d45680f025562c4be455db461",
                 "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -60,21 +60,21 @@
                 "versions.yml:md5,fb42c6cc5c28b6f9d3384171c7b6b143"
             ],
             [
-
+                
             ]
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:52:57.377895"
+        "timestamp": "2025-10-21T10:20:30.245225"
     },
     "actinidia_chinensis-genome_1_fasta_gz": {
         "content": [
             [
                 "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                 "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                 "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                 "versions.yml:md5,608d746d45680f025562c4be455db461",
                 "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -82,17 +82,17 @@
             ]
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:44:32.091037"
+        "timestamp": "2025-10-21T10:12:35.814581"
     },
     "actinidia_chinensis-genome_1_fasta_gz-with_mono": {
         "content": [
             [
                 "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                 "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                 "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                 "versions.yml:md5,608d746d45680f025562c4be455db461",
                 "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -101,10 +101,10 @@
             ]
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:48:16.57747"
+        "timestamp": "2025-10-21T10:15:55.301376"
     },
     "empty_fasta_stub": {
         "content": [
@@ -152,7 +152,7 @@
                 "5": [
                     "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                     "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                    "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                    "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                     "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                     "versions.yml:md5,608d746d45680f025562c4be455db461",
                     "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -201,7 +201,7 @@
                 "versions": [
                     "versions.yml:md5,05a74dacbcd6c5906faeca3206f6563f",
                     "versions.yml:md5,1a46aa2f4bac2de9fda281ff1989e0c6",
-                    "versions.yml:md5,52a98b45c3cf73f9314dbe9b34eca9d8",
+                    "versions.yml:md5,1c826cce41463fc4022e46b640bf6688",
                     "versions.yml:md5,5d86cda262f5c21e43738433a2781ebc",
                     "versions.yml:md5,608d746d45680f025562c4be455db461",
                     "versions.yml:md5,8468404805dddec679524e75b4fa51e8",
@@ -210,9 +210,9 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.8"
         },
-        "timestamp": "2025-01-28T13:51:56.082393"
+        "timestamp": "2025-10-21T10:19:29.3058"
     }
 }

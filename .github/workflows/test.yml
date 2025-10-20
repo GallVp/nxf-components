@@ -138,6 +138,8 @@ jobs:
         profile: [conda, docker, singularity]
         exclude:
           - profile: conda
+            path: modules/gallvp/haphic/refsort
+          - profile: conda
             path: modules/gallvp/braker3
           - profile: conda
             path: modules/gallvp/edta/edta
