@@ -159,6 +159,8 @@ jobs:
             path: modules/gallvp/t2tpolish/paftocovclippedwig
           - profile: conda
             path: subworkflows/gallvp/fasta_fastq_winnowmap_coverage
+          - profile: conda
+            path: subworkflows/gallvp/fasta_seqkit_refsort
     env:
       NXF_ANSI_LOG: false
       NF_TEST_VER: "0.9.2"
