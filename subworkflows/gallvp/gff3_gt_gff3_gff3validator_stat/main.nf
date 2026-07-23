@@ -25,8 +25,7 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
 
     // MODULE: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX(
-        ch_fasta,
-        [ [], [] ],
+        ch_fasta.map { meta, fasta -> [ meta, fasta, [] ] },
         false // get_sizes
     )
 

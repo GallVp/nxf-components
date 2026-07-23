@@ -13,8 +13,7 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
 
     // MODULES: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX (
-        ch_fasta,
-        [ [], [] ],
+        ch_fasta.map { meta, fasta -> [ meta, fasta, [] ] },
         true // get_sizes
     )
 

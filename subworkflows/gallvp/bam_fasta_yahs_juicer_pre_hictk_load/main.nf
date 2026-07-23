@@ -18,8 +18,8 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD {
     ch_versions                             = channel.empty()
 
     // MODULE: SAMTOOLS_FAIDX
-    SAMTOOLS_FAIDX ( ch_fasta,
-        [ [] , []],
+    SAMTOOLS_FAIDX (
+        ch_fasta.map { meta, fasta -> [ meta, fasta, [] ] },
         true // get_sizes
     )
 

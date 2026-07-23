@@ -41,9 +41,8 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
 
     EGGNOGMAPPER(
         ch_eggnogmapper_inputs.map { meta, fasta, _db -> [ meta, fasta ] },
-        [],
-        ch_eggnogmapper_inputs.map { _meta, _fasta, db -> db },
-        [ [], [] ]
+        ch_eggnogmapper_inputs.map { _meta, _fasta, _db -> [ 'diamond', [] ] },
+        ch_eggnogmapper_inputs.map { _meta, _fasta, db -> db }
     )
 
     ch_eggnogmapper_annotations = EGGNOGMAPPER.out.annotations
