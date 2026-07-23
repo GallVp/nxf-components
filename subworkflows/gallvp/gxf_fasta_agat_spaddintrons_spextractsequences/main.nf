@@ -8,7 +8,7 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     ch_fasta                            // channel: [ val(meta2), fasta ]
 
     main:
-    ch_versions                         = Channel.empty()
+    ch_versions                         = channel.empty()
 
     // collectFile: Remove all/partial introns
     ch_gxf_purged                       = ch_gxf

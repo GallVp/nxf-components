@@ -2,8 +2,8 @@
 
 Following modules have been submitted and added (✅︎) to nf-core/modules and may be removed (⛔) from this repository without notice.
 
-| Module                          | Pull request                                          |
-| ------------------------------- | ----------------------------------------------------- |
+| Module                         | Pull request                                          |
+| ------------------------------ | ----------------------------------------------------- |
 | agat/spextractsequences ✅︎ ⛔  | [#7827](https://github.com/nf-core/modules/pull/7827) |
 | helitronscanner/draw ✅︎ ⛔     | [#7833](https://github.com/nf-core/modules/pull/7833) |
 | helitronscanner/scan ✅︎ ⛔     | [#7834](https://github.com/nf-core/modules/pull/7834) |

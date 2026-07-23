@@ -17,10 +17,10 @@ workflow FASTA_LTRRETRIEVER_LAI {
     skip_lai                        // val(true|false)
 
     main:
-    ch_versions                     = Channel.empty()
+    ch_versions                     = channel.empty()
 
     // Prapre input channels
-    ch_monoploid_seqs_plain         = ( ch_monoploid_seqs ?: Channel.empty() )
+    ch_monoploid_seqs_plain         = ( ch_monoploid_seqs ?: channel.empty() )
                                     | filter { meta2, seqs -> seqs }
                                     // Cater to channel: [ meta2, [] ]
                                     | map { meta2, seqs -> [ meta2.id, seqs ] }
@@ -135,7 +135,7 @@ workflow FASTA_LTRRETRIEVER_LAI {
                                     | map { meta, fasta, seqs -> [ meta, fasta, seqs ?: [] ] }
 
     ch_lai_inputs                   = skip_lai
-                                    ? Channel.empty()
+                                    ? channel.empty()
                                     : ch_short_ids_fasta_mono
                                     | join(
                                         ch_pass_out

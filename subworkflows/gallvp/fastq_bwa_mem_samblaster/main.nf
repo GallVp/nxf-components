@@ -10,7 +10,7 @@ workflow FASTQ_BWA_MEM_SAMBLASTER {
     val_sort_bam            // boolean: true|false
 
     main:
-    ch_versions             = Channel.empty()
+    ch_versions             = channel.empty()
 
     ch_has_index            = ch_reference
                             | branch { _meta2, _fasta, index ->

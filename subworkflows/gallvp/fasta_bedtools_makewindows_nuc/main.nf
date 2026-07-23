@@ -9,7 +9,7 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
 
     main:
 
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     // MODULES: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX (

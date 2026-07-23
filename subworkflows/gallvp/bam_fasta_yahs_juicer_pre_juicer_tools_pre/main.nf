@@ -21,7 +21,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
                                     // its use is not recommended
 
     main:
-    ch_versions                     = Channel.empty()
+    ch_versions                     = channel.empty()
 
     // MODULE: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX ( ch_fasta,
@@ -45,7 +45,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     JUICEBOXSCRIPTS_AGP2ASSEMBLY (
         val_assembly_mode
         ? JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.agp
-        : Channel.empty()
+        : channel.empty()
     )
 
     CUSTOM_ASSEMBLY2BEDPE (
@@ -85,7 +85,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     // MODULE: SORT
     ch_sort_input                   = ! val_assembly_mode
                                     ? YAHS_JUICERPRE.out.txt
-                                    : Channel.empty()
+                                    : channel.empty()
     SORT ( ch_sort_input )
     ch_versions                     = ch_versions.mix(SORT.out.versions.first())
 
@@ -104,7 +104,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     JUICER_INDEXBYCHR (
         val_use_index
         ? ch_juicer_indexbychr_inputs.map { meta, sorted, _sizes -> [ meta, sorted ] }
-        : Channel.empty(),
+        : channel.empty(),
         500000 // chunk_size
     )
 

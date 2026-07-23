@@ -13,7 +13,7 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
 
     main:
     // Versions
-    ch_versions                 = Channel.empty()
+    ch_versions                 = channel.empty()
 
     // MODULE: GFFREAD as GFF2FASTA_FOR_EGGNOGMAPPER
     ch_gffread_inputs           = ch_gff
@@ -35,9 +35,9 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
 
     // MODULE: EGGNOGMAPPER
     ch_eggnogmapper_inputs      = ! val_db_folder
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_gffread_fasta
-                                | combine(Channel.fromPath(val_db_folder))
+                                | combine(channel.fromPath(val_db_folder))
 
     EGGNOGMAPPER(
         ch_eggnogmapper_inputs.map { meta, fasta, _db -> [ meta, fasta ] },
@@ -87,7 +87,7 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
 
     // MODULE: AGAT_SPFILTERFEATUREFROMKILLLIST
     ch_agat_kill_inputs         = ! ( val_purge_nohits && val_db_folder )
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_gff
                                 | join(ch_kill_list)
 
@@ -101,14 +101,14 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
     ch_purged_gff               = AGAT_SPFILTERFEATUREFROMKILLLIST.out.gff
                                 | mix(
                                     ( val_purge_nohits && val_db_folder )
-                                    ? Channel.empty()
+                                    ? channel.empty()
                                     : ch_gff
                                 )
     ch_versions                 = ch_versions.mix(AGAT_SPFILTERFEATUREFROMKILLLIST.out.versions.first())
 
     // COLLECTFILE: Add eggnogmapper hits to gff
     ch_described_gff            = ! ( val_describe_gff && val_db_folder )
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_purged_gff
                                 | join(ch_eggnogmapper_annotations)
                                 | map { meta, gff, annotations ->

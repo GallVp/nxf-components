@@ -15,7 +15,7 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_HICTK_LOAD {
     val_assembly_mode                       // true|false
 
     main:
-    ch_versions                             = Channel.empty()
+    ch_versions                             = channel.empty()
 
     // MODULE: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX ( ch_fasta,

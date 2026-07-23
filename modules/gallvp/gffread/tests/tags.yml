@@ -1,2 +1,2 @@
 gffread:
-  - modules/nf-core/gffread/**
+    - modules/nf-core/gffread/**

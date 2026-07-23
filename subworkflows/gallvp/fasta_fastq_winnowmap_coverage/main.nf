@@ -15,7 +15,7 @@ workflow FASTA_FASTQ_WINNOWMAP_COVERAGE {
 
     main:
 
-    ch_versions                         = Channel.empty()
+    ch_versions                         = channel.empty()
 
     // MODULE: MERYL_COUNT
     MERYL_COUNT ( ch_fastq, val_k ?: 15 )

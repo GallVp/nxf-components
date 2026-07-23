@@ -11,7 +11,7 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
 
     main:
 
-    ch_versions                                 = Channel.empty()
+    ch_versions                                 = channel.empty()
 
     // MODULE: GT_GFF3
     GT_GFF3 ( ch_gff3 )

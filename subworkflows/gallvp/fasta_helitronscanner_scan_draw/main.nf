@@ -13,7 +13,7 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
 
     main:
 
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     // MODULE: HELITRONSCANNER_SCAN  as HELITRONSCANNER_SCAN_HEAD
     HELITRONSCANNER_SCAN_HEAD (

@@ -30,8 +30,8 @@ pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git
 
 Following modules have been submitted and added (✅︎) to nf-core/modules and may be removed (⛔) from this repository without notice.
 
-| Module         | Pull request                                          |
-| -------------- | ----------------------------------------------------- |
+| Module        | Pull request                                          |
+| ------------- | ----------------------------------------------------- |
 | tirlearner ✅︎ | [#7830](https://github.com/nf-core/modules/pull/7830) |
 | braker3 ✅︎ ⛔ | [#7824](https://github.com/nf-core/modules/pull/7824) |
 | plotsr ✅︎ ⛔  | [#7828](https://github.com/nf-core/modules/pull/7828) |

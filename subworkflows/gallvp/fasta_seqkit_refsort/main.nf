@@ -14,10 +14,10 @@ workflow FASTA_SEQKIT_REFSORT {
 
     main:
 
-    ch_versions                             = Channel.empty()
+    ch_versions                             = channel.empty()
 
     // MODULE: SEQKIT_SORT; ext.args = '--ignore-case --natural-order'
-    SEQKIT_SORT ( val_alphanumeric_sort ? ch_fasta : Channel.empty() )
+    SEQKIT_SORT ( val_alphanumeric_sort ? ch_fasta : channel.empty() )
 
     ch_sorted_fasta                         = val_alphanumeric_sort
                                             ? SEQKIT_SORT.out.fastx
@@ -28,7 +28,7 @@ workflow FASTA_SEQKIT_REFSORT {
     ch_combinations                         = ( val_fasta_combinations == null || val_fasta_combinations == [] )
                                             ? ch_fasta
                                             | map { meta, _fasta -> meta.id }
-                                            : Channel.of(
+                                            : channel.of(
                                                 val_fasta_combinations.tokenize( ' ' )
                                             )
                                             | flatten
@@ -85,7 +85,7 @@ workflow FASTA_SEQKIT_REFSORT {
     // MODULE: MINIMAP2_ALIGN; ext.args = -x asm5 --secondary=no
     ch_minimap_inputs                       = val_refsort
                                             ? ch_paired_fastas
-                                            : Channel.empty()
+                                            : channel.empty()
     MINIMAP2_ALIGN (
         ch_minimap_inputs.map { meta2, fastas -> [ meta2, fastas.first() ] },
         ch_minimap_inputs.map { meta2, fastas -> [ meta2, fastas.last() ] },

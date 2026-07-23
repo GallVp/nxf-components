@@ -76,7 +76,7 @@ nextflow_workflow {
                 monoploid_seqs.write("chr_xxxxxxxxxxxxxxx_1")
 
                 input[0]            = ch_fa
-                input[1]            = Channel.of( [ [ id:'test' ], monoploid_seqs.toPath() ] )
+                input[1]            = channel.of( [ [ id:'test' ], monoploid_seqs.toPath() ] )
                 input[2]            = false
                 """
             }
@@ -139,7 +139,7 @@ nextflow_workflow {
                 monoploid_seqs.write("chr1")
 
                 input[0]            = GUNZIP.out.gunzip
-                input[1]            = Channel.of( [ [ id:'test' ], monoploid_seqs.toPath() ] )
+                input[1]            = channel.of( [ [ id:'test' ], monoploid_seqs.toPath() ] )
                 input[2]            = false
                 """
             }
@@ -158,7 +158,7 @@ nextflow_workflow {
         when {
             workflow {
                 """
-                input[0]            = Channel.of([
+                input[0]            = channel.of([
                     [ id: 'test' ],
                     file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
                 ])
@@ -189,7 +189,7 @@ nextflow_workflow {
         when {
             workflow {
                 """
-                input[0]            = Channel.of([
+                input[0]            = channel.of([
                     [ id: 'test' ],
                     file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/genome2.fasta', checkIfExists: true)
                 ])
