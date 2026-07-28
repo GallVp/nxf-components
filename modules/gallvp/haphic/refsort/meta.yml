@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "haphic_refsort"
 description: A python script to order and orient whole scaffolds according to a
     reference genome.
@@ -16,9 +15,9 @@ tools:
           documentation: "https://github.com/zengxiaofei/HapHiC"
           tool_dev_url: "https://github.com/zengxiaofei/HapHiC"
           doi: "10.1038/s41477-024-01755-3"
-          licence: ["BSD-3-Clause"]
+          licence:
+              - "BSD-3-Clause"
           identifier: ""
-
 input:
     - - meta:
             type: map
@@ -29,24 +28,20 @@ input:
             type: file
             description: Query AGP
             pattern: "*.{agp}"
-
             ontologies: []
     - paf:
           type: file
           description: Alignment PAF
           pattern: "*.{paf}"
-
           ontologies: []
     - fasta:
           type: file
           description: Query Fasta
           pattern: "*.{fasta}"
-
           ontologies: []
     - ref_order:
           type: string
           description: Order of reference chromosomes
-
 output:
     agp:
         - - meta:
@@ -58,7 +53,6 @@ output:
                 type: file
                 description: Output AGP
                 pattern: "*.{agp}"
-
                 ontologies: []
     fasta:
         - - meta:
@@ -70,16 +64,22 @@ output:
                 type: file
                 description: Output query Fasta
                 pattern: "*.{fasta}"
-
                 ontologies: []
+    versions_haphic:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
-
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

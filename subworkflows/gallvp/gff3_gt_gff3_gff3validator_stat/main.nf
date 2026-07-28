@@ -11,17 +11,11 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
 
     main:
 
-    ch_versions                                 = channel.empty()
-
     // MODULE: GT_GFF3
     GT_GFF3 ( ch_gff3 )
 
-    ch_versions                                 = ch_versions.mix(GT_GFF3.out.versions.first())
-
     // MODULE: GT_GFF3VALIDATOR
     GT_GFF3VALIDATOR ( GT_GFF3.out.gt_gff3 )
-
-    ch_versions                                 = ch_versions.mix(GT_GFF3VALIDATOR.out.versions.first())
 
     // MODULE: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX(
@@ -30,7 +24,6 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
     )
 
     ch_fai                                      = SAMTOOLS_FAIDX.out.fai
-    ch_versions                                 = ch_versions.mix(SAMTOOLS_FAIDX.out.versions.first())
 
     // FUNCTION: checkGff3FastaCorrespondence
     ch_gff3_fai                                 = GT_GFF3VALIDATOR.out.success_log
@@ -84,13 +77,11 @@ workflow GFF3_GT_GFF3_GFF3VALIDATOR_STAT {
     GT_STAT ( ch_valid_gff3 )
 
     ch_gff3_stats                               = GT_STAT.out.stats
-    ch_versions                                 = ch_versions.mix(GT_STAT.out.versions.first())
 
     emit:
     valid_gff3              = ch_valid_gff3             // channel: [ val(meta), gff3 ]
     gff3_stats              = ch_gff3_stats             // channel: [ val(meta), yml ]
     log_for_invalid_gff3    = ch_log_for_invalid_gff3   // channel: [ val(meta), log ]
-    versions                = ch_versions               // channel: [ versions.yml ]
 }
 
 def checkGff3FastaCorrespondence(meta, gff3File, faiFile) {

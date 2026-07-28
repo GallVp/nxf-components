@@ -5,7 +5,7 @@ process JUICERTOOLS_PRE {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/juicertools:2.20.00--hdfd78af_0':
-        'biocontainers/juicertools:2.20.00--hdfd78af_0' }"
+        'quay.io/biocontainers/juicertools:2.20.00--hdfd78af_0' }"
 
     input:
     tuple val(meta), path(txt)
@@ -14,7 +14,7 @@ process JUICERTOOLS_PRE {
 
     output:
     tuple val(meta), path("*.hic"), emit: hic
-    path "versions.yml"           , emit: versions
+    tuple val("${task.process}"), val('juicertools'), eval("juicer_tools --version |& sed -n 's|Juicer Tools Version\\(.*\\)|\\1|p'"), topic: versions, emit: versions_juicertools
 
     when:
     task.ext.when == null || task.ext.when
@@ -36,12 +36,6 @@ process JUICERTOOLS_PRE {
         $txt \\
         ${prefix}.hic \\
         $sizes
-
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        juicertools: \$(juicer_tools --version |& sed -n 's|Juicer Tools Version\\(.*\\)|\\1|p')
-    END_VERSIONS
     """
 
     stub:
@@ -49,10 +43,5 @@ process JUICERTOOLS_PRE {
     """
 
     touch ${prefix}.hic
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        juicertools: \$(juicer_tools --version |& sed -n 's|Juicer Tools Version\\(.*\\)|\\1|p')
-    END_VERSIONS
     """
 }

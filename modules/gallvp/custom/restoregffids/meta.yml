@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_restoregffids"
 description: |
     Restores IDs in a gff3 file based on a TSV table
@@ -20,7 +19,8 @@ tools:
           homepage: "https://www.python.org"
           documentation: "https://docs.python.org/3/"
           tool_dev_url: "https://github.com/python/cpython"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: ""
 input:
     - - meta:
@@ -40,7 +40,7 @@ input:
               if id change was required
           pattern: "*.tsv"
           ontologies:
-              - edam: http://edamontology.org/format_3475 # TSV
+              - edam: http://edamontology.org/format_3475
 output:
     restored_ids_gff3:
         - - meta:
@@ -53,13 +53,21 @@ output:
                 description: GFF3 file with restored ids
                 pattern: "*.restored.ids.gff3"
                 ontologies: []
+    versions_python:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "t2tpolish_paftocovclippedwig"
 description: Generate coverage (read counts), absolute and normalized counts of
     clipped and total read tracks in every span bp; if the soft-clipped or
@@ -15,9 +14,9 @@ tools:
           documentation: https://github.com/arangrhie/T2T-Polish
           tool_dev_url: https://github.com/arangrhie/T2T-Polish
           doi: "10.1038/s41592-022-01440-3"
-          licence: ["United States Government Work"]
+          licence:
+              - "United States Government Work"
           identifier: ""
-
 input:
     - - meta:
             type: map
@@ -28,7 +27,6 @@ input:
             type: file
             description: PAF
             pattern: "*.{paf}"
-
             ontologies: []
     - name:
           type: string
@@ -67,14 +65,21 @@ output:
                 type: file
                 description: Coverage wiggle file
                 ontologies: []
+    versions_t2tpolish:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: "http://edamontology.org/format_3750"
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: "http://edamontology.org/format_3750" # YAML
-
+                  - edam: "http://edamontology.org/format_3750"
 authors:
     - "@GallVp"
 maintainers:

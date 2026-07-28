@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "hictk_load"
 description: Converts an interactions file into a hic file
 keywords:
@@ -13,9 +12,9 @@ tools:
           documentation: "https://github.com/paulsengroup/hictk#readme"
           tool_dev_url: "https://github.com/paulsengroup/hictk"
           doi: "10.1093/bioinformatics/btae408"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: biotools:hictk
-
 input:
     - - meta:
             type: map
@@ -40,14 +39,27 @@ output:
                 type: file
                 description: Output hic file
                 ontologies: []
+    versions_hictk:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - hictk:
+                type: string
+                description: The name of the tool
+          - hictk --version:
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
     versions:
-        - versions.yml:
-              type: file
-              description: File containing software versions
-              pattern: "versions.yml"
-
-              ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - hictk:
+                type: string
+                description: The name of the tool
+          - hictk --version:
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
     - "@GallVp"
 maintainers:

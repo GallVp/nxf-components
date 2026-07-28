@@ -1,0 +1,136 @@
+Changes in component 'nf-core/samblaster'
+Changes in 'samblaster/environment.yml':
+--- modules/nf-core/samblaster/environment.yml
++++ modules/nf-core/samblaster/environment.yml
+@@ -1,10 +1,10 @@
+ ---
+ # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/environment-schema.json
+ channels:
+-  - conda-forge
+-  - bioconda
++    - conda-forge
++    - bioconda
+
+ dependencies:
+-  - bioconda::htslib=1.19.1
+-  - bioconda::samblaster=0.1.26
+-  - bioconda::samtools=1.19.2
++    - bioconda::htslib=1.19.1
++    - bioconda::samblaster=0.1.26
++    - bioconda::samtools=1.19.2
+
+Changes in 'samblaster/meta.yml':
+--- modules/nf-core/samblaster/meta.yml
++++ modules/nf-core/samblaster/meta.yml
+@@ -22,7 +22,8 @@
+       documentation: https://github.com/GregoryFaust/samblaster
+       tool_dev_url: https://github.com/GregoryFaust/samblaster
+       doi: "10.1093/bioinformatics/btu314"
+-      licence: ["MIT"]
++      licence:
++        - "MIT"
+       identifier: biotools:samblaster
+ input:
+   - - meta:
+@@ -47,13 +48,21 @@
+           description: Tagged or filtered BAM file
+           pattern: "*.bam"
+           ontologies: []
++  versions_samblaster:
++    - versions.yml:
++        type: file
++        description: File containing software versions
++        pattern: "versions.yml"
++        ontologies:
++          - edam: http://edamontology.org/format_3750
++topics:
+   versions:
+     - versions.yml:
+         type: file
+         description: File containing software versions
+         pattern: "versions.yml"
+         ontologies:
+-          - edam: http://edamontology.org/format_3750 # YAML
++          - edam: http://edamontology.org/format_3750
+ authors:
+   - "@lescai"
+ maintainers:
+
+Changes in 'samblaster/main.nf':
+--- modules/nf-core/samblaster/main.nf
++++ modules/nf-core/samblaster/main.nf
+@@ -12,7 +12,7 @@
+
+     output:
+     tuple val(meta), path("*.bam"), emit: bam
+-    path "versions.yml"           , emit: versions
++    path "versions.yml"           , emit: versions_samblaster, topic: versions
+
+     when:
+     task.ext.when == null || task.ext.when
+
+Changes in 'samblaster/tests/main.nf.test.snap':
+--- modules/nf-core/samblaster/tests/main.nf.test.snap
++++ modules/nf-core/samblaster/tests/main.nf.test.snap
+@@ -23,16 +23,16 @@
+                         "test.bam:md5,d41d8cd98f00b204e9800998ecf8427e"
+                     ]
+                 ],
+-                "versions": [
++                "versions_samblaster": [
+                     "versions.yml:md5,8a70467f2dfc2e0d8e81787223d2fc77"
+                 ]
+             }
+         ],
++        "timestamp": "2026-07-29T08:58:38.908328",
+         "meta": {
+-            "nf-test": "0.8.4",
+-            "nextflow": "23.10.1"
+-        },
+-        "timestamp": "2024-02-26T14:04:42.510824"
++            "nf-test": "0.9.5",
++            "nextflow": "26.04.6"
++        }
+     },
+     "homo_sapiens-test_paired_end_umi_unsorted_bam": {
+         "content": [
+@@ -42,10 +42,10 @@
+                 "versions.yml:md5,8a70467f2dfc2e0d8e81787223d2fc77"
+             ]
+         ],
++        "timestamp": "2026-07-29T09:00:46.169714",
+         "meta": {
+-            "nf-test": "0.8.4",
+-            "nextflow": "24.04.3"
+-        },
+-        "timestamp": "2024-07-29T20:15:04.264504"
++            "nf-test": "0.9.5",
++            "nextflow": "26.04.6"
++        }
+     }
+ }
+'modules/nf-core/samblaster/tests/tags.yml' was created
+'modules/nf-core/samblaster/tests/nextflow.config' is unchanged
+Changes in 'samblaster/tests/main.nf.test':
+--- modules/nf-core/samblaster/tests/main.nf.test
++++ modules/nf-core/samblaster/tests/main.nf.test
+@@ -5,7 +5,7 @@
+     process "SAMBLASTER"
+
+     tag "modules"
+-    tag "modules_nfcore"
++    tag "modules_gallvp"
+     tag "samblaster"
+
+     test("homo_sapiens-test_paired_end_umi_unsorted_bam") {
+@@ -27,7 +27,7 @@
+                 { assert snapshot(
+                     bam(process.out.bam[0][1]).getHeaderMD5(),
+                     bam(process.out.bam[0][1]).getReadsMD5(),
+-                    process.out.versions
++                    process.out.versions_samblaster
+                     ).match()
+                 }
+             )
+
+************************************************************

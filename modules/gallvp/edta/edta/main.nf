@@ -4,7 +4,7 @@ process EDTA_EDTA {
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/edta:2.1.0--hdfd78af_1':
-        'biocontainers/edta:2.1.0--hdfd78af_1' }"
+        'quay.io/biocontainers/edta:2.1.0--hdfd78af_1' }"
 
     input:
     tuple val(meta), path(fasta)
@@ -19,7 +19,7 @@ process EDTA_EDTA {
     tuple val(meta), path('*.EDTA.pass.list')   , emit: pass_list           , optional: true
     tuple val(meta), path('*.EDTA.out')         , emit: out_file            , optional: true
     tuple val(meta), path('*.EDTA.TEanno.gff3') , emit: te_anno_gff3        , optional: true
-    path "versions.yml"                         , emit: versions
+    path "versions.yml"                         , emit: versions_edta       , topic: versions
 
     when:
     task.ext.when == null || task.ext.when

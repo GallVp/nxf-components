@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_rmouttogff3"
 description: Convert RepeatMasker out file to gff3
 keywords:
@@ -11,11 +10,10 @@ tools:
           homepage: "https://www.perl.org"
           documentation: "https://www.perl.org"
           tool_dev_url: "https://www.perl.org"
-          licence: ["GPL"]
+          licence:
+              - "GPL"
           identifier: ""
-
 input:
-    # Only when we have meta
     - - meta:
             type: map
             description: |
@@ -37,13 +35,21 @@ output:
                 type: file
                 description: GFF3 formatted output
                 ontologies: []
+    versions_perl:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

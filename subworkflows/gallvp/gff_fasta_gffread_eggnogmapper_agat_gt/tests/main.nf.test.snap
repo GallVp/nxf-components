@@ -34,12 +34,6 @@
                         "test.gt.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "4": [
-                    "versions.yml:md5,1df2276825d8a83566e08976ff34ca52",
-                    "versions.yml:md5,8685f0bc16b521da445a5334d02898f4",
-                    "versions.yml:md5,9737fe1d0d30db4968f0931d10e86dba",
-                    "versions.yml:md5,f39180ef2cbf81d45774fc33f9d88a65"
-                ],
                 "eggnogmapper_annotations": [
                     [
                         {
@@ -71,19 +65,13 @@
                         },
                         "test.gt.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,1df2276825d8a83566e08976ff34ca52",
-                    "versions.yml:md5,8685f0bc16b521da445a5334d02898f4",
-                    "versions.yml:md5,9737fe1d0d30db4968f0931d10e86dba",
-                    "versions.yml:md5,f39180ef2cbf81d45774fc33f9d88a65"
                 ]
             }
         ],
+        "timestamp": "2026-07-29T11:05:32.938471",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:56:39.920695"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

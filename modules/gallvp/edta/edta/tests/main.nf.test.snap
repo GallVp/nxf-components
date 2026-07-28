@@ -1,15 +1,11 @@
 {
     "versions": {
-        "content": [
-            [
-                "versions.yml:md5,f9e6b414c1eb81520a9fdbb15f797405"
-            ]
-        ],
+        "content": null,
+        "timestamp": "2026-07-28T16:27:29.511688",
         "meta": {
-            "nf-test": "0.8.4",
-            "nextflow": "23.10.1"
-        },
-        "timestamp": "2024-05-10T14:43:10.298103"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "stub": {
         "content": [
@@ -67,15 +63,15 @@
                         "test.EDTA.TElib.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "versions": [
+                "versions_edta": [
                     "versions.yml:md5,f9e6b414c1eb81520a9fdbb15f797405"
                 ]
             }
         ],
+        "timestamp": "2026-07-28T16:27:39.5528",
         "meta": {
-            "nf-test": "0.8.4",
-            "nextflow": "23.10.1"
-        },
-        "timestamp": "2024-05-10T14:43:16.561778"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

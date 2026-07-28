@@ -18,7 +18,7 @@ components:
     - ltrharvest
     - ltrfinder
     - ltrretriever/ltrretriever
-    - cat/cat
+    - find/concatenate
     - ltrretriever/lai
     - custom/restoregffids
 input:

@@ -11,11 +11,6 @@
                         "test.on.genome.samblaster.bam:md5,31fea2696f629694469680e2d012d971"
                     ]
                 ],
-                "1": [
-                    "versions.yml:md5,3b59736950270bca59c29afeb5289b4f",
-                    "versions.yml:md5,91b403c5ab108e5cddf6a796f55deca9",
-                    "versions.yml:md5,c52807871db771c1f39b5c9f36c69b99"
-                ],
                 "bam": [
                     [
                         {
@@ -24,19 +19,14 @@
                         },
                         "test.on.genome.samblaster.bam:md5,31fea2696f629694469680e2d012d971"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,3b59736950270bca59c29afeb5289b4f",
-                    "versions.yml:md5,91b403c5ab108e5cddf6a796f55deca9",
-                    "versions.yml:md5,c52807871db771c1f39b5c9f36c69b99"
                 ]
             }
         ],
+        "timestamp": "2026-07-29T10:58:54.062418",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:58:54.038887"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "sarscov2-fq-gz-stub": {
         "content": [
@@ -50,11 +40,6 @@
                         "test.on.genome.samblaster.bam:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "1": [
-                    "versions.yml:md5,3b59736950270bca59c29afeb5289b4f",
-                    "versions.yml:md5,91b403c5ab108e5cddf6a796f55deca9",
-                    "versions.yml:md5,c52807871db771c1f39b5c9f36c69b99"
-                ],
                 "bam": [
                     [
                         {
@@ -63,18 +48,13 @@
                         },
                         "test.on.genome.samblaster.bam:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,3b59736950270bca59c29afeb5289b4f",
-                    "versions.yml:md5,91b403c5ab108e5cddf6a796f55deca9",
-                    "versions.yml:md5,c52807871db771c1f39b5c9f36c69b99"
                 ]
             }
         ],
+        "timestamp": "2026-07-29T10:59:35.270841",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:59:01.019852"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

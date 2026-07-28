@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_yahsjuicerpre2tracks"
 description: Converts a liftover AGP from YaHS to assembly, bedpe and bed files
 keywords:
@@ -16,9 +15,9 @@ tools:
           homepage: "https://www.python.org"
           documentation: "https://docs.python.org/3/"
           tool_dev_url: "https://github.com/python/cpython"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: ""
-
 input:
     - - meta:
             type: map
@@ -64,14 +63,21 @@ output:
                 type: file
                 description: BED file
                 ontologies: []
+    versions_python:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
-
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

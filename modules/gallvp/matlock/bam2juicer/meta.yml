@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "matlock_bam2juicer"
 description: Converts a BAM file to Juicer links format
 keywords:
@@ -11,9 +10,9 @@ tools:
           homepage: "https://github.com/phasegenomics/matlock"
           documentation: "https://github.com/phasegenomics/matlock"
           tool_dev_url: "https://github.com/phasegenomics/matlock"
-          licence: ["GNU Affero General Public License v3"]
+          licence:
+              - "GNU Affero General Public License v3"
           identifier: ""
-
 input:
     - - meta:
             type: map
@@ -28,7 +27,6 @@ input:
                 - edam: "http://edamontology.org/format_25722"
                 - edam: "http://edamontology.org/format_2573"
                 - edam: "http://edamontology.org/format_3462"
-
 output:
     links_txt:
         - - meta:
@@ -41,13 +39,21 @@ output:
                 description: Juicer links file
                 pattern: "*links.txt"
                 ontologies: []
+    versions_matlock:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

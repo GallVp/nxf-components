@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "sort"
 description: |
     Sorts a text file using GNU sort utility
@@ -14,7 +13,8 @@ tools:
           homepage: "https://www.gnu.org"
           documentation: "https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html"
           tool_dev_url: "https://github.com/coreutils/coreutils"
-          licence: ["GLP-3.0"]
+          licence:
+              - "GLP-3.0"
           identifier: ""
 input:
     - - meta:
@@ -27,8 +27,8 @@ input:
             description: Text file
             pattern: "*.{txt,tsv,csv}"
             ontologies:
-                - edam: http://edamontology.org/format_3475 # TSV
-                - edam: http://edamontology.org/format_3752 # CSV
+                - edam: http://edamontology.org/format_3475
+                - edam: http://edamontology.org/format_3752
 output:
     sorted:
         - - meta:
@@ -41,15 +41,29 @@ output:
                 description: Sorted text file
                 pattern: "*.{txt,tsv,csv}"
                 ontologies:
-                    - edam: http://edamontology.org/format_3475 # TSV
-                    - edam: http://edamontology.org/format_3752 # CSV
+                    - edam: http://edamontology.org/format_3475
+                    - edam: http://edamontology.org/format_3752
+    versions_sort:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - sort:
+                type: string
+                description: The name of the tool
+          - sort --version | head -1:
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
     versions:
-        - versions.yml:
-              type: file
-              description: File containing software versions
-              pattern: "versions.yml"
-              ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - sort:
+                type: string
+                description: The name of the tool
+          - sort --version | head -1:
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
     - "@ignacio3437"
     - "@gallvp"

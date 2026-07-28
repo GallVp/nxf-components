@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "yahs_juicerpre"
 description: Generate files compatible with Juicebox toolset
 keywords:
@@ -13,35 +12,32 @@ tools:
           documentation: "https://github.com/c-zhou/yahs"
           tool_dev_url: "https://github.com/c-zhou/yahs"
           doi: "10.1093/bioinformatics/btac808"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: biotools:yahs
-
 input:
     - - meta:
             type: map
             description: |
                 Groovy Map containing sample information
                 e.g. `[ id:'sample1' ]`
-
       - bam_or_bin:
             type: file
             description: BAM or BIN file
             pattern: "*.{bam,bin}"
             ontologies:
-                - edam: "http://edamontology.org/format_2572" # BAM
-                - edam: "http://edamontology.org/format_2573" # CRAM
-                - edam: "http://edamontology.org/format_3462" # SAM
+                - edam: "http://edamontology.org/format_2572"
+                - edam: "http://edamontology.org/format_2573"
+                - edam: "http://edamontology.org/format_3462"
     - agp:
           type: file
           description: AGP file
           pattern: "*.agp"
-
           ontologies: []
     - fai:
           type: file
           description: FAI file
           pattern: "*.fai"
-
           ontologies: []
 output:
     txt:
@@ -87,7 +83,6 @@ output:
                 type: file
                 description: Liftover AGP file
                 pattern: "*.liftover.agp"
-
                 ontologies: []
     sizes:
         - - meta:
@@ -99,7 +94,6 @@ output:
                 type: file
                 description: Sizes file for the assembly mode
                 pattern: "*.sizes"
-
                 ontologies: []
     scale:
         - - meta:
@@ -111,14 +105,27 @@ output:
                 type: file
                 description: The scale by which the assembly has been shrunk
                 ontologies: []
+    versions_yahs:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - yahs:
+                type: string
+                description: The name of the tool
+          - yahs --version:
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
     versions:
-        - versions.yml:
-              type: file
-              description: File containing software versions
-              pattern: "versions.yml"
-
-              ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - yahs:
+                type: string
+                description: The name of the tool
+          - yahs --version:
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
     - "@GallVp"
 maintainers:

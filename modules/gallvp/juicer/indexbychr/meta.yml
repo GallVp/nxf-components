@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "juicer_indexbychr"
 description: Creates index for mnd file for HiC creation by JuicerTools pre
 keywords:
@@ -12,9 +11,9 @@ tools:
           homepage: https://github.com/aidenlab/juicer
           documentation: https://github.com/aidenlab/juicer
           tool_dev_url: https://github.com/aidenlab/juicer
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: biotools:juicer
-
 input:
     - - meta:
             type: map
@@ -25,7 +24,6 @@ input:
             type: file
             description: Input mnd text file
             pattern: "*.{txt}"
-
             ontologies: []
     - chunk_size:
           description: Chunk size
@@ -42,14 +40,27 @@ output:
                 description: Index
                 pattern: "*.{txt}"
                 ontologies: []
+    versions_bioawk:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - samtools:
+                type: string
+                description: The name of the tool
+          - bioawk --version | cut -f3 -d' ':
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
     versions:
-        - versions.yml:
-              type: file
-              description: File containing software versions
-              pattern: "versions.yml"
-              ontologies:
-                  - edam: "http://edamontology.org/format_3750" # YAML
-
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - samtools:
+                type: string
+                description: The name of the tool
+          - bioawk --version | cut -f3 -d' ':
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
     - "@GallVp"
 maintainers:

@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "tirlearner"
 description: |
     Ensemble Method for TIR Transposable Element Annotation
@@ -14,7 +13,8 @@ tools:
           documentation: "https://github.com/lutianyu2001/TIR-Learner"
           tool_dev_url: "https://github.com/lutianyu2001/TIR-Learner"
           doi: "10.1016/j.molp.2019.02.008"
-          licence: ["GPLv3"]
+          licence:
+              - "GPLv3"
           identifier: ""
 input:
     - - meta:
@@ -87,13 +87,27 @@ output:
                 description: Filtered TIRs in GFF3 format
                 pattern: "*.gff3"
                 ontologies: []
+    versions_tir_learner:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - TIR-Learner:
+                type: string
+                description: The name of the tool
+          - TIR-Learner -v | sed -n 's|TIR-Learner \(.*\) by .*|\1|p':
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
     versions:
-        - versions.yml:
-              type: file
-              description: File containing software versions
-              pattern: "versions.yml"
-              ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - TIR-Learner:
+                type: string
+                description: The name of the tool
+          - TIR-Learner -v | sed -n 's|TIR-Learner \(.*\) by .*|\1|p':
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
     - "@jguhlin"
     - "@GallVp"

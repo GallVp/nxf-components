@@ -11,8 +11,11 @@ cp_hybrid_module "gunzip"
 cp_hybrid_module "minimap2/align"
 cp_hybrid_module "repeatmasker/repeatmasker"
 cp_hybrid_module "meryl/count"
+cp_hybrid_module "mmseqs/createdb"
+cp_hybrid_module "find/concatenate"
 
 # Modules for hybrid sub-workflows
+cp_hybrid_module "agat/spaddintrons"
 cp_hybrid_module "agat/spextractsequences"
 cp_hybrid_module "agat/spfilterfeaturefromkilllist"
 cp_hybrid_module "bwa/index"

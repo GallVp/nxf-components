@@ -13,8 +13,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
 
     main:
 
-    ch_versions = channel.empty()
-
     // MODULE: HELITRONSCANNER_SCAN  as HELITRONSCANNER_SCAN_HEAD
     HELITRONSCANNER_SCAN_HEAD (
         ch_fasta,
@@ -24,7 +22,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_scan_head    = HELITRONSCANNER_SCAN_HEAD.out.scan
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_HEAD.out.versions)
 
     // MODULE: HELITRONSCANNER_SCAN  as HELITRONSCANNER_SCAN_TAIL
     HELITRONSCANNER_SCAN_TAIL (
@@ -35,7 +32,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_scan_tail    = HELITRONSCANNER_SCAN_TAIL.out.scan
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_TAIL.out.versions)
 
     // MODULE: HELITRONSCANNER_DRAW
     ch_scanner_draw_inputs          = ch_fasta
@@ -54,7 +50,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_draw         = HELITRONSCANNER_DRAW.out.draw
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_DRAW.out.versions)
 
     // MODULE: HELITRONSCANNER_SCAN  as HELITRONSCANNER_SCAN_HEAD_RC
     HELITRONSCANNER_SCAN_HEAD_RC (
@@ -65,7 +60,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_scan_head_rc = HELITRONSCANNER_SCAN_HEAD_RC.out.scan
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_HEAD_RC.out.versions)
 
     // MODULE: HELITRONSCANNER_SCAN  as HELITRONSCANNER_SCAN_TAIL_RC
     HELITRONSCANNER_SCAN_TAIL_RC (
@@ -76,7 +70,6 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_scan_tail_rc = HELITRONSCANNER_SCAN_TAIL_RC.out.scan
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_SCAN_TAIL_RC.out.versions)
 
     // MODULE: HELITRONSCANNER_DRAW as HELITRONSCANNER_DRAW_RC
     ch_scanner_draw_rc_inputs       = ch_fasta
@@ -95,10 +88,8 @@ workflow FASTA_HELITRONSCANNER_SCAN_DRAW {
     )
 
     ch_helitronscanner_draw_rc      = HELITRONSCANNER_DRAW_RC.out.draw
-    ch_versions                     = ch_versions.mix(HELITRONSCANNER_DRAW_RC.out.versions)
 
     emit:
     helitronscanner_draw            = ch_helitronscanner_draw       // channel: [ val(meta), draw ]
     helitronscanner_draw_rc         = ch_helitronscanner_draw_rc    // channel: [ val(meta), rc.draw ]
-    versions                        = ch_versions                   // channel: [ versions.yml ]
 }

@@ -51,7 +51,7 @@ nextflow_process {
         when {
             process {
                 """
-                input[0] = input[0] = REPEATMASKER_REPEATMASKER.out.out
+                input[0] = REPEATMASKER_REPEATMASKER.out.out
                 """
             }
         }

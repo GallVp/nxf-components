@@ -12,7 +12,11 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ],
                 "index": [
                     [
@@ -23,16 +27,20 @@
                         "test.index.txt:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "versions": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                "versions_bioawk": [
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ]
             }
         ],
+        "timestamp": "2026-07-29T08:37:27.684418",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2025-08-07T15:55:34.880328"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "hongyang - hic - mode - assembly": {
         "content": [
@@ -47,7 +55,11 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ],
                 "index": [
                     [
@@ -58,16 +70,20 @@
                         "test.index.txt:md5,b0cdf09d4dc2d0b7254952842d987293"
                     ]
                 ],
-                "versions": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                "versions_bioawk": [
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ]
             }
         ],
+        "timestamp": "2026-07-29T08:37:19.102148",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2025-08-07T15:55:27.822324"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "hongyang - hic": {
         "content": [
@@ -82,7 +98,11 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ],
                 "index": [
                     [
@@ -93,15 +113,19 @@
                         "test.index.txt:md5,bbffcc7d877fc43958000d8a431a7e00"
                     ]
                 ],
-                "versions": [
-                    "versions.yml:md5,a560a217944c78776df7eefddbf13229"
+                "versions_bioawk": [
+                    [
+                        "JUICER_INDEXBYCHR",
+                        "bioawk",
+                        "20110810"
+                    ]
                 ]
             }
         ],
+        "timestamp": "2026-07-29T08:37:11.796793",
         "meta": {
-            "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
-        },
-        "timestamp": "2025-08-07T15:55:22.387455"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

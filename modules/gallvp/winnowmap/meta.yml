@@ -15,9 +15,9 @@ tools:
           documentation: "https://github.com/marbl/Winnowmap"
           tool_dev_url: "https://github.com/marbl/Winnowmap"
           doi: "10.1038/s41592-022-01457-8"
-          licence: ["LicenseRef-Public-Domain AND MIT"]
+          licence:
+              - "LicenseRef-Public-Domain AND MIT"
           identifier: biotools:winnowmap
-
 input:
     - - meta:
             type: map
@@ -105,13 +105,21 @@ output:
                 description: BAM alignment index
                 pattern: "*.bam.*"
                 ontologies: []
+    versions_winnowmap:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@heuermh"
     - "@sofstam"

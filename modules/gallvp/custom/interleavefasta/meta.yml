@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_interleavefasta"
 description: Interleaves two FASTA files, optionally prefixing IDs if there are
     collisions, and outputs a single interleaved FASTA file.
@@ -19,9 +18,9 @@ tools:
           homepage: "https://www.python.org"
           documentation: "https://docs.python.org/3/"
           tool_dev_url: "https://github.com/python/cpython"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: ""
-
 input:
     - - meta:
             type: map
@@ -31,12 +30,10 @@ input:
       - fastas:
             type: list
             description: A list of fasta files
-
     - fasta_prefixes:
           type: string
           description: A space separated list of prefixes to add to IDs from the
               second FASTA file if there are collisions
-
 output:
     fasta:
         - - meta:
@@ -49,15 +46,22 @@ output:
                 description: Interleaved FASTA file
                 pattern: "*.fasta"
                 ontologies:
-                    - edam: "http://edamontology.org/format_1929" # FASTA
+                    - edam: "http://edamontology.org/format_1929"
+    versions_python:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
-
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@GallVp"
 maintainers:

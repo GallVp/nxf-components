@@ -4,4 +4,4 @@ channels:
     - conda-forge
     - bioconda
 dependencies:
-    - bioconda::fa-lint=1.2.0
+    - bioconda::mmseqs2=18.8cc5c

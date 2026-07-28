@@ -9,8 +9,6 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
 
     main:
 
-    ch_versions = channel.empty()
-
     // MODULES: SAMTOOLS_FAIDX
     SAMTOOLS_FAIDX (
         ch_fasta.map { meta, fasta -> [ meta, fasta, [] ] },
@@ -18,7 +16,6 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
     )
 
     ch_sizes                        = SAMTOOLS_FAIDX.out.sizes
-    ch_versions                     = ch_versions.mix(SAMTOOLS_FAIDX.out.versions.first())
 
     // collectFile: Regions BED
     ch_regions_bed                  = ch_sizes
@@ -50,7 +47,6 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
     )
 
     ch_intervals_bed                = BEDTOOLS_MAKEWINDOWS.out.bed
-    ch_versions                     = ch_versions.mix(BEDTOOLS_MAKEWINDOWS.out.versions.first())
 
     // MODULE: BEDTOOLS_NUC
     ch_bedtools_nuc_inputs          = ch_fasta
@@ -62,10 +58,6 @@ workflow FASTA_BEDTOOLS_MAKEWINDOWS_NUC {
         ch_bedtools_nuc_inputs
     )
 
-
-    ch_versions                     = ch_versions.mix(BEDTOOLS_NUC.out.versions.first())
-
     emit:
     nuc                             = BEDTOOLS_NUC.out.bed  // channel: [ val(meta2), bed ]
-    versions                        = ch_versions           // channel: [ versions.yml ]
 }

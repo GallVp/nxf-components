@@ -5,7 +5,7 @@ nextflow_process {
     process "SAMBLASTER"
 
     tag "modules"
-    tag "modules_nfcore"
+    tag "modules_gallvp"
     tag "samblaster"
 
     test("homo_sapiens-test_paired_end_umi_unsorted_bam") {
@@ -27,7 +27,7 @@ nextflow_process {
                 { assert snapshot(
                     bam(process.out.bam[0][1]).getHeaderMD5(),
                     bam(process.out.bam[0][1]).getReadsMD5(),
-                    process.out.versions
+                    process.out.versions_samblaster
                     ).match()
                 }
             )

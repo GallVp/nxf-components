@@ -22,7 +22,8 @@ tools:
           documentation: https://github.com/GregoryFaust/samblaster
           tool_dev_url: https://github.com/GregoryFaust/samblaster
           doi: "10.1093/bioinformatics/btu314"
-          licence: ["MIT"]
+          licence:
+              - "MIT"
           identifier: biotools:samblaster
 input:
     - - meta:
@@ -47,13 +48,21 @@ output:
                 description: Tagged or filtered BAM file
                 pattern: "*.bam"
                 ontologies: []
+    versions_samblaster:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
     versions:
         - versions.yml:
               type: file
               description: File containing software versions
               pattern: "versions.yml"
               ontologies:
-                  - edam: http://edamontology.org/format_3750 # YAML
+                  - edam: http://edamontology.org/format_3750
 authors:
     - "@lescai"
 maintainers:
