@@ -17,8 +17,8 @@ jobs:
     pre-commit:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5.0.0
-            - uses: actions/setup-python@v6.0.0
+            - uses: actions/checkout@v7.0.1
+            - uses: actions/setup-python@v7.0.0
             - uses: pre-commit/action@v3.0.1
               with:
                   extra_args: ""
@@ -34,7 +34,7 @@ jobs:
             # Prod for version bumping
 
         steps:
-            - uses: actions/checkout@v5.0.0
+            - uses: actions/checkout@v7.0.1
               with:
                   fetch-depth: 0
 
@@ -70,14 +70,14 @@ jobs:
             matrix:
                 tags: ["${{ fromJson(needs.nf-test-changes.outputs.modules) }}"]
         steps:
-            - uses: actions/checkout@v5.0.0
+            - uses: actions/checkout@v7.0.1
 
             - name: Set up Python
-              uses: actions/setup-python@v6.0.0
+              uses: actions/setup-python@v7.0.0
               with:
                   python-version: "3.11"
 
-            - uses: actions/cache@v4.3.0
+            - uses: actions/cache@v6.1.0
               id: cache-pip
               with:
                   path: ~/.cache/pip
@@ -89,7 +89,7 @@ jobs:
               run: python -m pip install --upgrade pip
 
             - name: Setup Nextflow
-              uses: nf-core/setup-nextflow@v2
+              uses: nf-core/setup-nextflow@v3
 
             - name: Install nf-core tools development version
               run: python -m pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git@dev
@@ -107,10 +107,10 @@ jobs:
             matrix:
                 tags: ["${{ fromJson(needs.nf-test-changes.outputs.subworkflows) }}"]
         steps:
-            - uses: actions/checkout@v5.0.0
+            - uses: actions/checkout@v7.0.1
 
             - name: Set up Python
-              uses: actions/setup-python@v6.0.0
+              uses: actions/setup-python@v7.0.0
               with:
                   python-version: "3.11"
 
@@ -118,7 +118,7 @@ jobs:
               run: python -m pip install --upgrade pip
 
             - name: Setup Nextflow
-              uses: nf-core/setup-nextflow@v2
+              uses: nf-core/setup-nextflow@v3
 
             - name: Install nf-core tools development version
               run: python -m pip install --upgrade --force-reinstall git+https://github.com/nf-core/tools.git@dev
@@ -172,10 +172,10 @@ jobs:
             NF_TEST_VER: "0.9.5"
 
         steps:
-            - uses: actions/checkout@v5.0.0
+            - uses: actions/checkout@v7.0.1
 
             - name: Setup Nextflow
-              uses: nf-core/setup-nextflow@v2
+              uses: nf-core/setup-nextflow@v3
 
             - name: Install nf-test
               uses: nf-core/setup-nf-test@v2.1.0
@@ -193,11 +193,11 @@ jobs:
                   mkdir -p $NXF_SINGULARITY_LIBRARYDIR
 
             - name: Set up Python
-              uses: actions/setup-python@v6.0.0
+              uses: actions/setup-python@v7.0.0
               with:
                   python-version: "3.11"
 
-            - uses: actions/cache@v4.3.0
+            - uses: actions/cache@v6.1.0
               id: cache-pip-pdiff
               with:
                   path: ~/.cache/pip
@@ -210,7 +210,7 @@ jobs:
 
             - name: Set up miniconda
               if: matrix.profile == 'conda'
-              uses: conda-incubator/setup-miniconda@v3.2.0
+              uses: conda-incubator/setup-miniconda@v4.0.1
               with:
                   miniconda-version: "latest"
                   auto-update-conda: true
