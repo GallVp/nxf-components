@@ -150,6 +150,12 @@ jobs:
                     - profile: conda
                       path: modules/gallvp/ltrretriever/ltrretriever
                     - profile: conda
+                      path: modules/gallvp/ltrretriever/lai
+                    - profile: conda
+                      path: subworkflows/gallvp/fasta_ltrretriever_lai
+                    - profile: conda
+                      path: modules/gallvp/tirlearner
+                    - profile: conda
                       path: modules/gallvp/tesorter
                     - profile: conda
                       path: modules/gallvp/hicqc
