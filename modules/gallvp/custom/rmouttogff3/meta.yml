@@ -1,50 +1,56 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_rmouttogff3"
 description: Convert RepeatMasker out file to gff3
 keywords:
-  - genomics
-  - repeat
-  - gff
+    - genomics
+    - repeat
+    - gff
 tools:
-  - "perl":
-      description: "Bioinformatics Toolkit"
-      homepage: "https://www.perl.org"
-      documentation: "https://www.perl.org"
-      tool_dev_url: "https://www.perl.org"
-      licence: ["GPL"]
-      identifier: ""
-
+    - "perl":
+          description: "Bioinformatics Toolkit"
+          homepage: "https://www.perl.org"
+          documentation: "https://www.perl.org"
+          tool_dev_url: "https://www.perl.org"
+          licence:
+              - "GPL"
+          identifier: ""
 input:
-  # Only when we have meta
-  - - meta:
-        type: map
-        description: |
-          Groovy Map containing sample information
-          e.g. `[ id:'sample1' ]`
-    - rmout:
-        type: file
-        description: RepeatMasker out file
-        pattern: "*.out"
-        ontologies: []
-output:
-  gff3:
     - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'sample1' ]`
-      - "*.gff3":
-          type: file
-          description: GFF3 formatted output
-          ontologies: []
-  versions:
-    - versions.yml:
-        type: file
-        description: File containing software versions
-        pattern: "versions.yml"
-        ontologies:
-          - edam: http://edamontology.org/format_3750 # YAML
+            type: map
+            description: |
+                Groovy Map containing sample information
+                e.g. `[ id:'sample1' ]`
+      - rmout:
+            type: file
+            description: RepeatMasker out file
+            pattern: "*.out"
+            ontologies: []
+output:
+    gff3:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'sample1' ]`
+          - "*.gff3":
+                type: file
+                description: GFF3 formatted output
+                ontologies: []
+    versions_perl:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
+    versions:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
 authors:
-  - "@GallVp"
+    - "@GallVp"
 maintainers:
-  - "@GallVp"
+    - "@GallVp"

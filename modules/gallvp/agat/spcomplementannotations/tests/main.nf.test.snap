@@ -1,20 +1,18 @@
 {
     "candidatus_portiera_aleyrodidarum - Gffs": {
         "content": [
-            [
-                "versions.yml:md5,cb53265f543102e814d555c8c382cdfe"
-            ],
+            null,
             [
                 "##gff-version 3",
                 "##sequence-region NC_018507.1 1 358242",
                 "NC_018507.1\tAGAT\tgene\t1\t1926\t.\t+\t.\tID=agat-gene-1;Name=dnaK;db_xref=COG:COG0443;gene=dnaK;inference=ab initio prediction:Prodigal:002006,similar to AA sequence:UniProtKB:O87712;locus_tag=JKHLNHAL_00001;product=Chaperone protein DnaK"
             ]
         ],
+        "timestamp": "2026-07-29T12:44:51.688279",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:46:41.19846"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "candidatus_portiera_aleyrodidarum - Gffs - stub": {
         "content": [
@@ -29,7 +27,11 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,cb53265f543102e814d555c8c382cdfe"
+                    [
+                        "AGAT_SPCOMPLEMENTANNOTATIONS",
+                        "agat",
+                        "1.6.1"
+                    ]
                 ],
                 "gff": [
                     [
@@ -40,15 +42,19 @@
                         "test.gff:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "versions": [
-                    "versions.yml:md5,cb53265f543102e814d555c8c382cdfe"
+                "versions_agat": [
+                    [
+                        "AGAT_SPCOMPLEMENTANNOTATIONS",
+                        "agat",
+                        "1.6.1"
+                    ]
                 ]
             }
         ],
+        "timestamp": "2026-07-29T12:45:00.88469",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:46:46.937116"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

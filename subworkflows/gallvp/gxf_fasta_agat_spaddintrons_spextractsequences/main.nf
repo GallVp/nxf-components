@@ -8,7 +8,6 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     ch_fasta                            // channel: [ val(meta2), fasta ]
 
     main:
-    ch_versions                         = Channel.empty()
 
     // collectFile: Remove all/partial introns
     ch_gxf_purged                       = ch_gxf
@@ -38,7 +37,6 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     AGAT_SPADDINTRONS ( ch_gxf_purged, [] )
 
     ch_introns_gff                      = AGAT_SPADDINTRONS.out.gff
-    ch_versions                         = ch_versions.mix(AGAT_SPADDINTRONS.out.versions.first())
 
     // MODULE: AGAT_SPEXTRACTSEQUENCES
     ch_gxf_fasta                       = ch_introns_gff
@@ -55,7 +53,6 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     )
 
     ch_intron_sequences                 = AGAT_SPEXTRACTSEQUENCES.out.fasta
-    ch_versions                         = ch_versions.mix(AGAT_SPEXTRACTSEQUENCES.out.versions.first())
 
     // collectFile: splice motifs
     ch_splice_motifs                    = ch_intron_sequences
@@ -117,5 +114,4 @@ workflow GXF_FASTA_AGAT_SPADDINTRONS_SPEXTRACTSEQUENCES {
     emit:
     motifs_tsv                          = ch_splice_motifs  // channel: [ val(meta), tsv ]
     marked_gff3                         = ch_marked_gff3    // channel: [ val(meta), gff3 ]
-    versions                            = ch_versions       // channel: [ versions.yml ]
 }

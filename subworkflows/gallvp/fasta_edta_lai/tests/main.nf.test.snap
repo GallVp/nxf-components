@@ -34,11 +34,6 @@
                         "test.LAI.out:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "4": [
-                    "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
-                    "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
-                    "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
-                ],
                 "lai_log": [
                     [
                         {
@@ -70,11 +65,6 @@
                         },
                         "test.EDTA.TElib.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
-                    "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
-                    "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
                 ]
             }
         ],
@@ -86,11 +76,6 @@
     },
     "actinidia_chinensis-genome_1_fasta_gz": {
         "content": [
-            [
-                "versions.yml:md5,0d4bc49e94acb8995ca552d4e666e3ce",
-                "versions.yml:md5,65666e975bdfd71978843ca963e84d0c",
-                "versions.yml:md5,754bb19f86be761d90c002a0af2faf1c"
-            ]
         ],
         "meta": {
             "nf-test": "0.8.4",

@@ -5,7 +5,7 @@ process JUICER_INDEXBYCHR {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/bioawk:1.0--h577a1d6_13':
-        'biocontainers/bioawk:1.0--h577a1d6_13' }"
+        'quay.io/biocontainers/bioawk:1.0--h577a1d6_13' }"
 
     input:
     tuple val(meta), path(txt)
@@ -13,7 +13,7 @@ process JUICER_INDEXBYCHR {
 
     output:
     tuple val(meta), path("*.txt"), emit: index
-    path "versions.yml"           , emit: versions
+    tuple val("${task.process}"), val('bioawk'), eval("bioawk --version | cut -f3 -d' '"), topic: versions, emit: versions_bioawk
 
     when:
     task.ext.when == null || task.ext.when
@@ -75,12 +75,6 @@ process JUICER_INDEXBYCHR {
     }END {
         print currentChr1"-"currentChr2 "," chunkCounter "," startPos "," bytecounter-startPos;
     }' "\$inputFile" > ${prefix}.txt
-
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        bioawk: \$(bioawk --version | cut -f3 -d' ')
-    END_VERSIONS
     """
 
     stub:
@@ -90,10 +84,5 @@ process JUICER_INDEXBYCHR {
     echo $args
 
     touch ${prefix}.txt
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        bioawk: \$(bioawk --version | cut -f3 -d' ')
-    END_VERSIONS
     """
 }

@@ -1,2 +1,2 @@
 cat/cat:
-  - modules/nf-core/cat/cat/**
+    - modules/nf-core/cat/cat/**

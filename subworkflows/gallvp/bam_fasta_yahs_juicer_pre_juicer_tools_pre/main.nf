@@ -21,40 +21,33 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
                                     // its use is not recommended
 
     main:
-    ch_versions                     = Channel.empty()
 
     // MODULE: SAMTOOLS_FAIDX
-    SAMTOOLS_FAIDX ( ch_fasta,
-        [ [] , []],
+    SAMTOOLS_FAIDX (
+        ch_fasta.map { meta, fasta -> [ meta, fasta, [] ] },
         true // get_sizes
     )
 
     ch_fasta_fai_sizes              = ch_fasta
                                     | join(SAMTOOLS_FAIDX.out.fai)
                                     | join(SAMTOOLS_FAIDX.out.sizes)
-    ch_versions                     = ch_versions.mix(SAMTOOLS_FAIDX.out.versions.first())
 
     // MODULE: JUICEBOXSCRIPTS_MAKEAGPFROMFASTA
     JUICEBOXSCRIPTS_MAKEAGPFROMFASTA ( ch_fasta )
 
     ch_fasta_fai_sizes_agp          = ch_fasta_fai_sizes
                                     | join(JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.agp)
-    ch_versions                     = ch_versions.mix(JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.versions.first())
 
     // MODULES: JUICEBOXSCRIPTS_AGP2ASSEMBLY > CUSTOM_ASSEMBLY2BEDPE
     JUICEBOXSCRIPTS_AGP2ASSEMBLY (
         val_assembly_mode
         ? JUICEBOXSCRIPTS_MAKEAGPFROMFASTA.out.agp
-        : Channel.empty()
+        : channel.empty()
     )
 
     CUSTOM_ASSEMBLY2BEDPE (
         JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.assembly
     )
-
-    ch_versions                     = ch_versions
-                                    | mix(JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.versions.first())
-                                    | mix(CUSTOM_ASSEMBLY2BEDPE.out.versions.first())
 
     // MODULE: YAHS_JUICERPRE
     ch_yahs_juicerpre_inputs        = ch_bam
@@ -80,14 +73,11 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
         ch_yahs_juicerpre_inputs.fai
     )
 
-    ch_versions                     = ch_versions.mix(YAHS_JUICERPRE.out.versions.first())
-
     // MODULE: SORT
     ch_sort_input                   = ! val_assembly_mode
                                     ? YAHS_JUICERPRE.out.txt
-                                    : Channel.empty()
+                                    : channel.empty()
     SORT ( ch_sort_input )
-    ch_versions                     = ch_versions.mix(SORT.out.versions.first())
 
     // MODULE: JUICER_INDEXBYCHR
     ch_juicer_indexbychr_inputs     = (
@@ -104,11 +94,9 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
     JUICER_INDEXBYCHR (
         val_use_index
         ? ch_juicer_indexbychr_inputs.map { meta, sorted, _sizes -> [ meta, sorted ] }
-        : Channel.empty(),
+        : channel.empty(),
         500000 // chunk_size
     )
-
-    ch_versions                     = ch_versions.mix(JUICER_INDEXBYCHR.out.versions.first())
 
     // MODULE: JUICERTOOLS_PRE
     ch_juicertools_pre_inputs       = val_use_index
@@ -134,12 +122,9 @@ workflow BAM_FASTA_YAHS_JUICER_PRE_JUICER_TOOLS_PRE {
         ch_juicertools_pre_inputs.sizes
     )
 
-    ch_versions                     = ch_versions.mix(JUICERTOOLS_PRE.out.versions.first())
-
     emit:
     hic                             = JUICERTOOLS_PRE.out.hic                   // channel: [ meta, hic ]
     assembly                        = JUICEBOXSCRIPTS_AGP2ASSEMBLY.out.assembly // channel: [ meta, assembly ]
     bedpe                           = CUSTOM_ASSEMBLY2BEDPE.out.bedpe           // channel: [ meta, bedpe ]
     bed                             = CUSTOM_ASSEMBLY2BEDPE.out.bed             // channel: [ meta, bed ]
-    versions                        = ch_versions                               // channel: [ versions.yml ]
 }

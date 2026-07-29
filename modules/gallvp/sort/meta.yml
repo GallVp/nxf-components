@@ -1,58 +1,72 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "sort"
 description: |
-  Sorts a text file using GNU sort utility
+    Sorts a text file using GNU sort utility
 keywords:
-  - sort
-  - GNU core utils
-  - text
+    - sort
+    - GNU core utils
+    - text
 tools:
-  - "sort":
-      description: "sort sorts, merges, or compares all the lines from the given files,
-        or standard input if none are given or for a file of '-'. By default, sort writes
-        the results to standard output."
-      homepage: "https://www.gnu.org"
-      documentation: "https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html"
-      tool_dev_url: "https://github.com/coreutils/coreutils"
-      licence: ["GLP-3.0"]
-      identifier: ""
+    - "sort":
+          description: "sort sorts, merges, or compares all the lines from the given files,
+              or standard input if none are given or for a file of '-'. By default, sort writes
+              the results to standard output."
+          homepage: "https://www.gnu.org"
+          documentation: "https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html"
+          tool_dev_url: "https://github.com/coreutils/coreutils"
+          licence:
+              - "GLP-3.0"
+          identifier: ""
 input:
-  - - meta:
-        type: map
-        description: |
-          Groovy Map containing sample information
-          e.g. `[ id:'sample1' ]`
-    - input_file:
-        type: file
-        description: Text file
-        pattern: "*.{txt,tsv,csv}"
-        ontologies:
-          - edam: http://edamontology.org/format_3475 # TSV
-          - edam: http://edamontology.org/format_3752 # CSV
-output:
-  sorted:
     - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.${extension}":
-          type: file
-          description: Sorted text file
-          pattern: "*.{txt,tsv,csv}"
-          ontologies:
-            - edam: http://edamontology.org/format_3475 # TSV
-            - edam: http://edamontology.org/format_3752 # CSV
-  versions:
-    - versions.yml:
-        type: file
-        description: File containing software versions
-        pattern: "versions.yml"
-        ontologies:
-          - edam: http://edamontology.org/format_3750 # YAML
+            type: map
+            description: |
+                Groovy Map containing sample information
+                e.g. `[ id:'sample1' ]`
+      - input_file:
+            type: file
+            description: Text file
+            pattern: "*.{txt,tsv,csv}"
+            ontologies:
+                - edam: http://edamontology.org/format_3475
+                - edam: http://edamontology.org/format_3752
+output:
+    sorted:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.${extension}":
+                type: file
+                description: Sorted text file
+                pattern: "*.{txt,tsv,csv}"
+                ontologies:
+                    - edam: http://edamontology.org/format_3475
+                    - edam: http://edamontology.org/format_3752
+    versions_sort:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - sort:
+                type: string
+                description: The name of the tool
+          - sort --version | head -1:
+                type: eval
+                description: The expression to obtain the version of the tool
+topics:
+    versions:
+        - - ${task.process}:
+                type: string
+                description: The name of the process
+          - sort:
+                type: string
+                description: The name of the tool
+          - sort --version | head -1:
+                type: eval
+                description: The expression to obtain the version of the tool
 authors:
-  - "@ignacio3437"
-  - "@gallvp"
+    - "@ignacio3437"
+    - "@gallvp"
 maintainers:
-  - "@ignacio3437"
-  - "@gallvp"
+    - "@ignacio3437"
+    - "@gallvp"

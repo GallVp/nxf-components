@@ -12,8 +12,6 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
     val_describe_gff            // val(true|false); Add eggnogmapper descriptions to gff
 
     main:
-    // Versions
-    ch_versions                 = Channel.empty()
 
     // MODULE: GFFREAD as GFF2FASTA_FOR_EGGNOGMAPPER
     ch_gffread_inputs           = ch_gff
@@ -30,26 +28,23 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
     )
 
     ch_gffread_fasta            = GFF2FASTA_FOR_EGGNOGMAPPER.out.gffread_fasta
-    ch_versions                 = ch_versions.mix(GFF2FASTA_FOR_EGGNOGMAPPER.out.versions.first())
 
 
     // MODULE: EGGNOGMAPPER
     ch_eggnogmapper_inputs      = ! val_db_folder
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_gffread_fasta
-                                | combine(Channel.fromPath(val_db_folder))
+                                | combine(channel.fromPath(val_db_folder))
 
     EGGNOGMAPPER(
         ch_eggnogmapper_inputs.map { meta, fasta, _db -> [ meta, fasta ] },
-        [],
-        ch_eggnogmapper_inputs.map { _meta, _fasta, db -> db },
-        [ [], [] ]
+        ch_eggnogmapper_inputs.map { _meta, _fasta, _db -> [ 'diamond', [] ] },
+        ch_eggnogmapper_inputs.map { _meta, _fasta, db -> db }
     )
 
     ch_eggnogmapper_annotations = EGGNOGMAPPER.out.annotations
     ch_eggnogmapper_orthologs   = EGGNOGMAPPER.out.orthologs
     ch_eggnogmapper_hits        = EGGNOGMAPPER.out.hits
-    ch_versions                 = ch_versions.mix(EGGNOGMAPPER.out.versions.first())
 
     // COLLECTFILE: Transcript level kill list
     ch_kill_list                = ch_gff
@@ -87,7 +82,7 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
 
     // MODULE: AGAT_SPFILTERFEATUREFROMKILLLIST
     ch_agat_kill_inputs         = ! ( val_purge_nohits && val_db_folder )
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_gff
                                 | join(ch_kill_list)
 
@@ -101,14 +96,13 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
     ch_purged_gff               = AGAT_SPFILTERFEATUREFROMKILLLIST.out.gff
                                 | mix(
                                     ( val_purge_nohits && val_db_folder )
-                                    ? Channel.empty()
+                                    ? channel.empty()
                                     : ch_gff
                                 )
-    ch_versions                 = ch_versions.mix(AGAT_SPFILTERFEATUREFROMKILLLIST.out.versions.first())
 
     // COLLECTFILE: Add eggnogmapper hits to gff
     ch_described_gff            = ! ( val_describe_gff && val_db_folder )
-                                ? Channel.empty()
+                                ? channel.empty()
                                 : ch_purged_gff
                                 | join(ch_eggnogmapper_annotations)
                                 | map { meta, gff, annotations ->
@@ -212,12 +206,10 @@ workflow GFF_FASTA_GFFREAD_EGGNOGMAPPER_AGAT_GT {
     FINAL_GFF_CHECK ( ch_final_check_input )
 
     ch_final_gff                = FINAL_GFF_CHECK.out.gt_gff3
-    ch_versions                 = ch_versions.mix(FINAL_GFF_CHECK.out.versions.first())
 
     emit:
     eggnogmapper_annotations    = ch_eggnogmapper_annotations   // Channel: [ meta, annotations ]
     eggnogmapper_orthologs      = ch_eggnogmapper_orthologs     // Channel: [ meta, orthologs ]
     eggnogmapper_hits           = ch_eggnogmapper_hits          // Channel: [ meta, hits ]
     final_gff                   = ch_final_gff                  // Channel: [ meta, gff ]
-    versions                    = ch_versions                   // Channel: [ versions.yml ]
 }

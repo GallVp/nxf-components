@@ -5,7 +5,7 @@ process TIRLEARNER {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/tir-learner:3.0.3--hdfd78af_0':
-        'biocontainers/tir-learner:3.0.3--hdfd78af_0' }"
+        'quay.io/biocontainers/tir-learner:3.0.3--hdfd78af_0' }"
 
     input:
     tuple val(meta), path(fasta)
@@ -17,7 +17,7 @@ process TIRLEARNER {
     tuple val(meta), path("${prefix}.gff3")         , emit: gff             , optional: true
     tuple val(meta), path("${prefix}.filtered.fa")  , emit: filtered_fasta  , optional: true
     tuple val(meta), path("${prefix}.filtered.gff3"), emit: filtered_gff    , optional: true
-    path "versions.yml"                             , emit: versions
+    tuple val("${task.process}"), val('TIR-Learner'), eval("TIR-Learner -v | sed -n 's|TIR-Learner \\(.*\\) by .*|\\1|p'"), topic: versions, emit: versions_tir_learner
 
     when:
     task.ext.when == null || task.ext.when
@@ -47,11 +47,6 @@ process TIRLEARNER {
 
     mv "${prefix}/TIR-Learner-Result/TIR-Learner_FinalAnn_filter.fa"    "${prefix}.filtered.fa"     || echo "TIR-Learner failed to find TIRs. See ${prefix}.log"
     mv "${prefix}/TIR-Learner-Result/TIR-Learner_FinalAnn_filter.gff3"  "${prefix}.filtered.gff3"   || echo "TIR-Learner failed to find TIRs. See ${prefix}.log"
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        TIR-Learner: \$(TIR-Learner -v | sed -n 's|TIR-Learner \\(.*\\) by .*|\\1|p')
-    END_VERSIONS
     """
 
     stub:
@@ -65,10 +60,5 @@ process TIRLEARNER {
 
     touch "${prefix}.filtered.fa"
     touch "${prefix}.filtered.gff3"
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        TIR-Learner: \$(TIR-Learner -v | sed -n 's|TIR-Learner \\(.*\\) by .*|\\1|p')
-    END_VERSIONS
     """
 }

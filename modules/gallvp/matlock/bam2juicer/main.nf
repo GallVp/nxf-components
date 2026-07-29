@@ -12,7 +12,7 @@ process MATLOCK_BAM2JUICER {
 
     output:
     tuple val(meta), path("*.links.txt")    , emit: links_txt
-    path "versions.yml"                     , emit: versions
+    path "versions.yml"                     , emit: versions_matlock, topic: versions
 
     when:
     task.ext.when == null || task.ext.when

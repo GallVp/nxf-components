@@ -13,10 +13,9 @@ workflow FASTA_EDTA_LAI {
     skip_lai                        // val(true|false)
 
     main:
-    ch_versions                     = Channel.empty()
 
     // Prapre input channels
-    ch_monoploid_seqs_plain         = ( ch_monoploid_seqs ?: Channel.empty() )
+    ch_monoploid_seqs_plain         = ( ch_monoploid_seqs ?: channel.empty() )
                                     | filter { meta2, seqs -> seqs }
                                     // Cater to channel: [ meta2, [] ]
                                     | map { meta2, seqs -> [ meta2.id, seqs ] }
@@ -43,8 +42,6 @@ workflow FASTA_EDTA_LAI {
                                         )
                                         | map { meta, tsv, fasta -> [ meta, fasta ] }
                                     )
-
-    ch_versions                     = ch_versions.mix(CUSTOM_SHORTENFASTAIDS.out.versions.first())
 
     // collectFile: Map monoploid seqs to short IDs
     ch_short_monoploid_seqs         = ch_short_ids_tsv
@@ -79,7 +76,6 @@ workflow FASTA_EDTA_LAI {
     ch_pass_out                     = ch_pass_list.join(ch_out_file)
     ch_te_lib_fasta                 = EDTA_EDTA.out.te_lib_fasta
     ch_te_anno_gff3                 = EDTA_EDTA.out.te_anno_gff3
-    ch_versions                     = ch_versions.mix(EDTA_EDTA.out.versions.first())
 
     ch_short_ids_fasta_mono         = ch_short_ids_fasta
                                     | join(
@@ -97,7 +93,7 @@ workflow FASTA_EDTA_LAI {
                                     | map { meta, fasta, seqs -> [ meta, fasta, seqs ?: [] ] }
 
     ch_lai_inputs                   = skip_lai
-                                    ? Channel.empty()
+                                    ? channel.empty()
                                     : ch_short_ids_fasta_mono
                                     | join(
                                         ch_pass_out
@@ -114,7 +110,6 @@ workflow FASTA_EDTA_LAI {
 
     ch_lai_log                      = LTRRETRIEVER_LAI.out.log
     ch_lai_out                      = LTRRETRIEVER_LAI.out.lai_out
-    ch_versions                     = ch_versions.mix(LTRRETRIEVER_LAI.out.versions.first())
 
     // MODULE: CUSTOM_RESTOREGFFIDS
     ch_gff_tsv_branch               = ch_te_anno_gff3.join(ch_short_ids_tsv)
@@ -132,14 +127,11 @@ workflow FASTA_EDTA_LAI {
                                     | map { meta, gff, tsv -> [ meta, gff ] }
                                     | mix(CUSTOM_RESTOREGFFIDS.out.restored_ids_gff3)
 
-    ch_versions                     = ch_versions.mix(CUSTOM_RESTOREGFFIDS.out.versions.first())
-
     emit:
     te_lib_fasta                    = ch_te_lib_fasta   // channel: [ val(meta), fasta ]
     te_anno_gff3                    = ch_restored_gff   // channel: [ val(meta), gff ]
     lai_log                         = ch_lai_log        // channel: [ val(meta), log ]
     lai_out                         = ch_lai_out        // channel: [ val(meta), out ]
-    versions                        = ch_versions       // channel: [ versions.yml ]
 }
 
 def map_monoploid_seqs_to_new_ids(id, short_ids_tsv, monoploid_seqs) {

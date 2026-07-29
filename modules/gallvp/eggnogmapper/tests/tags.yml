@@ -1,2 +1,2 @@
 eggnogmapper:
-  - modules/nf-core/eggnogmapper/**
+    - modules/nf-core/eggnogmapper/**

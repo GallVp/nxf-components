@@ -11,7 +11,7 @@ process SORT {
 
     output:
     tuple val(meta), path("*.${extension}")                   , emit: sorted
-    path "versions.yml"                                       , emit: versions
+    tuple val("${task.process}"), val('sort'), eval("sort --version | head -1"), topic: versions, emit: versions_sort
 
     when:
     task.ext.when == null || task.ext.when
@@ -26,11 +26,6 @@ process SORT {
         $args \\
         $input_file \\
         > ${prefix}.${extension}
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        sort: \$(sort --version | sed -n '/sort (GNU coreutils) / s/sort (GNU coreutils) //p')
-    END_VERSIONS
     """
 
     stub:
@@ -38,9 +33,5 @@ process SORT {
     extension = input_file.extension
     """
     touch ${prefix}.${extension}
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        sort: \$(sort --version | sed -n '/sort (GNU coreutils) / s/sort (GNU coreutils) //p')
-    END_VERSIONS
     """
 }

@@ -18,10 +18,6 @@
                         "test.marked.gff3:md5,ae8800dc42d5da4a94c93cf09d319fc5"
                     ]
                 ],
-                "2": [
-                    "versions.yml:md5,0f190206d305074e7a985f7128fa38ec",
-                    "versions.yml:md5,47293a69963095aca6f437ea378c475b"
-                ],
                 "marked_gff3": [
                     [
                         {
@@ -37,18 +33,14 @@
                         },
                         "test.motifs.tsv:md5,feb30ceeb2662125a80539929f2908c5"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,0f190206d305074e7a985f7128fa38ec",
-                    "versions.yml:md5,47293a69963095aca6f437ea378c475b"
                 ]
             }
         ],
+        "timestamp": "2026-07-29T11:05:50.332864",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:45:16.513953"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     },
     "actinidia_chinensis - fasta - gff3 - stub": {
         "content": [
@@ -69,10 +61,6 @@
                         "test.marked.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
                 ],
-                "2": [
-                    "versions.yml:md5,0f190206d305074e7a985f7128fa38ec",
-                    "versions.yml:md5,47293a69963095aca6f437ea378c475b"
-                ],
                 "marked_gff3": [
                     [
                         {
@@ -88,17 +76,13 @@
                         },
                         "test.motifs.tsv:md5,d41d8cd98f00b204e9800998ecf8427e"
                     ]
-                ],
-                "versions": [
-                    "versions.yml:md5,0f190206d305074e7a985f7128fa38ec",
-                    "versions.yml:md5,47293a69963095aca6f437ea378c475b"
                 ]
             }
         ],
+        "timestamp": "2026-07-29T11:06:07.336414",
         "meta": {
-            "nf-test": "0.9.3",
-            "nextflow": "25.04.8"
-        },
-        "timestamp": "2025-10-20T08:45:27.156784"
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }

@@ -1,123 +1,131 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "edta_edta"
 description: Extensive de-novo TE Annotator (EDTA)
 keywords:
-  - genome
-  - repeat
-  - annotation
-  - transposable-elements
+    - genome
+    - repeat
+    - annotation
+    - transposable-elements
 tools:
-  - "edta":
-      description: Extensive de-novo TE Annotator (EDTA)
-      homepage: "https://github.com/oushujun/EDTA"
-      documentation: "https://github.com/oushujun/EDTA"
-      tool_dev_url: "https://github.com/oushujun/EDTA"
-      doi: "10.1186/s13059-019-1905-y"
-      licence: ["GPL v3"]
-      identifier: ""
+    - "edta":
+          description: Extensive de-novo TE Annotator (EDTA)
+          homepage: "https://github.com/oushujun/EDTA"
+          documentation: "https://github.com/oushujun/EDTA"
+          tool_dev_url: "https://github.com/oushujun/EDTA"
+          doi: "10.1186/s13059-019-1905-y"
+          licence:
+              - "GPL v3"
+          identifier: ""
 input:
-  - - meta:
-        type: map
-        description: |
-          Groovy Map containing sample information
-          e.g. `[ id:'test' ]`
-    - fasta:
-        type: file
-        description: Genome fasta file
-        pattern: "*.{fsa,fa,fasta}"
-        ontologies: []
-  - cds:
-      type: file
-      description: |
-        A FASTA file containing the coding sequence (no introns, UTRs, nor TEs)
-        of this genome or its close relative
-      pattern: "*.{fsa,fa,fasta}"
-      ontologies: []
-  - curatedlib:
-      type: file
-      description: |
-        A curated library to keep consistent naming and classification for known TEs
-      pattern: "*.liban"
-      ontologies: []
-  - rmout:
-      type: file
-      description: |
-        Homology-based TE annotation instead of using the EDTA library for masking in
-        RepeatMasker .out format
-      pattern: "*.out"
-      ontologies: []
-  - exclude:
-      type: file
-      description: Exclude regions (bed format) from TE masking in the
-        MAKER.masked output
-      pattern: "*.bed"
-      ontologies: []
+    - - meta:
+            type: map
+            description: |
+                Groovy Map containing sample information
+                e.g. `[ id:'test' ]`
+      - fasta:
+            type: file
+            description: Genome fasta file
+            pattern: "*.{fsa,fa,fasta}"
+            ontologies: []
+    - cds:
+          type: file
+          description: |
+              A FASTA file containing the coding sequence (no introns, UTRs, nor TEs)
+              of this genome or its close relative
+          pattern: "*.{fsa,fa,fasta}"
+          ontologies: []
+    - curatedlib:
+          type: file
+          description: |
+              A curated library to keep consistent naming and classification for known TEs
+          pattern: "*.liban"
+          ontologies: []
+    - rmout:
+          type: file
+          description: |
+              Homology-based TE annotation instead of using the EDTA library for masking in
+              RepeatMasker .out format
+          pattern: "*.out"
+          ontologies: []
+    - exclude:
+          type: file
+          description: Exclude regions (bed format) from TE masking in the
+              MAKER.masked output
+          pattern: "*.bed"
+          ontologies: []
 output:
-  log:
-    - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.log":
-          type: file
-          description: Log emitted by EDTA
-          pattern: "*.log"
-          ontologies: []
-  te_lib_fasta:
-    - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.EDTA.TElib.fa":
-          type: file
-          description: A non-redundant TE library in fasta format
-          pattern: "*.EDTA.TElib.fa"
-          ontologies: []
-  pass_list:
-    - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.EDTA.pass.list":
-          type: file
-          description: A summary table of intact LTR-RTs with coordinate and
-            structural information
-          pattern: "*.EDTA.pass.list"
-          ontologies: []
-  out_file:
-    - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.EDTA.out":
-          type: file
-          description: RepeatMasker annotation of all LTR sequences in the genome
-          pattern: "*.EDTA.out"
-          ontologies: []
-  te_anno_gff3:
-    - - meta:
-          type: map
-          description: |
-            Groovy Map containing sample information
-            e.g. `[ id:'test' ]`
-      - "*.EDTA.TEanno.gff3":
-          type: file
-          description: A gff3 file containing both structurally intact and
-            fragmented TE annotations
-          pattern: "*.EDTA.TEanno.gff3"
-          ontologies: []
-  versions:
-    - versions.yml:
-        type: file
-        description: File containing software versions
-        pattern: "versions.yml"
-        ontologies:
-          - edam: http://edamontology.org/format_3750 # YAML
+    log:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.log":
+                type: file
+                description: Log emitted by EDTA
+                pattern: "*.log"
+                ontologies: []
+    te_lib_fasta:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.EDTA.TElib.fa":
+                type: file
+                description: A non-redundant TE library in fasta format
+                pattern: "*.EDTA.TElib.fa"
+                ontologies: []
+    pass_list:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.EDTA.pass.list":
+                type: file
+                description: A summary table of intact LTR-RTs with coordinate and
+                    structural information
+                pattern: "*.EDTA.pass.list"
+                ontologies: []
+    out_file:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.EDTA.out":
+                type: file
+                description: RepeatMasker annotation of all LTR sequences in the genome
+                pattern: "*.EDTA.out"
+                ontologies: []
+    te_anno_gff3:
+        - - meta:
+                type: map
+                description: |
+                    Groovy Map containing sample information
+                    e.g. `[ id:'test' ]`
+          - "*.EDTA.TEanno.gff3":
+                type: file
+                description: A gff3 file containing both structurally intact and
+                    fragmented TE annotations
+                pattern: "*.EDTA.TEanno.gff3"
+                ontologies: []
+    versions_edta:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
+topics:
+    versions:
+        - versions.yml:
+              type: file
+              description: File containing software versions
+              pattern: "versions.yml"
+              ontologies:
+                  - edam: http://edamontology.org/format_3750
 authors:
-  - "@GallVp"
+    - "@GallVp"
 maintainers:
-  - "@GallVp"
+    - "@GallVp"
