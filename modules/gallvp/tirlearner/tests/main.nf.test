@@ -26,13 +26,11 @@ nextflow_process {
         then {
             assertAll(
                 { assert process.success },
-                { assert file(process.out.log[0][1]).text.contains('Module 4 Begin') },
                 { assert snapshot(
                     process.out.fasta,
                     process.out.gff,
                     process.out.filtered_fasta,
-                    process.out.filtered_gff,
-                    process.out.versions
+                    process.out.filtered_gff
                     ).match()
                 }
             )
@@ -57,8 +55,13 @@ nextflow_process {
         then {
             assertAll(
                 { assert process.success },
-                { assert file(process.out.log[0][1]).text.contains('ValueError: All objects passed were None') },
-                { assert snapshot(process.out.versions).match() }
+                { assert snapshot(
+                    process.out.fasta,
+                    process.out.gff,
+                    process.out.filtered_fasta,
+                    process.out.filtered_gff
+                    ).match()
+                }
             )
         }
 

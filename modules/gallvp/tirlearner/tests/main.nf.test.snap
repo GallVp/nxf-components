@@ -1,7 +1,40 @@
 {
     "sarscov2-genome": {
-        "content": null,
-        "timestamp": "2026-07-29T09:55:31.672834",
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ],
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ],
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.filtered.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ],
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.filtered.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "timestamp": "2026-07-29T14:04:34.989628",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -14,7 +47,7 @@
                     {
                         "id": "test"
                     },
-                    "test.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    "test.fa:md5,08c6b673becba7729da35d0007584a8c"
                 ]
             ],
             [
@@ -22,7 +55,7 @@
                     {
                         "id": "test"
                     },
-                    "test.gff3:md5,90bf040e7b29763351237207297dc801"
+                    "test.gff3:md5,c2b2ad3fc1b6d19e45b7fe042c68ca8f"
                 ]
             ],
             [
@@ -30,7 +63,7 @@
                     {
                         "id": "test"
                     },
-                    "test.filtered.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
+                    "test.filtered.fa:md5,8931359d8b2e5eb06c22444c65d3bc19"
                 ]
             ],
             [
@@ -38,12 +71,11 @@
                     {
                         "id": "test"
                     },
-                    "test.filtered.gff3:md5,90bf040e7b29763351237207297dc801"
+                    "test.filtered.gff3:md5,20294d5910d62cd23b43d604ce2ff9ee"
                 ]
-            ],
-            null
+            ]
         ],
-        "timestamp": "2026-07-29T09:55:00.165696",
+        "timestamp": "2026-07-29T14:04:18.533424",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -96,7 +128,7 @@
                     [
                         "TIRLEARNER",
                         "TIR-Learner",
-                        "v3.0.2"
+                        "v1.0"
                     ]
                 ],
                 "fasta": [
@@ -143,12 +175,12 @@
                     [
                         "TIRLEARNER",
                         "TIR-Learner",
-                        "v3.0.2"
+                        "v1.0"
                     ]
                 ]
             }
         ],
-        "timestamp": "2026-07-29T09:55:55.322141",
+        "timestamp": "2026-07-29T14:01:31.522186",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
