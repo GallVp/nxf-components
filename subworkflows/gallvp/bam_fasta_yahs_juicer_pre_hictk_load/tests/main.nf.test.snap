@@ -8,7 +8,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.zoomify.hic:md5,1f86e06d96dcc9447c46f24d26a75240"
+                        "test.zoomify.hic:md5,8ab8cd39a4513e5e026a97b88596dbcf"
                     ]
                 ],
                 "1": [
@@ -80,7 +80,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.zoomify.hic:md5,1f86e06d96dcc9447c46f24d26a75240"
+                        "test.zoomify.hic:md5,8ab8cd39a4513e5e026a97b88596dbcf"
                     ]
                 ],
                 "scale": [
@@ -94,7 +94,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-07-29T10:26:20.45845",
+        "timestamp": "2026-07-30T08:16:18.200723",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -109,7 +109,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.zoomify.hic:md5,fdf3100373d6683fcdd2ea95a9ba18cc"
+                        "test.zoomify.hic:md5,af067cfe1f4ec91633a81af792a70282"
                     ]
                 ],
                 "1": [
@@ -139,7 +139,7 @@
                             "id": "test",
                             "ref_id": "genome"
                         },
-                        "test.zoomify.hic:md5,fdf3100373d6683fcdd2ea95a9ba18cc"
+                        "test.zoomify.hic:md5,af067cfe1f4ec91633a81af792a70282"
                     ]
                 ],
                 "scale": [
@@ -147,7 +147,7 @@
                 ]
             }
         ],
-        "timestamp": "2026-07-29T10:26:02.165182",
+        "timestamp": "2026-07-30T08:16:00.451874",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"

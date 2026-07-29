@@ -4,4 +4,4 @@ channels:
     - conda-forge
     - bioconda
 dependencies:
-    - bioconda::hictk=2.1.4
+    - bioconda::hictk=2.2.0

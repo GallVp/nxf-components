@@ -4,8 +4,8 @@ process TIRLEARNER {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/tir-learner:3.0.3--hdfd78af_0':
-        'quay.io/biocontainers/tir-learner:3.0.3--hdfd78af_0' }"
+        'https://depot.galaxyproject.org/singularity/tir-learner:4.08--hdfd78af_0':
+        'quay.io/biocontainers/tir-learner:4.08--hdfd78af_0' }"
 
     input:
     tuple val(meta), path(fasta)
@@ -32,6 +32,10 @@ process TIRLEARNER {
     if ( "$input_name" == "${prefix}.fa" ) error "Input and output names are the same, use \"task.ext.prefix\" to disambiguate!"
     """
     $unzip_fasta
+
+    mkdir -p torchinductor_tmp
+
+    export TORCHINDUCTOR_CACHE_DIR=torchinductor_tmp
 
     TIR-Learner \\
         -f $input_name \\

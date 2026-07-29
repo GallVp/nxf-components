@@ -1,7 +1,12 @@
 {
     "sarscov2-genome": {
-        "content": null,
-        "timestamp": "2026-07-29T09:55:31.672834",
+        "content": [
+            "test.fa",
+            "test.gff3",
+            "test.filtered.fa",
+            "test.filtered.gff3"
+        ],
+        "timestamp": "2026-07-30T08:41:42.610791",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -9,41 +14,12 @@
     },
     "actinidia_chinensis-genome_1_fasta_gz-success": {
         "content": [
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.gff3:md5,90bf040e7b29763351237207297dc801"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.fa:md5,65987decb67d1e3f95b993f86d14c0d0"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.gff3:md5,90bf040e7b29763351237207297dc801"
-                ]
-            ],
-            null
+            "test.fa",
+            "test.gff3",
+            "test.filtered.fa",
+            "test.filtered.gff3"
         ],
-        "timestamp": "2026-07-29T09:55:00.165696",
+        "timestamp": "2026-07-30T08:46:48.776412",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -96,7 +72,7 @@
                     [
                         "TIRLEARNER",
                         "TIR-Learner",
-                        "v3.0.2"
+                        "v1.0"
                     ]
                 ],
                 "fasta": [
@@ -143,12 +119,12 @@
                     [
                         "TIRLEARNER",
                         "TIR-Learner",
-                        "v3.0.2"
+                        "v1.0"
                     ]
                 ]
             }
         ],
-        "timestamp": "2026-07-29T09:55:55.322141",
+        "timestamp": "2026-07-29T14:01:31.522186",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"

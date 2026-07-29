@@ -4,8 +4,8 @@ process HICTK_ZOOMIFY {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/hictk:2.1.4--h061aaa5_0':
-        'quay.io/biocontainers/hictk:2.1.4--h061aaa5_0' }"
+        'https://depot.galaxyproject.org/singularity/hictk:2.2.0--h75fee6f_0':
+        'quay.io/biocontainers/hictk:2.2.0--h75fee6f_0' }"
 
     input:
     tuple val(meta), path(hic)

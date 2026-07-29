@@ -15,7 +15,7 @@
                     [
                         "HICTK_LOAD",
                         "hictk",
-                        "hictk-v2.1.4-bioconda"
+                        "hictk-v2.2.0-bioconda"
                     ]
                 ],
                 "hic": [
@@ -31,12 +31,12 @@
                     [
                         "HICTK_LOAD",
                         "hictk",
-                        "hictk-v2.1.4-bioconda"
+                        "hictk-v2.2.0-bioconda"
                     ]
                 ]
             }
         ],
-        "timestamp": "2026-07-28T20:35:31.755834",
+        "timestamp": "2026-07-29T13:49:38.529015",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -51,14 +51,14 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test.hic:md5,257ba7c7202e68112c26ca5bbc71f601"
+                        "test.hic:md5,751629b0c0ec9358b76b97f9b25b43b3"
                     ]
                 ],
                 "1": [
                     [
                         "HICTK_LOAD",
                         "hictk",
-                        "hictk-v2.1.4-bioconda"
+                        "hictk-v2.2.0-bioconda"
                     ]
                 ],
                 "hic": [
@@ -67,19 +67,19 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test.hic:md5,257ba7c7202e68112c26ca5bbc71f601"
+                        "test.hic:md5,751629b0c0ec9358b76b97f9b25b43b3"
                     ]
                 ],
                 "versions_hictk": [
                     [
                         "HICTK_LOAD",
                         "hictk",
-                        "hictk-v2.1.4-bioconda"
+                        "hictk-v2.2.0-bioconda"
                     ]
                 ]
             }
         ],
-        "timestamp": "2026-07-28T20:35:21.411611",
+        "timestamp": "2026-07-29T13:49:27.202436",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
