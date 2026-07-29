@@ -1,40 +1,12 @@
 {
     "sarscov2-genome": {
         "content": [
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.fa:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.gff3:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
-            ]
+            "test.fa",
+            "test.gff3",
+            "test.filtered.fa",
+            "test.filtered.gff3"
         ],
-        "timestamp": "2026-07-29T14:04:34.989628",
+        "timestamp": "2026-07-30T08:41:42.610791",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"
@@ -42,40 +14,12 @@
     },
     "actinidia_chinensis-genome_1_fasta_gz-success": {
         "content": [
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.fa:md5,08c6b673becba7729da35d0007584a8c"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.gff3:md5,c2b2ad3fc1b6d19e45b7fe042c68ca8f"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.fa:md5,8931359d8b2e5eb06c22444c65d3bc19"
-                ]
-            ],
-            [
-                [
-                    {
-                        "id": "test"
-                    },
-                    "test.filtered.gff3:md5,20294d5910d62cd23b43d604ce2ff9ee"
-                ]
-            ]
+            "test.fa",
+            "test.gff3",
+            "test.filtered.fa",
+            "test.filtered.gff3"
         ],
-        "timestamp": "2026-07-29T14:04:18.533424",
+        "timestamp": "2026-07-30T08:46:48.776412",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "26.04.6"

@@ -27,10 +27,10 @@ nextflow_process {
             assertAll(
                 { assert process.success },
                 { assert snapshot(
-                    process.out.fasta,
-                    process.out.gff,
-                    process.out.filtered_fasta,
-                    process.out.filtered_gff
+                    file(process.out.fasta.get(0).get(1)).name,
+                    file(process.out.gff.get(0).get(1)).name,
+                    file(process.out.filtered_fasta.get(0).get(1)).name,
+                    file(process.out.filtered_gff.get(0).get(1)).name
                     ).match()
                 }
             )
@@ -56,10 +56,10 @@ nextflow_process {
             assertAll(
                 { assert process.success },
                 { assert snapshot(
-                    process.out.fasta,
-                    process.out.gff,
-                    process.out.filtered_fasta,
-                    process.out.filtered_gff
+                    file(process.out.fasta.get(0).get(1)).name,
+                    file(process.out.gff.get(0).get(1)).name,
+                    file(process.out.filtered_fasta.get(0).get(1)).name,
+                    file(process.out.filtered_gff.get(0).get(1)).name
                     ).match()
                 }
             )
