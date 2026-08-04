@@ -40,6 +40,8 @@ cp_hybrid_module "seqkit/sort"
 cp_hybrid_module "paftools/sam2paf"
 cp_hybrid_module "bedtools/makewindows"
 cp_hybrid_module "bedtools/nuc"
+cp_hybrid_module "minibwa/index"
+cp_hybrid_module "minibwa/map"
 
 # Modules for sub workflow testing
 mkdir -p ./modules/nf-core/gunzip
