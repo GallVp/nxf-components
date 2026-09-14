@@ -1,6 +1,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences">subworkflows/gallvp/gxf_fasta_agat_spaddintrons_spextractsequences</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt">subworkflows/gallvp/gff_fasta_gffread_eggnogmapper_agat_gt</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat">subworkflows/gallvp/gff3_gt_gff3_gff3validator_stat</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_minibwa_map_samblaster">subworkflows/gallvp/fastq_minibwa_map_samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fastq_bwa_mem_samblaster">subworkflows/gallvp/fastq_bwa_mem_samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_seqkit_refsort">subworkflows/gallvp/fasta_seqkit_refsort</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/subworkflows/gallvp/fasta_ltrretriever_lai">subworkflows/gallvp/fasta_ltrretriever_lai</a></li>
@@ -23,6 +24,8 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf">modules/gallvp/paftools/sam2paf</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/mmseqs/createdb">modules/gallvp/mmseqs/createdb</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minibwa/map">modules/gallvp/minibwa/map</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minibwa/index">modules/gallvp/minibwa/index</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/meryl/count">modules/gallvp/meryl/count</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/matlock/bam2juicer">modules/gallvp/matlock/bam2juicer</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/ltrretriever/ltrretriever">modules/gallvp/ltrretriever/ltrretriever</a></li>
