@@ -26,10 +26,15 @@ nextflow_process {
         }
 
         then {
+            def lines = path(process.out.csv[0][1]).text.readLines()
+            def header = lines.findIndexOf { it.contains("psauron_is_protein") }
             assertAll(
                 { assert process.success },
+                // psauron's csv is prefixed with free-text log lines before the header, and the
+                // per-frame score columns carry floating-point rounding that differs by build
+                // (conda vs container), so only the stable description/call columns are snapshotted
                 { assert snapshot(
-                    process.out.csv,
+                    lines[(header + 1)..-1].collect { it.tokenize(",")[0..1] },
                     process.out.findAll { key, val -> key.startsWith("versions") }
                 ).match() }
             )
@@ -81,10 +86,12 @@ nextflow_process {
         }
 
         then {
+            def lines = path(process.out.csv[0][1]).text.readLines()
+            def header = lines.findIndexOf { it.contains("psauron_is_protein") }
             assertAll(
                 { assert process.success },
                 { assert snapshot(
-                    process.out.csv,
+                    lines[(header + 1)..-1].collect { it.tokenize(",")[0..1] },
                     process.out.findAll { key, val -> key.startsWith("versions") }
                 ).match() }
             )
