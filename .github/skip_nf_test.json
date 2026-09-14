@@ -1,0 +1,18 @@
+{
+    "conda": [
+        "modules/gallvp/haphic/refsort",
+        "modules/gallvp/braker3",
+        "modules/gallvp/edta/edta",
+        "subworkflows/gallvp/fasta_edta_lai",
+        "modules/gallvp/eggnogmapper",
+        "modules/gallvp/ltrretriever/ltrretriever",
+        "modules/gallvp/ltrretriever/lai",
+        "subworkflows/gallvp/fasta_ltrretriever_lai",
+        "modules/gallvp/tirlearner",
+        "modules/gallvp/hicqc",
+        "modules/gallvp/winnowmap",
+        "modules/gallvp/t2tpolish/paftocovclippedwig",
+        "subworkflows/gallvp/fasta_fastq_winnowmap_coverage",
+        "subworkflows/gallvp/fasta_seqkit_refsort"
+    ]
+}

@@ -1,0 +1,98 @@
+name: "nf-test Action"
+description: "Runs nf-test with common setup steps"
+inputs:
+    profile:
+        description: "Profile to use"
+        required: true
+    shard:
+        description: "Shard number for this CI job"
+        required: true
+    total_shards:
+        description: "Total number of test shards (NOT the total number of matrix jobs)"
+        required: true
+    paths:
+        description: "Test paths"
+        required: true
+
+runs:
+    using: "composite"
+    steps:
+        - name: Setup Nextflow
+          uses: nf-core/setup-nextflow@v3
+
+        - name: Install nf-test
+          uses: nf-core/setup-nf-test@v2.1.0
+          with:
+              version: ${{ env.NF_TEST_VER }}
+
+        - name: Setup apptainer
+          if: contains(inputs.profile, 'singularity')
+          uses: eWaterCycle/setup-apptainer@3f706d898c9db585b1d741b4692e66755f3a1b40 # Changes after v2.0.0
+
+        - name: Set up Singularity
+          if: contains(inputs.profile, 'singularity')
+          shell: bash
+          run: |
+              mkdir -p $NXF_SINGULARITY_CACHEDIR
+              mkdir -p $NXF_SINGULARITY_LIBRARYDIR
+
+        - name: Set up Python
+          uses: actions/setup-python@v7.0.0
+          with:
+              python-version: "3.11"
+
+        - uses: actions/cache@v6.1.0
+          id: cache-pip-pdiff
+          with:
+              path: ~/.cache/pip
+              key: ${{ runner.os }}-pip-pdiff
+              restore-keys: |
+                  ${{ runner.os }}-pip-pdiff
+
+        - name: Install Python dependencies
+          shell: bash
+          run: python -m pip install --upgrade pip pdiff cryptography
+
+        - name: Set up miniconda
+          if: contains(inputs.profile, 'conda')
+          uses: conda-incubator/setup-miniconda@v4.0.1
+          with:
+              miniconda-version: "latest"
+              auto-update-conda: true
+              channels: conda-forge,bioconda,defaults
+
+        - name: Conda setup
+          if: contains(inputs.profile, 'conda')
+          shell: bash
+          run: |
+              conda clean -a
+              conda install -n base conda-libmamba-solver
+              conda config --set solver libmamba
+              echo $(realpath $CONDA)/condabin >> $GITHUB_PATH
+              echo $(realpath python) >> $GITHUB_PATH
+
+        - name: Run nf-test
+          shell: bash
+          env:
+              NFT_DIFF: "pdiff"
+              NFT_DIFF_ARGS: "--line-numbers --width 120 --expand-tabs=2"
+          run: |
+              NFT_WORKDIR=~ \
+              nf-test test \
+                --profile=${{ inputs.profile }} \
+                --tap=test.tap \
+                --verbose \
+                --shard ${{ inputs.shard }}/${{ inputs.total_shards }} \
+                --filter process,workflow \
+                ${{ inputs.paths }}
+
+        - uses: pcolby/tap-summary@v1.2.0
+          with:
+              path: >-
+                  test.tap
+
+        - name: Clean up
+          if: always()
+          shell: bash
+          run: |
+              sudo rm -rf /home/ubuntu/tests/
