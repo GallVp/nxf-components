@@ -47,6 +47,7 @@ nf-core -v modules lint <tool>/<subtool>
 nf-core subworkflows lint <name>
 
 # Run all pre-commit hooks (docs sync check, test data path check, prettier, ruff, hadolint, nf-lint, etc.)
+# CI runs these via `prek` (a drop-in Rust reimplementation of pre-commit); either works locally off the same config
 pre-commit run --all-files
 
 # Clean local Nextflow run artifacts (.nextflow, work/, output/, .nf-test, etc.)
@@ -78,13 +79,13 @@ Subworkflows are named by chaining their component tool names in dataflow order,
 
 ## CI (`.github/workflows/test.yml`)
 
-- `pre-commit`: runs all pre-commit hooks.
-- `nf-test-changes`: detects changed `.nf.test` files between the PR branch and base (via `adamrtalbot/detect-nf-test-changes`, excluding `nf-core-modules/**` and `modules_nfcore`-tagged tests), and splits results into module vs. subworkflow paths.
+- `pre-commit`: runs all pre-commit hooks via `prek`.
+- `nf-test-changes`: detects nf-test files related to changes since the PR base, via the local composite action `.github/actions/detect-nf-test-changes` (runs `nf-test --dry-run --changed-since --related-tests`, excludes anything under `nf-core-modules/` and any test tagged `modules_nfcore`), splits the result into module vs. subworkflow paths, then calls `.github/actions/get-shards` to compute how many parallel nf-test shards are needed (capped at `max_shards`).
 - `nf-core-lint-modules` / `nf-core-lint-subworkflows`: lints each changed module/subworkflow with nf-core/tools dev.
-- `nf-test`: runs `nf-test` for each changed path across a `conda` × `docker` × `singularity` matrix (some slow/incompatible tools are excluded from the `conda` leg — see the `exclude` list in the workflow — add new exclusions there if a tool has no conda recipe).
+- `nf-test`: matrix over `shard` × `profile` (`conda`/`docker`/`singularity`). Each job filters the full changed-paths list against `.github/skip_nf_test.json` (a map of profile → path prefixes to skip — add an entry there instead of a matrix `exclude` when a tool has no conda recipe), then runs `.github/actions/nf-test-action` with `--shard N/total` over the filtered paths.
 - `confirm-pass`: aggregate required-status gate.
 
-When adding a module whose tool isn't available via conda/bioconda, add the corresponding `exclude` entry to the `nf-test` matrix in `.github/workflows/test.yml`.
+The three composite actions under `.github/actions/` (`detect-nf-test-changes`, `get-shards`, `nf-test-action`) mirror the pattern used in the sibling `nf-modules` repo, scaled down for this repo's size (standard `ubuntu-latest` runners, no self-hosted `runs-on` labels, no arm64 leg, no Sentieon secrets).
 
 ## Style
 

@@ -12,16 +12,15 @@ env:
     NXF_SINGULARITY_CACHEDIR: ${{ github.workspace }}/.singularity
     NXF_SINGULARITY_LIBRARYDIR: ${{ github.workspace }}/.singularity
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    NF_TEST_VER: "0.9.5"
 
 jobs:
     pre-commit:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7.0.1
-            - uses: actions/setup-python@v7.0.0
-            - uses: pre-commit/action@v3.0.1
-              with:
-                  extra_args: ""
+            - uses: nf-core/setup-nextflow@v3
+            - uses: j178/prek-action@v3.0.0
 
     nf-test-changes:
         name: nf-test-changes
@@ -31,7 +30,8 @@ jobs:
             paths: ${{ steps.list.outputs.components }}
             modules: ${{ steps.outputs.outputs.modules }}
             subworkflows: ${{ steps.outputs.outputs.subworkflows}}
-            # Prod for version bumping
+            shard: ${{ steps.set-shards.outputs.shard }}
+            total_shards: ${{ steps.set-shards.outputs.total_shards }}
 
         steps:
             - uses: actions/checkout@v7.0.1
@@ -40,12 +40,9 @@ jobs:
 
             - name: List nf-test files
               id: list
-              uses: adamrtalbot/detect-nf-test-changes@v0.0.6
+              uses: ./.github/actions/detect-nf-test-changes
               with:
-                  head: ${{ github.sha }}
                   base: ${{ github.event.pull_request.base.sha }}
-                  n_parents: 2
-                  ignored: "nf-core-modules/**"
                   exclude_tags: "modules_nfcore"
 
             - name: Separate modules and subworkflows
@@ -54,11 +51,21 @@ jobs:
                   echo modules=$(echo '${{ steps.list.outputs.components }}' | jq -c '. | map(select(contains("modules/gallvp/"))) | map(gsub("modules/gallvp/"; ""))') >> $GITHUB_OUTPUT
                   echo subworkflows=$(echo '${{ steps.list.outputs.components }}' | jq '. | map(select(contains("subworkflows/gallvp/"))) | map(gsub("subworkflows/gallvp/"; ""))') >> $GITHUB_OUTPUT
 
+            - name: Get number of shards
+              id: set-shards
+              if: ${{ steps.list.outputs.components != '[]' }}
+              uses: ./.github/actions/get-shards
+              with:
+                  max_shards: 4
+                  paths: "${{ join(fromJson(steps.list.outputs.components), ' ') }}"
+
             - name: debug
               run: |
                   echo ${{ steps.list.outputs.components }}
                   echo ${{ steps.outputs.outputs.modules }}
                   echo ${{ steps.outputs.outputs.subworkflows }}
+                  echo ${{ steps.set-shards.outputs.shard }}
+                  echo ${{ steps.set-shards.outputs.total_shards }}
 
     nf-core-lint-modules:
         runs-on: ubuntu-latest
@@ -128,126 +135,68 @@ jobs:
 
     nf-test:
         runs-on: ubuntu-latest
-        name: nf-test
+        name: "nf-test | ${{ matrix.profile }} | shard ${{ matrix.shard }}"
         needs: [nf-test-changes]
         if: ( needs.nf-test-changes.outputs.paths != '[]' )
         strategy:
             fail-fast: false
             matrix:
-                path: ["${{ fromJson(needs.nf-test-changes.outputs.paths) }}"]
+                shard: ${{ fromJson(needs.nf-test-changes.outputs.shard) }}
                 profile: [conda, docker, singularity]
-                exclude:
-                    - profile: conda
-                      path: modules/gallvp/haphic/refsort
-                    - profile: conda
-                      path: modules/gallvp/braker3
-                    - profile: conda
-                      path: modules/gallvp/edta/edta
-                    - profile: conda
-                      path: subworkflows/gallvp/fasta_edta_lai
-                    - profile: conda
-                      path: modules/gallvp/eggnogmapper
-                    - profile: conda
-                      path: modules/gallvp/ltrretriever/ltrretriever
-                    - profile: conda
-                      path: modules/gallvp/ltrretriever/lai
-                    - profile: conda
-                      path: subworkflows/gallvp/fasta_ltrretriever_lai
-                    - profile: conda
-                      path: modules/gallvp/tirlearner
-                    - profile: conda
-                      path: modules/gallvp/tesorter
-                    - profile: conda
-                      path: modules/gallvp/hicqc
-                    - profile: conda
-                      path: modules/gallvp/winnowmap
-                    - profile: conda
-                      path: modules/gallvp/t2tpolish/paftocovclippedwig
-                    - profile: conda
-                      path: subworkflows/gallvp/fasta_fastq_winnowmap_coverage
-                    - profile: conda
-                      path: subworkflows/gallvp/fasta_seqkit_refsort
         env:
             NXF_ANSI_LOG: false
-            NF_TEST_VER: "0.9.5"
 
         steps:
             - uses: actions/checkout@v7.0.1
 
-            - name: Setup Nextflow
-              uses: nf-core/setup-nextflow@v3
-
-            - name: Install nf-test
-              uses: nf-core/setup-nf-test@v2.1.0
-              with:
-                  version: ${{ env.NF_TEST_VER }}
-
-            - name: Setup apptainer
-              if: matrix.profile == 'singularity'
-              uses: eWaterCycle/setup-apptainer@3f706d898c9db585b1d741b4692e66755f3a1b40 # Changes after v2.0.0
-
-            - name: Set up Singularity
-              if: matrix.profile == 'singularity'
+            - name: Filter paths
+              id: filter
               run: |
-                  mkdir -p $NXF_SINGULARITY_CACHEDIR
-                  mkdir -p $NXF_SINGULARITY_LIBRARYDIR
+                  PATHS='${{ needs.nf-test-changes.outputs.paths }}'
+                  FILTERED=$(jq -n -c \
+                    --arg profile "${{ matrix.profile }}" \
+                    --argjson input_paths "$PATHS" \
+                    '
+                    def get_skip_list: inputs | .[$profile] // [];
 
-            - name: Set up Python
-              uses: actions/setup-python@v7.0.0
-              with:
-                  python-version: "3.11"
+                    # Get skip list and filter
+                    get_skip_list as $skip_patterns |
 
-            - uses: actions/cache@v6.1.0
-              id: cache-pip-pdiff
-              with:
-                  path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-pdiff
-                  restore-keys: |
-                      ${{ runner.os }}-pip-pdiff
+                    # Debug output
+                    ($skip_patterns | "Skip patterns: " + (map("  - " + .) | join(","))) |
+                    debug |
 
-            - name: Install Python dependencies
-              run: python -m pip install --upgrade pip pdiff cryptography
+                    # Do the actual filtering
+                    $input_paths | map(
+                      . as $path |
+                      select($skip_patterns | all(. as $pattern | ($path | startswith($pattern)) | not))
+                    ) as $result |
 
-            - name: Set up miniconda
-              if: matrix.profile == 'conda'
-              uses: conda-incubator/setup-miniconda@v4.0.1
-              with:
-                  miniconda-version: "latest"
-                  auto-update-conda: true
-                  channels: conda-forge,bioconda,defaults
+                    # Debug what was skipped
+                    (if ($input_paths - $result) | length > 0 then
+                      "Skipped: " + (($input_paths - $result) | map("  - " + .) | join(","))
+                    else
+                      "No paths skipped"
+                    end) |
+                    debug |
 
-            - name: Conda setup
-              if: matrix.profile == 'conda'
+                    $result
+                    ' .github/skip_nf_test.json)
+
+                  echo "filtered_paths=${FILTERED}" >> $GITHUB_OUTPUT
+
+            - name: debug
               run: |
-                  conda clean -a
-                  conda install -n base conda-libmamba-solver
-                  conda config --set solver libmamba
-                  echo $(realpath $CONDA)/condabin >> $GITHUB_PATH
-                  echo $(realpath python) >> $GITHUB_PATH
+                  echo filtered_paths = ${{ steps.filter.outputs.filtered_paths }}
 
-            # Test the module
-            - name: Run nf-test
-              env:
-                  NFT_DIFF: "pdiff"
-                  NFT_DIFF_ARGS: "--line-numbers --width 120 --expand-tabs=2"
-              run: |
-                  PROFILE=${{ matrix.profile }}
-                  NFT_WORKDIR=~ \
-                  nf-test test \
-                    --profile=${{ matrix.profile }} \
-                    --tap=test.tap \
-                    --verbose \
-                    ${{ matrix.path }}
-
-            - uses: pcolby/tap-summary@v1.2.0
+            - name: Run nf-test Action
+              if: ${{ steps.filter.outputs.filtered_paths != '[]' }}
+              uses: ./.github/actions/nf-test-action
               with:
-                  path: >-
-                      test.tap
-
-            - name: Clean up
-              if: always()
-              run: |
-                  sudo rm -rf /home/ubuntu/tests/
+                  profile: ${{ matrix.profile }}
+                  shard: ${{ matrix.shard }}
+                  total_shards: ${{ needs.nf-test-changes.outputs.total_shards }}
+                  paths: "${{ join(fromJson(steps.filter.outputs.filtered_paths), ' ') }}"
 
     confirm-pass:
         runs-on: ubuntu-latest
