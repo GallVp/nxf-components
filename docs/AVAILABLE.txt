@@ -21,6 +21,7 @@
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samtools/faidx">modules/gallvp/samtools/faidx</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/samblaster">modules/gallvp/samblaster</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/repeatmasker/repeatmasker">modules/gallvp/repeatmasker/repeatmasker</a></li>
+<li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/psauron">modules/gallvp/psauron</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/paftools/sam2paf">modules/gallvp/paftools/sam2paf</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/mmseqs/createdb">modules/gallvp/mmseqs/createdb</a></li>
 <li><a href="https://github.com/gallvp/nxf-components/tree/main/modules/gallvp/minimap2/align">modules/gallvp/minimap2/align</a></li>

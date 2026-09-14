@@ -1,0 +1,136 @@
+{
+    "sarscov2 - transcriptome fasta": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.csv:md5,f40f7ce11815b4ee186970178ae13432"
+                ]
+            ],
+            {
+                "versions_psauron": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-09-15T10:27:18.870805",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    },
+    "sarscov2 - transcriptome fasta - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ],
+                "csv": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions_psauron": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-09-15T10:27:22.955597",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    },
+    "sarscov2 - proteome fasta - protein": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.csv:md5,cf405f79b876d348249db10ba2d5dfab"
+                ]
+            ],
+            {
+                "versions_psauron": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-09-15T10:27:32.281315",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    },
+    "sarscov2 - proteome fasta - protein - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ],
+                "csv": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions_psauron": [
+                    [
+                        "PSAURON",
+                        "psauron",
+                        "1.1.3"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-09-15T10:27:36.502974",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    }
+}
